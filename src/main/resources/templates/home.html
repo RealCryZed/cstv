@@ -4,10 +4,15 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>CS:GO News | CSTV</title>
+    <title>CS:GO Guides & Info | CSTV</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-    Hello World.
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body home-page">
+        Hello world!
+    </div>
 </body>
 </html>

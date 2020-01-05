@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CS:GO Guides & Info | CSTV - navbar</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navcon">
+            <a th:href="@{/}" class="home-link">CSTV</a>
+            <a th:href="@{/}" class="home-link">Guides</a>
+            <a th:href="@{/}" class="home-link">Matches</a>
+            <a th:href="@{/}" class="home-link">Rankings</a>
+            <div class="nav-search">
+                <form th:action="@{/}" method="get">
+                    <input type="text" placeholder="Search" name="nav-search-input" id="nav-search-input"/>
+                    <button type="submit" class="nav-search-btn">Search</button>
+                </form>
+            </div>
+            <a th:href="@{/}" class="home-link">Log In</a>
+        </nav>
+    </div>
+</body>
+</html>
