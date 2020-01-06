@@ -10,17 +10,19 @@
 <body>
     <div th:fragment="navbar" class="navbar">
         <nav class="navcon">
-            <a th:href="@{/}" class="home-link">CSTV</a>
-            <a th:href="@{/}" class="home-link">Guides</a>
-            <a th:href="@{/}" class="home-link">Matches</a>
-            <a th:href="@{/}" class="home-link">Rankings</a>
-            <div class="nav-search">
-                <form th:action="@{/}" method="get">
-                    <input type="text" placeholder="Search" name="nav-search-input" id="nav-search-input"/>
-                    <button type="submit" class="nav-search-btn">Search</button>
-                </form>
+            <div class="navcon-align">
+                <a th:href="@{/}" class="navbar-link navbar-link-home">CSTV</a>
+                <a th:href="@{/}" class="navbar-link">Guides</a>
+                <a th:href="@{/}" class="navbar-link">Matches</a>
+                <a th:href="@{/}" class="navbar-link">Rankings</a>
+                <div class="navbar-search">
+                    <form th:action="@{/}" method="get">
+                        <input type="text" placeholder="Search" name="navbar-search-input" id="navbar-search-input"/>
+                        <button type="submit" class="navbar-search-btn">Search</button>
+                    </form>
+                </div>
+                <a th:href="@{/}" class="navbar-link">Log In</a>
             </div>
-            <a th:href="@{/}" class="home-link">Log In</a>
         </nav>
     </div>
 </body>
