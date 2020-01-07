@@ -12,7 +12,53 @@
     <div th:include="navbar :: navbar" class="navbar"></div>
 
     <div class="body home-page">
-        Hello world!
+        <div class="width-align">
+            <div class="home-matches">
+                <div>
+                    <a>Virtus.pro vs Astralis</a>
+                    <a>Virtus.pro vs Astralis</a>
+                    <a>Virtus.pro vs Astralis</a>
+                    <a>Virtus.pro vs Astralis</a>
+                </div>
+            </div>
+
+            <div class="home-guides">
+                <div class="big-guide">
+                    <a class="big-guide-a" th:href="@{/}">
+                        <img th:src="@{/images/shattered-web.jpg}" height="170px" width="400px">
+                    </a>
+                </div>
+
+                <div class="little-guide">
+                    <a th:href="@{/}" class="lille-guide-a">
+                        <h5 class="little-guide-h5">f0rest's move to Dignitas sets off changes in NiP and GamerLegion - Report</h5>
+                        <div class="little-guide-time">12.12.2019</div>
+                    </a>
+                    <a th:href="@{/}" class="lille-guide-a">
+                        <h5 class="little-guide-h5">TEAM RANKING: DECEMBER 2019 AND EPC WINNER</h5>
+                        <div class="little-guide-time">12.12.2019</div>
+                    </a>
+                    <a th:href="@{/}" class="lille-guide-a">
+                        <h5 class="little-guide-h5">TEAM RANKING: DECEMBER 2019 AND EPC WINNER</h5>
+                        <div class="little-guide-time">12.12.2019</div>
+                    </a>
+                    <a th:href="@{/}" class="lille-guide-a">
+                        <h5 class="little-guide-h5">TEAM RANKING: DECEMBER 2019 AND EPC WINNER</h5>
+                        <div class="little-guide-time">12.12.2019</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="home-rankings">
+                <div class="home-rankings-box">
+                    <a class="rankings-box-team">1. Astralis</a>
+                    <a class="rankings-box-team">2. Evil Geniuses</a>
+                    <a class="rankings-box-team">3. Natus Vincere</a>
+                    <a class="rankings-box-team">4. Faze</a>
+                    <a class="rankings-box-team">5. Team Liquid</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
