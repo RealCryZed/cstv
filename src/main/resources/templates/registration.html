@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body registration-page">
+        <div class="login-width-align">
+            <form method="post" th:action="@{/register}" th:object="${user}" class="registration-form">
+                <h3 class="registration-h3">CSTV</h3>
+
+                <div th:if="${#fields.hasErrors()}">
+                    <span class="validationError">
+                        Please, correct the problems below and resubmit.
+                    </span><br/><br/>
+                </div>
+
+                <div th:if="${#fields.hasErrors('email')}">
+                    <span class="validationError"
+                          th:errors="*{email}">Name Error
+                    </span><br/>
+                </div>
+                <input type="text" class="registration-input" placeholder="Email" th:field="*{email}"><br/>
+
+                <div th:if="${#fields.hasErrors('username')}">
+                    <span class="validationError"
+                          th:errors="*{username}">Name Error
+                    </span><br/>
+                </div>
+                <input type="text" class="registration-input" placeholder="Username" th:field="*{username}"><br/>
+
+                <div th:if="${#fields.hasErrors('password')}">
+                    <span class="validationError"
+                          th:errors="*{password}">Name Error
+                    </span><br/>
+                </div>
+                <input type="password" class="registration-input" placeholder="Password" th:field="*{password}"><br/>
+
+                <button type="submit" class="registration-button button" name="registration">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

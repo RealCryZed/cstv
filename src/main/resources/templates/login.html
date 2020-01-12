@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body login-page">
+        <div class="login-width-align">
+            <form method="post" th:action="@{/login}" class="login-form">
+                <h3 class="login-h3">CSTV</h3>
+
+                <input type="text" class="login-input" placeholder="Username"><br/>
+                <input type="password" class="login-input" placeholder="Password"><br/>
+                <input style="visibility: hidden" type="checkbox" class="input-place" checked name="remember-me"/>
+
+                <button type="submit" class="login-button button" name="login">Login</button>
+                <h5 class="h5-to-sign-up">Don't have account yet?
+                    <a th:href="@{/register}" class="btn-to-sign-up">Sign Up</a></h5>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

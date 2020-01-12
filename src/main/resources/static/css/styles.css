@@ -4,8 +4,9 @@ body {
     padding-top: 46px;
 }
 
-h5 {
+h1, h2, h3, h4, h5 {
     margin: 0;
+    font-family: Verdana;
 }
 
 table {
@@ -49,10 +50,6 @@ a:focus {
 
 a:hover, a:active {
     text-decoration: none;
-}
-
-h1, h2, h3, h4, h5 {
-    font-family: Verdana;
 }
 
 span.validationError {
@@ -132,13 +129,13 @@ span.validationError {
     margin-right: 20px;
 }
 
-.home-matches-head-h5 {
+.home-matches-head-h5, .home-ranking-head-h5 {
     margin-bottom: 7px;
     display: inline-block;
     transition: .1s ease;
 }
 
-.home-matches-head-h5:hover {
+.home-matches-head-h5:hover, .home-ranking-head-h5:hover{
     color: #656565;
 }
 
@@ -223,16 +220,6 @@ span.validationError {
     margin-left: 20px;
 }
 
-.home-ranking-head-h5 {
-    margin-bottom: 7px;
-    display: inline-block;
-    transition: .1s ease;
-}
-
-.home-ranking-head-h5:hover {
-    color: #656565;
-}
-
 .home-ranking-box {
     display: grid;
     min-width: inherit;
@@ -262,4 +249,57 @@ span.validationError {
 
 .home-ranking-a-team {
     font-weight: 100;
+}
+
+/*
+ * LOGIN and REGISTRATION pages
+ */
+
+.login-width-align {
+    display: flex;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.login-form, .registration-form {
+    min-width: 210px;
+    margin: 0 auto;
+}
+
+.login-h3, .registration-h3 {
+    text-align: center;
+}
+
+.login-input, .registration-input {
+    height: 30px;
+    width: 210px;
+    margin-top: 10px;
+    padding-left: 7px;
+}
+
+.login-button, .registration-button {
+    font-weight: 700;
+    height: 36px;
+}
+
+.login-h3, .login-button, .registration-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.h5-to-sign-up {
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.btn-to-sign-up {
+    font-size: 11px;
+    padding: 0 3px;
+    float: right;
+    transition: .1s ease;
+}
+
+.btn-to-sign-up:hover {
+    color: #0C2457;
+    text-decoration: underline;
 }
