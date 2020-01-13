@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <title>CS:GO Guides & Info | CSTV - navbar</title>
@@ -18,10 +19,11 @@
                 <div class="navbar-search">
                     <form th:action="@{/}" method="get">
                         <input type="text" placeholder="Search" name="navbar-search-input" id="navbar-search-input"/>
-                        <button type="submit" class="navbar-search-btn">Search</button>
+                        <button type="submit" class="navbar-search-btn btn">Search</button>
                     </form>
                 </div>
-                <a th:href="@{/login}" class="navbar-link">Sign In</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/login}" class="navbar-link">My Profile</a>
+                <a sec:authorize="isAnonymous()" th:href="@{/login}" class="navbar-link">Sign In</a>
             </div>
         </nav>
     </div>

@@ -20,19 +20,21 @@ public class User implements UserDetails {
     @Id
     private Long id;
 
-//    @Size(min = 1, message = "Username must be at least 4 letters")
-//    @Size(max = 50, message = "Username must be lower than 50 letters")
+    @Size(min = 1, message = "Username must be at least 1 letter")
+    @Size(max = 50, message = "Username must be lower than 50 letters")
     private String username;
 
-//    @Size(min = 1, message = "Password must be at least 4 letters")
+    @Size(min = 1, message = "Password must be at least 1 letter")
     private String password;
 
-//    @NotNull
-//    @Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
-//    @Size(max = 100, message = "Please, enter email, lower than 100 letters")
+    @NotNull
+    @Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
+    @Size(max = 100, message = "Please, enter email, lower than 100 letters")
     private String email;
 
     private int active;
+
+    private String authority;
 
     @Override
     public String getPassword() {

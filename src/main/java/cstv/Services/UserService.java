@@ -28,8 +28,8 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Random random = new Random();
         user.setId(random.nextLong());
+        user.setAuthority("USER");
         user.setActive(1);
-        System.err.println(user);
         userRepository.save(user);
     }
 }
