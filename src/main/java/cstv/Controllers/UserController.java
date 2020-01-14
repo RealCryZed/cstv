@@ -54,4 +54,11 @@ public class UserController {
 
         return modelAndView;
     }
+
+    @GetMapping("/my-profile")
+    public ModelAndView getMyProfilePage(ModelAndView modelAndView) {
+        modelAndView.setViewName("my-profile");
+
+        return modelAndView;
+    }
 }

@@ -102,6 +102,38 @@ span.validationError {
     background-color: #EAEAEA;
 }
 
+.navbar-dropdown {
+    position: relative;
+    display: inline-block;
+    height: 46px;
+    border-right: 1px solid black;
+}
+
+.navbar-drop-btn {
+    padding: 15px 15px;
+    border: 0px;
+}
+
+.navbar-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navbar-dropdown-content a {
+    color: black;
+    padding: 12px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.navbar-dropdown-content a:hover {background-color: #ddd;}
+
+.navbar-dropdown:hover .navbar-dropdown-content {display: block;}
+
 .navbar-search {
     display: inline-block;
     padding: 12px 15px;
@@ -124,187 +156,4 @@ span.validationError {
     padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
-}
-
-.home-left-area {
-    order: 1;
-    min-width: 200px;
-    max-width: 200px;
-    margin-right: 20px;
-}
-
-.home-matches-head-h5, .home-ranking-head-h5 {
-    margin-bottom: 7px;
-    display: inline-block;
-    transition: .1s ease;
-}
-
-.home-matches-head-h5:hover, .home-ranking-head-h5:hover{
-    color: #656565;
-}
-
-.home-matches {
-    display: grid;
-    text-align: center;
-    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
-}
-
-.home-matches-a {
-    display: flex;
-    padding: 7px;
-    min-height: 24px;
-    line-height: 24px;
-    background-color: white;
-    border-bottom: 1px solid #CACACA;
-    color: black;
-}
-
-.home-matches-a:hover {
-    background-color: #E7E7E7;
-    color: #224899;
-}
-
-.home-matches-a-teams {
-    min-width: 130px;
-    text-align: left;
-    flex: 1 1 auto;
-}
-
-.home-matches-a-time {
-    min-width: 44px;
-    max-width: 50px;
-    line-height: 52px;
-    padding-right: 4px;
-    text-align: right;
-    flex: 1 1 auto;
-}
-
-.home-guides {
-    order: 2;
-    min-width: 600px;
-    max-width: 600px;
-    flex: 1 1 auto;
-    overflow: hidden;
-}
-
-.big-guide {
-    margin-bottom: 5px;
-}
-
-.little-guide {
-    display: grid;
-    background-color: white;
-    box-shadow: 0 1px 4px 0 rgba(50,50,50,.4);
-}
-
-.lille-guide-a {
-    display: flex;
-    align-items: center;
-    padding: 7px;
-    border-bottom: 1px solid grey;
-}
-
-.lille-guide-a:hover {
-    background-color: #E7E7E7;
-    color: #224899;
-}
-
-.little-guide-h5 {
-    flex: 1 1 auto;
-}
-
-.little-guide-time {
-    min-width: 100px;
-    text-align: center;
-}
-
-.home-right-area {
-    order: 3;
-    min-width: 130px;
-    max-width: 130px;
-    margin-left: 20px;
-}
-
-.home-ranking-box {
-    display: grid;
-    min-width: inherit;
-    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
-}
-
-.home-ranking-a {
-    background-color: white;
-    display: flex;
-    padding: 8px;
-    min-height: 12px;
-    line-height: 12px;
-    border-bottom: 1px solid #CACACA;
-    color: #10459E;
-}
-
-.home-ranking-a:hover {
-    background-color: #E7E7E7;
-    color: #186EFF;
-}
-
-.home-ranking-a-div {
-    min-width: 114px;
-    text-align: left;
-    flex: 1 1 auto;
-}
-
-.home-ranking-a-team {
-    font-weight: 100;
-}
-
-/*
- * LOGIN and REGISTRATION pages
- */
-
-.login-width-align {
-    display: flex;
-    padding-top: 100px;
-    margin: 0 auto;
-}
-
-.login-form, .registration-form {
-    min-width: 210px;
-    margin: 0 auto;
-}
-
-.login-h3, .registration-h3 {
-    text-align: center;
-}
-
-.login-input, .registration-input {
-    height: 30px;
-    width: 210px;
-    margin-top: 10px;
-    padding-left: 7px;
-}
-
-.login-button, .registration-button {
-    font-weight: 700;
-    height: 36px;
-}
-
-.login-h3, .login-button, .registration-button {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.h5-to-sign-up {
-    font-size: 11px;
-    margin-top: 10px;
-}
-
-.btn-to-sign-up {
-    font-size: 11px;
-    padding: 0 3px;
-    float: right;
-    transition: .1s ease;
-}
-
-.btn-to-sign-up:hover {
-    color: #0C2457;
-    text-decoration: underline;
 }

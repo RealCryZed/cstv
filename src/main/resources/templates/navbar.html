@@ -16,13 +16,22 @@
                 <a th:href="@{/}" class="navbar-link">Guides</a>
                 <a th:href="@{/}" class="navbar-link">Matches</a>
                 <a th:href="@{/ranking}" class="navbar-link">Ranking</a>
+
                 <div class="navbar-search">
                     <form th:action="@{/}" method="get">
                         <input type="text" placeholder="Search" name="navbar-search-input" id="navbar-search-input"/>
                         <button type="submit" class="navbar-search-btn btn">Search</button>
                     </form>
                 </div>
-                <a sec:authorize="isAuthenticated()" th:href="@{/login}" class="navbar-link">My Profile</a>
+
+                <div sec:authorize="isAuthenticated()" class="navbar-dropdown">
+                    <a th:href="@{/my-profile}" class="navbar-link navbar-drop-btn">My Profile</a>
+                    <div class="navbar-dropdown-content">
+                        <a th:href="@{/my-profile}">Settings</a>
+                        <a th:href="@{/logout}">Logout</a>
+                    </div>
+                </div>
+
                 <a sec:authorize="isAnonymous()" th:href="@{/login}" class="navbar-link">Sign In</a>
             </div>
         </nav>

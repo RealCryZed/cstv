@@ -1,0 +1,48 @@
+.login-width-align {
+    display: flex;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.login-form, .registration-form {
+    min-width: 210px;
+    margin: 0 auto;
+}
+
+.login-h3, .registration-h3 {
+    text-align: center;
+}
+
+.login-input, .registration-input {
+    height: 30px;
+    width: 210px;
+    margin-top: 10px;
+    padding-left: 7px;
+}
+
+.login-button, .registration-button {
+    font-weight: 700;
+    height: 36px;
+}
+
+.login-h3, .login-button, .registration-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.h5-to-sign-up {
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.btn-to-sign-up {
+    font-size: 11px;
+    padding: 0 3px;
+    float: right;
+    transition: .1s ease;
+}
+
+.btn-to-sign-up:hover {
+    color: #0C2457;
+    text-decoration: underline;
+}
