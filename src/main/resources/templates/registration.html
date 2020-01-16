@@ -17,34 +17,30 @@
             <form method="post" th:action="@{/register}" th:object="${user}" class="registration-form">
                 <h3 class="registration-h3">CSTV</h3>
 
-                <div th:if="${#fields.hasErrors()}">
-                    <span class="validationError">
-                        Please, correct the problems below and resubmit.
-                    </span><br/><br/>
-                </div>
-
                 <div th:if="${#fields.hasErrors('email')}">
-                    <span class="validationError"
+                    <h5 class="validationError"
                           th:errors="*{email}">Name Error
-                    </span><br/>
+                    </h5>
                 </div>
                 <input type="text" class="registration-input" placeholder="Email" th:field="*{email}"><br/>
 
                 <div th:if="${#fields.hasErrors('username')}">
-                    <span class="validationError"
+                    <h5 class="validationError"
                           th:errors="*{username}">Name Error
-                    </span><br/>
+                    </h5>
                 </div>
                 <input type="text" class="registration-input" placeholder="Username" th:field="*{username}"><br/>
 
                 <div th:if="${#fields.hasErrors('password')}">
-                    <span class="validationError"
+                    <h5 class="validationError"
                           th:errors="*{password}">Name Error
-                    </span><br/>
+                    </h5>
                 </div>
                 <input type="password" class="registration-input" placeholder="Password" th:field="*{password}"><br/>
 
-                <button type="submit" class="registration-button button btn" name="registration">Sign Up</button>
+                <button type="submit" class="registration-button button btn" name="registration">Sign Up</button><br/>
+
+                <a th:href="@{/login}" class="btn-to-sign-in">Back to login page</a>
             </form>
         </div>
     </div>

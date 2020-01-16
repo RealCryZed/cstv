@@ -17,9 +17,15 @@
             <form method="post" th:action="@{/login}" class="login-form">
                 <h3 class="login-h3">CSTV</h3>
 
+                <div th:if="${(#httpServletRequest.getParameter('error') != null) and (#httpServletRequest.getParameter('error') == 'true')}">
+                <h5 class="validationError">
+                    Username and\or password is incorrect.
+                </h5>
+                </div>
+
                 <input type="text" class="login-input" placeholder="Username" name="username" id="username"><br/>
                 <input type="password" class="login-input" placeholder="Password" name="password" id="password"><br/>
-                <input style="visibility: hidden" type="checkbox" class="input-place" checked name="remember-me"/>
+                <input style="visibility: hidden; position: absolute;" type="checkbox" class="input-place" checked name="remember-me"/>
 
                 <button type="submit" class="login-button button btn" name="login">Login</button>
                 <h5 class="h5-to-sign-up">Don't have account yet?

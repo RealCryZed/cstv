@@ -1,0 +1,30 @@
+.ranking-box {
+    display: grid;
+    min-width: inherit;
+    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
+}
+
+.ranking-a {
+    background-color: white;
+    display: flex;
+    padding: 8px;
+    min-height: 12px;
+    line-height: 12px;
+    border-bottom: 1px solid #CACACA;
+    color: #10459E;
+}
+
+.ranking-a:hover {
+    background-color: #E7E7E7;
+    color: #186EFF;
+}
+
+.ranking-a-div {
+    min-width: 114px;
+    text-align: left;
+    flex: 1 1 auto;
+}
+
+.ranking-a-team {
+    font-weight: 100;
+}

@@ -15,6 +15,7 @@
                 <a th:href="@{/}" class="navbar-link navbar-link-home">CSTV</a>
                 <a th:href="@{/}" class="navbar-link">Guides</a>
                 <a th:href="@{/}" class="navbar-link">Matches</a>
+                <a th:href="@{/}" class="navbar-link">Results</a>
                 <a th:href="@{/ranking}" class="navbar-link">Ranking</a>
 
                 <div class="navbar-search">
@@ -27,6 +28,7 @@
                 <div sec:authorize="isAuthenticated()" class="navbar-dropdown">
                     <a th:href="@{/my-profile}" class="navbar-link navbar-drop-btn">My Profile</a>
                     <div class="navbar-dropdown-content">
+                        <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/my-profile}">Create</a>
                         <a th:href="@{/my-profile}">Settings</a>
                         <a th:href="@{/logout}">Logout</a>
                     </div>
