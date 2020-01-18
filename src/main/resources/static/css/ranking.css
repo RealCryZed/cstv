@@ -1,3 +1,21 @@
+/*
+ * LEFT AREA
+ */
+
+.left-area {
+    order: 1;
+}
+
+/*
+ * CENTER AREA
+ */
+
+.center-menu-ranking {
+    order: 2;
+    min-width: 580px;
+    max-width: 580px;
+}
+
 .ranking-box {
     display: grid;
     min-width: inherit;
@@ -27,4 +45,46 @@
 
 .ranking-a-team {
     font-weight: 100;
+}
+
+/*
+ * RIGHT AREA
+ */
+
+.right-area-ranking {
+    order: 3;
+    min-width: 150px;
+    max-width: 150px;
+    margin-left: 20px;
+}
+
+.player-ranking {
+    display: grid;
+    min-width: inherit;
+    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
+}
+
+.player-ranking-a {
+    background-color: white;
+    display: flex;
+    padding: 8px;
+    min-height: 12px;
+    line-height: 12px;
+    border-bottom: 1px solid #CACACA;
+    color: #10459E;
+}
+
+.player-ranking-a:hover {
+    background-color: #E7E7E7;
+    color: #186EFF;
+}
+
+.player-ranking-div {
+    min-width: 114px;
+    text-align: left;
+    flex: 1 1 auto;
+}
+
+.player-ranking-a-nickname {
+    font-weight: 500;
 }

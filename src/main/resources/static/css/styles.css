@@ -1,3 +1,5 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
 body {
     margin: 0;
     background-color: black;
@@ -139,12 +141,47 @@ h5.validationError {
 
 .navbar-search {
     display: inline-block;
-    padding: 12px 15px;
+    position: relative;
+    padding: 10px 15px;
     border-right: 1px solid black;
 }
 
-.navbar-search-btn {
+.navbar-search-input {
+    padding: 3px 20px 3px 3px;
+    position: relative;
+}
 
+.navbar-search-border {
+    position: absolute;
+    top: 13px;
+    right: 40px;
+    z-index: 1;
+    border-left: 1px solid #ccc;
+    width: 0;
+    height: 20px;
+}
+
+.navbar-search-btn {
+    position: absolute;
+    vertical-align: top;
+    top: 11px;
+    right: 22px;
+    z-index: 1;
+    color: #353535;
+    margin: 0;
+    border: 0;
+    padding: 4px 0px;
+    background: 0 0;
+    cursor: pointer;
+}
+
+.fa {
+    display: inline-block;
+    font-size: inherit;
+}
+
+.fa:hover {
+    color: #1263A3;
 }
 
 .body {
@@ -160,6 +197,18 @@ h5.validationError {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.win {
+    color: #1BA713;
+}
+
+.loss {
+    color: #CF1515;
+}
+
+/*
+ * CENTER AREA
+ */
 
 .center-menu {
     order: 2;
@@ -195,13 +244,13 @@ h5.validationError {
  * MAIN MATCHES BOX
  */
 
-.main-matches-head-h5, .main-ranking-head-h5, .main-results-head-h5 {
+.main-matches-head-h5, .main-ranking-head-h5, .main-player-rank-head-h5, .main-results-head-h5 {
     margin-bottom: 7px;
     display: inline-block;
     transition: .1s ease;
 }
 
-.main-matches-head-h5:hover, .main-ranking-head-h5:hover, .main-results-head-h5:hover {
+.main-matches-head-h5:hover, .main-ranking-head-h5:hover, .main-player-rank-head-h5:hover, .main-results-head-h5:hover {
     color: #656565;
 }
 

@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CS:GO Guides & Info | CSTV - navbar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
@@ -19,9 +20,12 @@
                 <a th:href="@{/ranking}" class="navbar-link">Ranking</a>
 
                 <div class="navbar-search">
-                    <form th:action="@{/}" method="get">
-                        <input type="text" placeholder="Search" name="navbar-search-input" id="navbar-search-input"/>
-                        <button type="submit" class="navbar-search-btn btn">Search</button>
+                    <form role="search" th:action="@{/}" method="get">
+                        <input type="text" placeholder="Search" name="navbar-search-input" class="navbar-search-input"/>
+                        <div class="navbar-search-border"></div>
+                        <button type="submit" class="navbar-search-btn btn">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </form>
                 </div>
 
