@@ -69,92 +69,33 @@
             </div>
 
             <div class="center-menu-ranking ranking-big">
-                <h3 style="margin-bottom: 15px">CS:GO Ranking on 15.01.2020</h3>
+                <h3 style="margin-bottom: 15px">CS:GO Ranking on 22.01.2020</h3>
                 <div class="ranking-box">
-                    <a th:href="@{/}" class="ranking-a">
-                        <div class="ranking-a-div">
-                            <h5 class="ranking-a-team">1. Astralis</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="ranking-a">
-                        <div class="ranking-a-div">
-                            <h5 class="ranking-a-team">2. Evil Geniuses</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="ranking-a">
-                        <div class="ranking-a-div">
-                            <h5 class="ranking-a-team">3. Natus Vincere</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="ranking-a">
-                        <div class="ranking-a-div">
-                            <h5 class="ranking-a-team">4. Faze</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="ranking-a">
-                        <div class="ranking-a-div">
-                            <h5 class="ranking-a-team">5. Team Liquid</h5>
-                        </div>
-                    </a>
+                    <div th:each="team : ${teams}">
+                        <a th:href="@{/}" class="ranking-a">
+                            <div class="ranking-a-div">
+                                <h5 class="ranking-a-team"
+                                th:text="${team.place} + '. ' + ${team.name}">Team</h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="right-area-ranking">
                 <a th:href="@{/}" class="main-player-rank-head-a">
-                    <h5 class="main-player-rank-head-h5">MATCHES</h5>
+                    <h5 class="main-player-rank-head-h5">TOP PLAYERS</h5>
                 </a>
 
                 <div class="player-ranking">
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">1. ZyWoo</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">2. Device</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">3. S1mple</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">4. Elige</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">5. Magisk</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">6. Electronic</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">7. NAF</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">8. Brehze</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">9. Twistzz</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="player-ranking-a">
-                        <div class="player-ranking-div">
-                            <h5 class="player-ranking-a-nickname">10. Xyp9x</h5>
-                        </div>
-                    </a>
+                    <div th:each="player : ${player}">
+                        <a th:href="@{/}" class="player-ranking-a">
+                            <div class="player-ranking-div">
+                                <h5 class="player-ranking-a-nickname"
+                                    th:text="${player.place} + '. ' + ${player.nickname}">Name</h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

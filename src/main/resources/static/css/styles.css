@@ -377,4 +377,9 @@ h5.validationError {
 
 .main-ranking-a-team {
     font-weight: 100;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }

@@ -101,31 +101,14 @@
                 </a>
 
                 <div class="main-ranking-box">
-                    <a th:href="@{/}" class="main-ranking-a">
-                        <div class="main-ranking-a-div">
-                            <h5 class="main-ranking-a-team">1. Astralis</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="main-ranking-a">
-                        <div class="main-ranking-a-div">
-                            <h5 class="main-ranking-a-team">2. Evil Geniuses</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="main-ranking-a">
-                        <div class="main-ranking-a-div">
-                            <h5 class="main-ranking-a-team">3. Natus Vincere</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="main-ranking-a">
-                        <div class="main-ranking-a-div">
-                            <h5 class="main-ranking-a-team">4. Faze</h5>
-                        </div>
-                    </a>
-                    <a th:href="@{/}" class="main-ranking-a">
-                        <div class="main-ranking-a-div">
-                            <h5 class="main-ranking-a-team">5. Team Liquid</h5>
-                        </div>
-                    </a>
+                    <div th:each="team : ${teams}">
+                        <a th:href="@{/}" class="main-ranking-a">
+                            <div class="main-ranking-a-div">
+                                <h5 class="main-ranking-a-team"
+                                    th:text="${team.place} + '. ' + ${team.name}">Team</h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
