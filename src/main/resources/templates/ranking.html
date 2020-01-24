@@ -73,9 +73,13 @@
                 <div class="ranking-box">
                     <div th:each="team : ${teams}">
                         <a th:href="@{/}" class="ranking-a">
+                            <div>
+                                <h5 class="ranking-a-place"
+                                th:text="${team.place} + '.'">PLACE</h5>
+                            </div>
                             <div class="ranking-a-div">
                                 <h5 class="ranking-a-team"
-                                th:text="${team.place} + '. ' + ${team.name}">Team</h5>
+                                th:text="${team.name}">TEAM NAME</h5>
                             </div>
                         </a>
                     </div>
@@ -88,11 +92,31 @@
                 </a>
 
                 <div class="player-ranking">
-                    <div th:each="player : ${player}">
+                    <div class="player-ranking-info">
+                        <div style="min-width: 26px;" class="player-ranking-info-div">
+                            <h5 class="player-ranking-info-h5">#</h5>
+                        </div>
+                        <div style="min-width: 71px;" class="player-ranking-info-div">
+                            <h5 class="player-ranking-info-h5">NICKNAME</h5>
+                        </div>
+                        <div class="player-ranking-info-div">
+                            <h5 class="player-ranking-info-h5">RATING</h5>
+                        </div>
+                    </div>
+
+                    <div style="max-width: inherit;" th:each="player : ${player}">
                         <a th:href="@{/}" class="player-ranking-a">
+                            <div>
+                                <h5 class="player-ranking-a-place"
+                                    th:text="${player.place} + '.'">PLACE</h5>
+                            </div>
                             <div class="player-ranking-div">
                                 <h5 class="player-ranking-a-nickname"
-                                    th:text="${player.place} + '. ' + ${player.nickname}">Name</h5>
+                                    th:text="${player.nickname}">NICKNAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="player-ranking-a-kd"
+                                    th:text="${player.kd}">RATING 2.0</h5>
                             </div>
                         </a>
                     </div>

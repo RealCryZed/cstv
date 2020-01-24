@@ -20,7 +20,7 @@ import java.util.Set;
 public class User {
 
     @Id
-    private Long id;
+    private Integer id;
 
     @Size(min = 1, message = "Username must be at least 1 letter")
     @Size(max = 50, message = "Username must be lower than 50 letters")

@@ -101,11 +101,15 @@
                 </a>
 
                 <div class="main-ranking-box">
-                    <div th:each="team : ${teams}">
+                    <div style="max-width: inherit;" th:each="team : ${teams}">
                         <a th:href="@{/}" class="main-ranking-a">
-                            <div class="main-ranking-a-div">
-                                <h5 class="main-ranking-a-team"
-                                    th:text="${team.place} + '. ' + ${team.name}">Team</h5>
+                            <div>
+                                <h5 class="main-ranking-a-team-place"
+                                    th:text="${team.place} + '.'">PLACE</h5>
+                            </div>
+                            <div class="main-ranking-a-inner-div">
+                                <h5 class="main-ranking-a-team-name"
+                                    th:text="${team.name}">TEAM NAME</h5>
                             </div>
                         </a>
                     </div>

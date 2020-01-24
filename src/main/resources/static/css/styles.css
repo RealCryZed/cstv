@@ -350,7 +350,7 @@ h5.validationError {
 
 .main-ranking-box {
     display: grid;
-    min-width: inherit;
+    max-width: inherit;
     box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
 }
 
@@ -375,8 +375,20 @@ h5.validationError {
     flex: 1 1 auto;
 }
 
-.main-ranking-a-team {
+.main-ranking-a-inner-div {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.main-ranking-a-team-place {
     font-weight: 100;
+    font-size: 11px;
+    min-width: 20px;
+}
+
+.main-ranking-a-team-name {
+    font-size: 11px;
+    font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

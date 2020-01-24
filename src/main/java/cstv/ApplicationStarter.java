@@ -1,5 +1,7 @@
 package cstv;
 
+import cstv.Models.Player;
+import cstv.Services.PlayerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +12,8 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import java.util.Optional;
+
 @SpringBootApplication
 public class ApplicationStarter {
 
@@ -18,9 +22,11 @@ public class ApplicationStarter {
     }
 
 //    @Bean
-//    public CommandLineRunner demoData(TeamService teamService) {
+//    public CommandLineRunner demoData(PlayerService playerService) {
 //        return args -> {
-//
+//                Player player = playerService.findPlayerById(3);
+//                player.setKd(1.30f);
+//                playerService.savePlayer(player);
 //        };
 //    }
 

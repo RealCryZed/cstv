@@ -9,8 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Player {
 
     @Id
-    private Long id;
+    private Integer id;
 
     private String nickname;
     private Integer place;
+    private Float kd;
 }

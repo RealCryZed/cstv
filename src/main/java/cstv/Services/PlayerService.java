@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -22,11 +23,11 @@ public class PlayerService {
         return playerRepo.findAll();
     }
 
-//    public void savePlayer(Long id, String username, Integer place) {
-//        Player player = new Player();
-//        player.setId(id);
-//        player.setNickname(username);
-//        player.setPlace(place);
-//        playerRepo.save(player);
-//    }
+    public Player findPlayerById(Integer id) {
+        return playerRepo.findPlayerById(id);
+    }
+
+    public void savePlayer(Player player) {
+        playerRepo.save(player);
+    }
 }

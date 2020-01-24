@@ -21,7 +21,7 @@ public class TeamService {
         return teamRepo.findAll();
     }
 
-//    public void saveTeam(Long id, String name, Integer place) {
+//    public void saveTeam(Integer id, String name, Integer place) {
 //        Team team = new Team();
 //        team.setId(id);
 //        team.setName(name);

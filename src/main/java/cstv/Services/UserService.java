@@ -29,7 +29,7 @@ public class UserService {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Random random = new Random();
-        user.setId(random.nextLong());
+        user.setId(random.nextInt());
         Role userRole = roleRepository.findByRole("ADMIN");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         user.setActive(1);

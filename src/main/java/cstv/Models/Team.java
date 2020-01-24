@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Team {
 
     @Id
-    private Long id;
+    private Integer id;
 
     private String name;
     private Integer place;
