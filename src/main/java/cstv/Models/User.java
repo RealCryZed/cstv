@@ -23,7 +23,7 @@ public class User {
     private Long id;
 
     @Size(min = 1, message = "Username must be at least 1 letter")
-    @Size(max = 50, message = "Username must be lower than 50 letters")
+    @Size(max = 25, message = "Username must be lower than 25 letters")
     private String username;
 
     @Size(min = 1, message = "Password must be at least 1 letter")

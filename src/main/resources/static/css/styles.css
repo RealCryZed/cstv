@@ -218,6 +218,14 @@ h5.validationError {
     overflow: hidden;
 }
 
+.big-center-menu {
+    order: 2;
+    min-width: 800px;
+    max-width: 800px;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
 /*
  * LEFT AREA
  */

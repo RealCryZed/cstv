@@ -12,8 +12,91 @@
 
     <div th:include="navbar :: navbar" class="navbar"></div>
 
-    <div class="body my-profile">
-        <h1>My Profile Page</h1>
+    <div class="body my-profile-page">
+        <div class="width-align">
+            <div class="left-area">
+                <a th:href="@{/}" class="main-matches-head-a">
+                    <h5 class="main-matches-head-h5">MATCHES</h5>
+                </a>
+
+                <div class="main-matches">
+                    <a th:href="@{/}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam">Astralis</h5>
+                            <h5 class="main-matches-a-singleteam">Ence</h5>
+                        </div>
+                        <div class="main-matches-a-time">16:30</div>
+                    </a>
+                    <a th:href="@{/}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam">Team Vitality</h5>
+                            <h5 class="main-matches-a-singleteam">Team Liquid</h5>
+                        </div>
+                        <div class="main-matches-a-time">19:30</div>
+                    </a>
+                    <a th:href="@{/}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam">Faze</h5>
+                            <h5 class="main-matches-a-singleteam">Fnatic</h5>
+                        </div>
+                        <div class="main-matches-a-time">22:30</div>
+                    </a>
+                    <a th:href="@{/}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam">G2</h5>
+                            <h5 class="main-matches-a-singleteam">NiP</h5>
+                        </div>
+                        <div class="main-matches-a-time">00:30</div>
+                    </a>
+                </div>
+
+                <a th:href="@{/}" class="main-results-head-a">
+                    <h5 class="main-results-head-h5">RESULTS</h5>
+                </a>
+
+                <div class="main-results-big">
+                    <a th:href="@{/}" class="main-results-a">
+                        <div class="main-results-a-teams">
+                            <h5 class="main-results-a-team">Virtus.pro</h5>
+                            <h5 class="main-results-a-team">Natus Vincere</h5>
+                        </div>
+                        <div class="main-results-a-div-score">
+                            <div class="main-results-a-score loss">2</div>
+                            <div class="main-results-a-score win">16</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="center-menu my-profile-block">
+                <div class="profile-padding">
+                    <div class="profile-main-username">
+                        <h2 style="margin-bottom: 15px;" th:text="${user.username}">USERNAME</h2>
+                        <div class="profile-border"></div>
+                    </div>
+
+                    <div class="personal-info-tag-div">
+                        <h5 class="profile-peronal-info-tag">Personal info: </h5>
+                    </div>
+
+                    <div class="profile-personal-info">
+                        <div class="profile-info-container">
+                            <label class="profile-info-container-label">Email</label>
+                        </div>
+                        <div class="profile-info-text">
+                            <span class="profile-info-text-span" th:text="${user.email}">EMAIL</span>
+                        </div>
+
+                        <div class="profile-info-container">
+                            <label class="profile-info-container-label">Username</label>
+                        </div>
+                        <div class="profile-info-text">
+                            <span class="profile-info-text-span" th:text="${user.username}">USERNAME</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

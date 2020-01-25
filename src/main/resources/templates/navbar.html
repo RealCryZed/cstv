@@ -32,8 +32,8 @@
                 <div sec:authorize="isAuthenticated()" class="navbar-dropdown">
                     <a th:href="@{/my-profile}" class="navbar-link navbar-drop-btn">My Profile</a>
                     <div class="navbar-dropdown-content">
-                        <a sec:authorize="hasAnyAuthority('ADMIN', 'USER')" th:href="@{/my-profile}">Create</a>
-                        <a th:href="@{/my-profile}">Settings</a>
+                        <a sec:authorize="hasAnyAuthority('ADMIN', 'USER')" th:href="@{/admin}">Admin</a>
+                        <a th:href="@{/my-profile}">My Profile</a>
                         <a th:href="@{/logout}">Logout</a>
                     </div>
                 </div>

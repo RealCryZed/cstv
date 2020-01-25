@@ -1,8 +1,12 @@
 package cstv.Controllers;
 
 import cstv.Models.User;
+import cstv.Services.PlayerService;
+import cstv.Services.TeamService;
 import cstv.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +23,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PlayerService playerService;
+
+    @Autowired
+    private TeamService teamService;
 
     @RequestMapping("/login")
     public ModelAndView login(ModelAndView modelAndView) {
@@ -58,6 +68,13 @@ public class UserController {
     @GetMapping("/my-profile")
     public ModelAndView getMyProfilePage(ModelAndView modelAndView) {
         modelAndView.setViewName("my-profile");
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByUsername(auth.getName());
+
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("player", playerService.findAllPlayers());
+        modelAndView.addObject("teams", teamService.findAllTeams());
 
         return modelAndView;
     }
