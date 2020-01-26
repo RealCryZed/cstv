@@ -11,7 +11,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public ModelAndView getAdminPage(ModelAndView modelAndView) {
-        modelAndView.setViewName("admin");
+        modelAndView.setViewName("admin/admin");
 
         return modelAndView;
     }

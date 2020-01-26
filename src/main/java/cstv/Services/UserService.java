@@ -17,10 +17,16 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private RoleRepository roleRepository;
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private SequenceGeneratorService seqGenerator;
+
 
     public User findUserByUsername(String username) {
         return userRepository.findByUsername(username);
@@ -28,8 +34,7 @@ public class UserService {
 
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Random random = new Random();
-        user.setId(random.nextLong());
+        user.setId(seqGenerator.generateSequence(User.SEQUENCE_NAME));
         Role userRole = roleRepository.findByRole("ADMIN");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         user.setActive(1);

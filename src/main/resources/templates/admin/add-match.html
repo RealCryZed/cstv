@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add match | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/add-match.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body add-match">
+        <div class="width-align">
+            <div class="big-center-menu">
+                <h1 style="text-align: center">Add match</h1>
+
+                <div class="match-creation">
+                    <form method="post" th:action="@{/admin/add-match}" th:object="${match}" class="add-match-form">
+                        <div th:if="${#fields.hasErrors('firstTeamName')}">
+                            <h5 class="validationError"
+                                th:errors="*{firstTeamName}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-match-input" placeholder="1 Team Name"
+                               th:field="*{firstTeamName}"><br/>
+
+                        <div th:if="${#fields.hasErrors('secondTeamName')}">
+                            <h5 class="validationError"
+                                th:errors="*{secondTeamName}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-match-input" placeholder="2 Team Name"
+                               th:field="*{secondTeamName}"><br/>
+
+                        <div th:if="${#fields.hasErrors('timeOfStart')}">
+                            <h5 class="validationError"
+                                th:errors="*{timeOfStart}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-match-input" placeholder="Match Start Time"
+                               th:field="*{timeOfStart}"><br/>
+
+                        <button type="submit" class="add-match-button button btn" name="add-match">Add match</button><br/>
+
+                        <a th:href="@{/admin}" class="btn-to-admin">Back to Admin page</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
