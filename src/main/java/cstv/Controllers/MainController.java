@@ -1,5 +1,6 @@
 package cstv.Controllers;
 
+import cstv.Services.MatchService;
 import cstv.Services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,15 @@ public class MainController {
     @Autowired
     private TeamService teamService;
 
+    @Autowired
+    private MatchService matchService;
+
     @RequestMapping("/")
     public ModelAndView home(ModelAndView modelAndView) {
         modelAndView.setViewName("home");
 
         modelAndView.addObject("teams", teamService.findAllTeams());
+        modelAndView.addObject("matches", matchService.getFiveLastMatches());
 
         return modelAndView;
     }

@@ -24,3 +24,8 @@
 .admin-btns:last-child {
     margin-right: 0px;
 }
+
+admin-btns:hover {
+    background-color: #ececec;
+    color: #224899;
+}

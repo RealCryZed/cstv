@@ -19,34 +19,13 @@
                     <h5 class="main-matches-head-h5">MATCHES</h5>
                 </a>
 
-                <div class="main-matches">
+                <div class="main-matches" th:each="match : ${matches}">
                     <a th:href="@{/}" class="main-matches-a">
                         <div class="main-matches-a-teams">
-                            <h5 class="main-matches-a-singleteam">Astralis</h5>
-                            <h5 class="main-matches-a-singleteam">Ence</h5>
+                            <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
+                            <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
                         </div>
-                        <div class="main-matches-a-time">16:30</div>
-                    </a>
-                    <a th:href="@{/}" class="main-matches-a">
-                        <div class="main-matches-a-teams">
-                            <h5 class="main-matches-a-singleteam">Team Vitality</h5>
-                            <h5 class="main-matches-a-singleteam">Team Liquid</h5>
-                        </div>
-                        <div class="main-matches-a-time">19:30</div>
-                    </a>
-                    <a th:href="@{/}" class="main-matches-a">
-                        <div class="main-matches-a-teams">
-                            <h5 class="main-matches-a-singleteam">Faze</h5>
-                            <h5 class="main-matches-a-singleteam">Fnatic</h5>
-                        </div>
-                        <div class="main-matches-a-time">22:30</div>
-                    </a>
-                    <a th:href="@{/}" class="main-matches-a">
-                        <div class="main-matches-a-teams">
-                            <h5 class="main-matches-a-singleteam">G2</h5>
-                            <h5 class="main-matches-a-singleteam">NiP</h5>
-                        </div>
-                        <div class="main-matches-a-time">00:30</div>
+                        <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
                     </a>
                 </div>
 

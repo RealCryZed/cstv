@@ -1,6 +1,7 @@
 package cstv.Controllers;
 
 import cstv.Models.User;
+import cstv.Services.MatchService;
 import cstv.Services.PlayerService;
 import cstv.Services.TeamService;
 import cstv.Services.UserService;
@@ -29,6 +30,9 @@ public class UserController {
 
     @Autowired
     private TeamService teamService;
+
+    @Autowired
+    private MatchService matchService;
 
     @RequestMapping("/login")
     public ModelAndView login(ModelAndView modelAndView) {
@@ -75,6 +79,7 @@ public class UserController {
         modelAndView.addObject("user", user);
         modelAndView.addObject("player", playerService.findAllPlayers());
         modelAndView.addObject("teams", teamService.findAllTeams());
+        modelAndView.addObject("matches", matchService.getFiveLastMatches());
 
         return modelAndView;
     }

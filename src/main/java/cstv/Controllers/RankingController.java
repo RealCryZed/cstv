@@ -1,5 +1,6 @@
 package cstv.Controllers;
 
+import cstv.Services.MatchService;
 import cstv.Services.PlayerService;
 import cstv.Services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,16 @@ public class RankingController {
     @Autowired
     private TeamService teamService;
 
+    @Autowired
+    private MatchService matchService;
+
     @RequestMapping("/ranking")
     public ModelAndView getRankingPage(ModelAndView modelAndView) {
         modelAndView.setViewName("ranking");
 
         modelAndView.addObject("player", playerService.findAllPlayers());
         modelAndView.addObject("teams", teamService.findAllTeams());
+        modelAndView.addObject("matches", matchService.getFiveLastMatches());
 
         return modelAndView;
     }
