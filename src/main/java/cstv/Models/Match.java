@@ -23,5 +23,7 @@ public class Match {
     private String secondTeamName;
     private String secondTeamScore;
 
+    private String tournament;
+
     private int ended = 0;
 }

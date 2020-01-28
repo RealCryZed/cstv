@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CS:GO Matches | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/matches.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body matches-page">
+        <div class="width-align">
+            <div class="left-area-small">
+                <div class="left-area-player-ranking">
+                    <a th:href="@{/}" class="main-player-rank-head-a">
+                        <h5 class="main-player-rank-head-h5">TOP PLAYERS</h5>
+                    </a>
+
+                    <div class="player-ranking">
+                        <div class="player-ranking-info">
+                            <div style="min-width: 26px;" class="player-ranking-info-div">
+                                <h5 class="player-ranking-info-h5">#</h5>
+                            </div>
+                            <div style="min-width: 71px;" class="player-ranking-info-div">
+                                <h5 class="player-ranking-info-h5">NICKNAME</h5>
+                            </div>
+                            <div class="player-ranking-info-div">
+                                <h5 class="player-ranking-info-h5">RATING</h5>
+                            </div>
+                        </div>
+
+                        <div style="max-width: inherit;" th:each="player : ${players}">
+                            <a th:href="@{/}" class="player-ranking-a">
+                                <div>
+                                    <h5 class="player-ranking-a-place"
+                                        th:text="${player.place} + '.'">PLACE</h5>
+                                </div>
+                                <div class="player-ranking-div">
+                                    <h5 class="player-ranking-a-nickname"
+                                        th:text="${player.nickname}">NICKNAME</h5>
+                                </div>
+                                <div>
+                                    <h5 class="player-ranking-a-kd"
+                                        th:text="${player.kd}">RATING 2.0</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="left-area-team-ranking">
+                    <a th:href="@{/ranking}" class="main-ranking-head-a">
+                        <h5 class="main-ranking-head-h5">RANKING</h5>
+                    </a>
+
+                    <div class="team-ranking-info">
+                        <div style="min-width: 22px;" class="team-ranking-info-div">
+                            <h5 class="player-ranking-info-h5">#</h5>
+                        </div>
+                        <div style="min-width: 115px;" class="team-ranking-info-div">
+                            <h5 class="team-ranking-info-h5">Name</h5>
+                        </div>
+                    </div>
+
+                    <div class="main-ranking-box">
+                        <div style="max-width: inherit;" th:each="team : ${teams}">
+                            <a th:href="@{/}" class="main-ranking-a">
+                                <div>
+                                    <h5 class="main-ranking-a-team-place"
+                                        th:text="${team.place} + '.'">PLACE</h5>
+                                </div>
+                                <div class="main-ranking-a-inner-div">
+                                    <h5 class="main-ranking-a-team-name"
+                                        th:text="${team.name}">TEAM NAME</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-menu">
+                <h3 style="margin-bottom: 15px">CS:GO Matches</h3>
+                <div class="matches-box">
+                    <div th:each="match : ${matches}">
+                        <a th:href="@{/}" class="match-link">
+                            <div>
+                                <h5 class="match-time" th:text="${match.timeOfStart}">TIME</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-first-team-name" th:text="${match.firstTeamName}">FIRST TEAM NAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-vs-sign">vs</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-second-team-name" th:text="${match.secondTeamName}">SECOND TEAM NAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-tournament-name" th:text="${match.tournament}">TOURNAMENT</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @Controller
 @CrossOrigin(origins = "*")
 @RequestMapping("/admin")
-public class MatchController {
+public class AdminMatchController {
 
     @Autowired
     private MatchService matchService;

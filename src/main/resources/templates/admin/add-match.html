@@ -43,6 +43,14 @@
                         <input type="text" class="add-match-input" placeholder="Match Start Time"
                                th:field="*{timeOfStart}"><br/>
 
+                        <div th:if="${#fields.hasErrors('tournament')}">
+                            <h5 class="validationError"
+                                th:errors="*{tournament}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-match-input" placeholder="Tournament name"
+                               th:field="*{tournament}"><br/>
+
                         <button type="submit" class="add-match-button button btn" name="add-match">Add match</button><br/>
 
                         <a th:href="@{/admin}" class="btn-to-admin">Back to Admin page</a>
