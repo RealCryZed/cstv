@@ -1,6 +1,6 @@
 package cstv.Services;
 
-import cstv.Interfaces.DatabaseSequence;
+import cstv.Models.DatabaseSequence;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;

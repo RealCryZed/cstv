@@ -28,7 +28,7 @@ public class MatchesController {
 
         modelAndView.addObject("players", playerService.getFiveFirstPlayers());
         modelAndView.addObject("teams", teamService.getFiveFirstTeams());
-        modelAndView.addObject("matches", matchService.getAllMatches());
+        modelAndView.addObject("matches", matchService.getAllMatchesNotEnded());
 
         return modelAndView;
     }

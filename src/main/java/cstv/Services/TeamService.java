@@ -30,6 +30,12 @@ public class TeamService {
         return teamRepo.findAll(page);
     }
 
+    public Page<Team> getTenFirstTeams() {
+        PageRequest page = PageRequest.of(
+                0, 10, Sort.by("_id").ascending());
+        return teamRepo.findAll(page);
+    }
+
 //    public void saveTeam(Integer id, String name, Integer place) {
 //        Team team = new Team();
 //        team.setId(id);

@@ -1,0 +1,102 @@
+.big-center-menu {
+    margin: 0 auto;
+}
+
+.matches-box {
+    background: white;
+    display: grid;
+    min-width: inherit;
+    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
+}
+
+.match-div {
+    background-color: white;
+    border-bottom: 1px solid #CACACA;
+    color: #10459E;
+}
+
+.match-div:hover {
+    background-color: #E7E7E7;
+    color: #186EFF;
+}
+
+/*                                     */
+
+.match-link {
+    display: inline-flex;
+    padding: 8px;
+    min-width: calc(100% - 9%);
+    min-height: 12px;
+    line-height: 16px;
+    color: #10459E;
+}
+
+.match-time {
+    flex: 1 1 auto;
+    min-width: 72px;
+    color: black;
+    font-weight: 100;
+}
+
+.match-first-team-name {
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+
+.match-vs-sign {
+    flex: 1 1 auto;
+    min-width: 40px;
+    color: black;
+    font-weight: 100;
+}
+
+.match-second-team-name {
+    flex: 1 1 auto;
+    max-width: 140px;
+    min-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.match-tournament-name {
+    font-weight: 100;
+    flex: 1 1 auto;
+    min-width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+/*                                              */
+
+.match-div-end-btn {
+    display: inline-flex;
+    flex: 1 1 auto;
+    position: relative;
+    float: right;
+}
+
+.match-end-btn {
+    cursor: pointer;
+    max-width: 40px;
+    min-width: 40px;
+    line-height: 27px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #CF1E1E;
+    float: right;
+    margin: 0;
+    padding: 3px;
+}
+
+.match-end-btn:hover {
+    background-color: #a7a7a7;
+    color: #990707;
+}

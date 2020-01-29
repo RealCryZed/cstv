@@ -25,5 +25,5 @@ public class Match {
 
     private String tournament;
 
-    private int ended = 0;
+    private Integer ended = 0;
 }

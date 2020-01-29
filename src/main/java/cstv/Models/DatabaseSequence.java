@@ -1,4 +1,4 @@
-package cstv.Interfaces;
+package cstv.Models;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

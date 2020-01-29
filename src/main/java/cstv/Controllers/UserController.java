@@ -79,7 +79,7 @@ public class UserController {
         modelAndView.addObject("user", user);
         modelAndView.addObject("player", playerService.findAllPlayers());
         modelAndView.addObject("teams", teamService.findAllTeams());
-        modelAndView.addObject("matches", matchService.getFiveLastMatches());
+        modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
 
         return modelAndView;
     }

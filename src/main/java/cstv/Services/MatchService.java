@@ -20,7 +20,9 @@ public class MatchService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
-
+    public Match findMatchById(Long id) {
+        return matchRepo.findMatchById(id);
+    }
 
     public Match addMatch(Match match) {
         match.setId(seqGenerator.generateSequence(Match.SEQUENCE_NAME));
@@ -31,9 +33,25 @@ public class MatchService {
         return matchRepo.findAll();
     }
 
+    public List<Match> getAllMatchesNotEnded() {
+        return matchRepo.findAllByEnded(0);
+    }
+
     public Page<Match> getFiveLastMatches() {
         PageRequest page = PageRequest.of(
                 0, 5, Sort.by("_id").ascending());
         return matchRepo.findAll(page);
+    }
+
+    public Page<Match> getFiveLastMatchesNotEnded() {
+        PageRequest page = PageRequest.of(
+                0, 5, Sort.by("_id").ascending());
+        return matchRepo.findAllByEnded(0, page);
+    }
+
+    public void endMatchById(Long id) {
+        Match match = matchRepo.findMatchById(id);
+        match.setEnded(1);
+        matchRepo.save(match);
     }
 }

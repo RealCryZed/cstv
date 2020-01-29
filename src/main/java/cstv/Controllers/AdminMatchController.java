@@ -5,10 +5,7 @@ import cstv.Services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -42,6 +39,23 @@ public class AdminMatchController {
 
         }
 
+        return modelAndView;
+    }
+
+    @GetMapping("/end-match")
+    public ModelAndView getEndMatchPage(ModelAndView modelAndView) {
+        modelAndView.addObject("matches", matchService.getAllMatches());
+        modelAndView.setViewName("admin/end-match");
+
+        return modelAndView;
+    }
+
+    @GetMapping("/end-match/{id}")
+    public ModelAndView endMatch(ModelAndView modelAndView,
+                                 @PathVariable Long id) {
+        matchService.endMatchById(id);
+
+        modelAndView.setViewName("redirect:/admin/end-match");
         return modelAndView;
     }
 }

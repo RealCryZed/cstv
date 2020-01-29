@@ -22,8 +22,8 @@ public class MainController {
     public ModelAndView home(ModelAndView modelAndView) {
         modelAndView.setViewName("home");
 
-        modelAndView.addObject("teams", teamService.findAllTeams());
-        modelAndView.addObject("matches", matchService.getFiveLastMatches());
+        modelAndView.addObject("teams", teamService.getTenFirstTeams());
+        modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
 
         return modelAndView;
     }

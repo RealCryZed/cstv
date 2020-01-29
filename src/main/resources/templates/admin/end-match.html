@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CS:GO End Match | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
+<!--    <link type="text/css" rel="stylesheet" th:href="@{/css/matches.css}" />-->
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body end-match-page">
+        <div class="width-align">
+            <div class="big-center-menu">
+                <h3 style="margin-bottom: 15px">CS:GO Matches</h3>
+                <div class="matches-box" th:each="match : ${matches}">
+                    <div class="match-div">
+                        <a th:href="@{/ranking}" class="match-link">
+                            <div>
+                                <h5 class="match-time" th:text="${match.timeOfStart}">TIME</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-first-team-name" th:text="${match.firstTeamName}">FIRST TEAM NAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-vs-sign">vs</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-second-team-name" th:text="${match.secondTeamName}">SECOND TEAM NAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-tournament-name" th:text="${match.tournament}">TOURNAMENT</h5>
+                            </div>
+                        </a>
+
+                        <div class="match-div-end-btn">
+                            <a class="match-end-btn"
+                               th:href="@{'/admin/end-match/' + ${match.id}}"
+                               onclick="endMatch(this.id); return false;"
+                               th:id="${match.firstTeamName} + ' vs ' + ${match.secondTeamName}">&times;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function endMatch(name) {
+            var answer = window.confirm("Do you want to end the match?\n\n" + name)
+
+            if (answer) {
+                window.location.replace(url);
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
