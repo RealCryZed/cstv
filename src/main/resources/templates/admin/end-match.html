@@ -7,7 +7,6 @@
     <title>CS:GO End Match | CSTV</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
-<!--    <link type="text/css" rel="stylesheet" th:href="@{/css/matches.css}" />-->
 </head>
 <body>
 
@@ -16,10 +15,10 @@
     <div class="body end-match-page">
         <div class="width-align">
             <div class="big-center-menu">
-                <h3 style="margin-bottom: 15px">CS:GO Matches</h3>
+                <h3 style="margin-bottom: 15px">CS:GO Current Matches</h3>
                 <div class="matches-box" th:each="match : ${matches}">
                     <div class="match-div">
-                        <a th:href="@{/ranking}" class="match-link">
+                        <a th:href="@{/}" class="match-link">
                             <div>
                                 <h5 class="match-time" th:text="${match.timeOfStart}">TIME</h5>
                             </div>
@@ -40,26 +39,51 @@
                         <div class="match-div-end-btn">
                             <a class="match-end-btn"
                                th:href="@{'/admin/end-match/' + ${match.id}}"
-                               onclick="endMatch(this.id); return false;"
                                th:id="${match.firstTeamName} + ' vs ' + ${match.secondTeamName}">&times;
                             </a>
                         </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px;" class="ended-matches">
+                    <h3 style="margin-bottom: 15px">CS:GO Ended Matches</h3>
+                    <div class="matches-box" th:each="endedMatch : ${endedMatches}">
+                        <a th:href="@{/ranking}" class="match-link ended-match-link">
+                            <div>
+                                <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="ended-match-first-team-score" th:text="${endedMatch.firstTeamScore}">FIRST TEAM SCORE</h5>
+                            </div>
+                            <div>
+                                <h5 class="match-vs-sign">vs</h5>
+                            </div>
+                            <div>
+                                <h5 class="ended-match-second-team-score" th:text="${endedMatch.secondTeamScore}">SECOND TEAM SCORE</h5>
+                            </div>
+                            <div>
+                                <h5 class="ended-match-second-team-name" th:text="${endedMatch.secondTeamName}">SECOND TEAM NAME</h5>
+                            </div>
+                            <div>
+                                <h5 class="ended-match-tournament-name" th:text="${endedMatch.tournament}">TOURNAMENT</h5>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function endMatch(name) {
-            var answer = window.confirm("Do you want to end the match?\n\n" + name)
+<!--    <script>-->
+<!--        function endMatch(name) {-->
+<!--            var answer = window.confirm("Do you want to end the match?\n\n" + name);-->
 
-            if (answer) {
-                window.location.replace(url);
-            } else {
-                return false;
-            }
-        }
-    </script>
+<!--            if (answer) {-->
+<!--                window.location.replace(url);-->
+<!--            } else {-->
+<!--                return false;-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
 </body>
 </html>

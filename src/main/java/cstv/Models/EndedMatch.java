@@ -5,17 +5,19 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@Document(collection = "matches")
-public class Match{
+import java.util.Date;
 
-    @Transient
-    public static final String SEQUENCE_NAME = "matches_sequence";
+@Data
+@Document(collection = "ended_matches")
+public class EndedMatch {
+
+//    @Transient
+//    public static final String SEQUENCE_NAME = "ended_matches_sequence";
 
     @Id
     private Long id;
 
-    private String timeOfStart;
+    private Date endedTime;
 
     private String firstTeamName;
     private Integer firstTeamScore;
@@ -25,5 +27,5 @@ public class Match{
 
     private String tournament;
 
-    private Integer ended = 0;
+    private Integer ended = 1;
 }

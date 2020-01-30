@@ -1,6 +1,8 @@
 package cstv.Services;
 
+import cstv.Interfaces.EndedMatchRepository;
 import cstv.Interfaces.MatchRepository;
+import cstv.Models.EndedMatch;
 import cstv.Models.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,6 +19,9 @@ public class MatchService {
 
     @Autowired
     private MatchRepository matchRepo;
+
+    @Autowired
+    private EndedMatchRepository endedMatchRepo;
 
     @Autowired
     private SequenceGeneratorService seqGenerator;
@@ -29,18 +35,18 @@ public class MatchService {
         return matchRepo.save(match);
     }
 
-    public List<Match> getAllMatches() {
-        return matchRepo.findAll();
+    public List<EndedMatch> getAllEndedMatches() {
+        return endedMatchRepo.findAll();
     }
 
     public List<Match> getAllMatchesNotEnded() {
         return matchRepo.findAllByEnded(0);
     }
 
-    public Page<Match> getFiveLastMatches() {
+    public Page<EndedMatch> getEightLastEndedMatches() {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
-        return matchRepo.findAll(page);
+                0, 8, Sort.by("_id").ascending());
+        return endedMatchRepo.findAll(page);
     }
 
     public Page<Match> getFiveLastMatchesNotEnded() {
@@ -49,9 +55,24 @@ public class MatchService {
         return matchRepo.findAllByEnded(0, page);
     }
 
-    public void endMatchById(Long id) {
+    public void endMatchById(Long id, Integer team1Score, Integer team2Score) {
         Match match = matchRepo.findMatchById(id);
-        match.setEnded(1);
-        matchRepo.save(match);
+        EndedMatch endedMatch = new EndedMatch();
+
+        endedMatch.setId(match.getId());
+        endedMatch.setEndedTime(new Date());
+
+        endedMatch.setFirstTeamName(match.getFirstTeamName());
+        endedMatch.setFirstTeamScore(team1Score);
+
+        endedMatch.setSecondTeamName(match.getSecondTeamName());
+        endedMatch.setSecondTeamScore(team2Score);
+
+        endedMatch.setTournament(match.getTournament());
+
+        System.err.println(endedMatch);
+
+        endedMatchRepo.save(endedMatch);
+//        matchRepo.deleteMatchById(id);
     }
 }

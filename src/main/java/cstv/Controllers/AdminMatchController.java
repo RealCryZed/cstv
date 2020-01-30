@@ -1,5 +1,6 @@
 package cstv.Controllers;
 
+import cstv.Models.EndedMatch;
 import cstv.Models.Match;
 import cstv.Services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -44,18 +46,40 @@ public class AdminMatchController {
 
     @GetMapping("/end-match")
     public ModelAndView getEndMatchPage(ModelAndView modelAndView) {
-        modelAndView.addObject("matches", matchService.getAllMatches());
+        modelAndView.addObject("matches", matchService.getAllMatchesNotEnded());
+        modelAndView.addObject("endedMatches", matchService.getAllEndedMatches());
         modelAndView.setViewName("admin/end-match");
 
         return modelAndView;
     }
 
     @GetMapping("/end-match/{id}")
-    public ModelAndView endMatch(ModelAndView modelAndView,
+    public ModelAndView getEndMatch(ModelAndView modelAndView,
                                  @PathVariable Long id) {
-        matchService.endMatchById(id);
+        Match match = matchService.findMatchById(id);
 
-        modelAndView.setViewName("redirect:/admin/end-match");
+        modelAndView.addObject("matchToEnd", match);
+
+        modelAndView.setViewName("admin/endMatchById");
+        return modelAndView;
+    }
+
+    @PostMapping("/end-match/{id}")
+    public ModelAndView endMatch(ModelAndView modelAndView,
+                                 @PathVariable Long id,
+                                 @Valid @ModelAttribute("matchToEnd") Match matchToEnd,
+                                 BindingResult bindingResult) {
+        Match match = matchService.findMatchById(matchToEnd.getId());
+
+        if (bindingResult.hasErrors()) {
+            modelAndView.addObject("matchToEnd", match);
+
+            modelAndView.setViewName("redirect:/admin/end-match/error/" + id);
+        } else {
+            matchService.endMatchById(id, matchToEnd.getFirstTeamScore(), matchToEnd.getSecondTeamScore());
+            modelAndView.setViewName("redirect:/admin/end-match");
+        }
+
         return modelAndView;
     }
 }

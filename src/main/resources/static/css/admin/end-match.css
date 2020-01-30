@@ -20,8 +20,6 @@
     color: #186EFF;
 }
 
-/*                                     */
-
 .match-link {
     display: inline-flex;
     padding: 8px;
@@ -73,8 +71,6 @@
     -webkit-line-clamp: 1;
 }
 
-/*                                              */
-
 .match-div-end-btn {
     display: inline-flex;
     flex: 1 1 auto;
@@ -99,4 +95,55 @@
 .match-end-btn:hover {
     background-color: #a7a7a7;
     color: #990707;
+}
+
+/*
+    ENDED MATCH
+*/
+
+.match-link.ended-match-link {
+    line-height: 15px;
+}
+
+.ended-match-link:hover {
+    background-color: #E7E7E7;
+    color: #186EFF;
+}
+
+.ended-match-first-team-name {
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+
+.ended-match-first-team-score {
+    flex: 1 1 auto;
+    min-width: 30px;
+}
+
+.ended-match-second-team-name {
+    flex: 1 1 auto;
+    max-width: 140px;
+    min-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.ended-match-second-team-score {
+    flex: 1 1 auto;
+    min-width: 30px;
+}
+
+.ended-match-tournament-name {
+    font-weight: 100;
+    flex: 1 1 auto;
+    min-width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }

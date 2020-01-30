@@ -16,4 +16,6 @@ public interface MatchRepository extends MongoRepository<Match, Long> {
     Page<Match> findAllByEnded(Integer ended, Pageable pageable);
 
     Match findMatchById(Long id);
+
+    void deleteMatchById(Long id);
 }
