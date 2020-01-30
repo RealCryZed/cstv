@@ -70,9 +70,7 @@ public class MatchService {
 
         endedMatch.setTournament(match.getTournament());
 
-        System.err.println(endedMatch);
-
         endedMatchRepo.save(endedMatch);
-//        matchRepo.deleteMatchById(id);
+        matchRepo.deleteMatchById(id);
     }
 }
