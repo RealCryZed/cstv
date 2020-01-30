@@ -33,15 +33,15 @@
                     <h5 class="main-results-head-h5">RESULTS</h5>
                 </a>
 
-                <div class="main-results-big">
+                <div class="main-results-big" th:each="endedMatch : ${endedMatches}">
                     <a th:href="@{/}" class="main-results-a">
                         <div class="main-results-a-teams">
-                            <h5 class="main-results-a-team">Virtus.pro</h5>
-                            <h5 class="main-results-a-team">Natus Vincere</h5>
+                            <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
+                            <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
                         </div>
                         <div class="main-results-a-div-score">
-                            <div class="main-results-a-score loss">2</div>
-                            <div class="main-results-a-score win">16</div>
+                            <div class="main-results-a-score" th:text="${endedMatch.firstTeamScore}">1 TEAM SCORE</div>
+                            <div class="main-results-a-score" th:text="${endedMatch.secondTeamScore}">2 TEAM SCORE</div>
                         </div>
                     </a>
                 </div>

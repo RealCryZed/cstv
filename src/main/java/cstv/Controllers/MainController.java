@@ -24,6 +24,7 @@ public class MainController {
 
         modelAndView.addObject("teams", teamService.getTenFirstTeams());
         modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
+        modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
 
         return modelAndView;
     }

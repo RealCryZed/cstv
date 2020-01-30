@@ -39,6 +39,12 @@ public class MatchService {
         return endedMatchRepo.findAll();
     }
 
+    public Page<EndedMatch> getFiveLastEndedMatches() {
+        PageRequest page = PageRequest.of(
+                0, 5, Sort.by("_id").ascending());
+        return endedMatchRepo.findAll(page);
+    }
+
     public List<Match> getAllMatchesNotEnded() {
         return matchRepo.findAllByEnded(0);
     }

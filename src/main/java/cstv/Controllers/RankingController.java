@@ -27,6 +27,7 @@ public class RankingController {
         modelAndView.addObject("player", playerService.findAllPlayers());
         modelAndView.addObject("teams", teamService.findAllTeams());
         modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
+        modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
 
         return modelAndView;
     }
