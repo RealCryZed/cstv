@@ -58,7 +58,8 @@
                             </div>
 
                             <div>
-                                <h5 class="ended-match-first-team-score" th:text="${endedMatch.firstTeamScore}">FIRST TEAM SCORE</h5>
+                                <h5 th:class="${endedMatch.firstTeamState} + ' ended-match-first-team-score'"
+                                    th:text="${endedMatch.firstTeamScore}">FIRST TEAM SCORE</h5>
                             </div>
 
                             <div>
@@ -66,7 +67,8 @@
                             </div>
 
                             <div>
-                                <h5 class="ended-match-second-team-score" th:text="${endedMatch.secondTeamScore}">SECOND TEAM SCORE</h5>
+                                <h5 th:class="${endedMatch.secondTeamState} + ' ended-match-second-team-score'"
+                                    th:text="${endedMatch.secondTeamScore}">SECOND TEAM SCORE</h5>
                             </div>
 
                             <div>

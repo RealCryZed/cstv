@@ -21,9 +21,11 @@ public class EndedMatch {
 
     private String firstTeamName;
     private Integer firstTeamScore;
+    private String firstTeamState;
 
     private String secondTeamName;
     private Integer secondTeamScore;
+    private String secondTeamState;
 
     private String tournament;
 

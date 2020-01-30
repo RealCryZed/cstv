@@ -76,6 +76,14 @@ public class MatchService {
 
         endedMatch.setTournament(match.getTournament());
 
+        if (team1Score == 16) {
+            endedMatch.setFirstTeamState("win");
+            endedMatch.setSecondTeamState("loss");
+        } else if (team2Score == 16){
+            endedMatch.setFirstTeamState("loss");
+            endedMatch.setSecondTeamState("win");
+        }
+
         endedMatchRepo.save(endedMatch);
         matchRepo.deleteMatchById(id);
     }

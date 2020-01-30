@@ -40,8 +40,10 @@
                             <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
                         </div>
                         <div class="main-results-a-div-score">
-                            <div class="main-results-a-score" th:text="${endedMatch.firstTeamScore}">1 TEAM SCORE</div>
-                            <div class="main-results-a-score" th:text="${endedMatch.secondTeamScore}">2 TEAM SCORE</div>
+                            <div th:class="${endedMatch.firstTeamState} + ' main-results-a-score'"
+                                 th:text="${endedMatch.firstTeamScore}">1 TEAM SCORE</div>
+                            <div th:class="${endedMatch.secondTeamState} + ' main-results-a-score'"
+                                 th:text="${endedMatch.secondTeamScore}">2 TEAM SCORE</div>
                         </div>
                     </a>
                 </div>
