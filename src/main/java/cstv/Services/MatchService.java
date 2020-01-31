@@ -76,10 +76,10 @@ public class MatchService {
 
         endedMatch.setTournament(match.getTournament());
 
-        if (team1Score == 16) {
+        if (team1Score == 16 && team2Score <= 14 || team1Score == 19 && team2Score >= 15 && team2Score <= 17) {
             endedMatch.setFirstTeamState("win");
             endedMatch.setSecondTeamState("loss");
-        } else if (team2Score == 16){
+        } else if (team2Score == 16 && team1Score <= 14 || team2Score == 19 && team1Score >= 15 && team1Score <= 17){
             endedMatch.setFirstTeamState("loss");
             endedMatch.setSecondTeamState("win");
         }

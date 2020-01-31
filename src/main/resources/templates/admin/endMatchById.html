@@ -7,6 +7,7 @@
     <title>CS:GO End Match | CSTV</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/endMatchById.css}" />
 </head>
 <body>
 
@@ -16,7 +17,8 @@
         <div class="width-align">
             <div class="big-center-menu" th:object="${matchToEnd}">
                 <div class="match-on-end">
-                    <h3 style="margin-bottom: 15px" th:text="${matchToEnd.firstTeamName} + ' VS ' + ${matchToEnd.secondTeamName}"></h3>
+                    <h2 style="margin-bottom: 15px; text-align: center;"
+                        th:text="${matchToEnd.firstTeamName} + ' VS ' + ${matchToEnd.secondTeamName}"></h2>
 
                     <form class="match-on-edit-form" th:action="@{'/admin/end-match/' + ${matchToEnd.id}}" method="post">
 
@@ -26,25 +28,31 @@
                             </span><br/>
                         </div>
 
-                        <label class="text-before-field" for="endMatchFirstTeamScore"
-                               th:text="${matchToEnd.firstTeamName} + ' score'"></label><br/>
+                        <div class="text-before-field-div">
+                            <label class="text-before-field" for="endMatchFirstTeamScore"
+                                   th:text="${matchToEnd.firstTeamName}"></label>
+                            <label class="text-before-field-score" for="endMatchFirstTeamScore"> score</label>
+                        </div>
                         <div th:if="${#fields.hasErrors('firstTeamScore')}">
                             <span class="validationError"
                                   th:errors="*{firstTeamScore}">Name Error
                             </span><br/>
                         </div>
-                        <input type="number" class="add-match-input" th:field="*{firstTeamScore}"
-                               placeholder="1 team score" id="endMatchFirstTeamScore"/><br/><br/>
+                        <input type="number" class="end-match-input" th:field="*{firstTeamScore}"
+                               placeholder="1 team score" id="endMatchFirstTeamScore"/><br/>
 
-                        <label class="text-before-field" for="endMatchSecondTeamScore"
-                               th:text="${matchToEnd.secondTeamName} + ' score'"></label><br/>
+                        <div class="text-before-field-div">
+                            <label class="text-before-field" for="endMatchFirstTeamScore"
+                                   th:text="${matchToEnd.secondTeamName}"></label>
+                            <label class="text-before-field-score" for="endMatchFirstTeamScore"> score</label>
+                        </div>
                         <div th:if="${#fields.hasErrors('secondTeamScore')}">
                             <span class="validationError"
                                   th:errors="*{secondTeamScore}">Name Error
                             </span><br/>
                         </div>
-                        <input type="number" class="add-match-input" th:field="*{secondTeamScore}"
-                               placeholder="2 team score" id="endMatchSecondTeamScore"/><br/><br/>
+                        <input type="number" class="end-match-input" th:field="*{secondTeamScore}"
+                               placeholder="2 team score" id="endMatchSecondTeamScore"/><br/>
 
                         <button type="submit" class="btn btn-end-match">End match</button>
                     </form>

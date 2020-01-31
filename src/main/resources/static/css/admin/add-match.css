@@ -2,3 +2,53 @@
     order: unset !important;
     margin: 0 auto !important;
 }
+
+.add-match-form {
+    display: grid;
+    margin: 0 auto;
+    max-width: 210px;
+}
+
+.first-text-field {
+    margin-top: 15px;
+}
+
+.text-before-field {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.add-match-input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 3px;
+    padding-left: 5px;
+}
+
+.tournament-input {
+    margin-bottom: 20px;
+}
+
+.add-match-button {
+    padding: 12px 7px;
+    border: 0;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    background: white;
+    transition: .1s ease;
+}
+
+.add-match-button:hover {
+    background-color: #ececec;
+    color: #224899;
+}
+
+.btn-to-admin {
+    margin-top: 10px;
+}
+
+.btn-to-admin:hover {
+    text-decoration: underline;
+    color: #0C2457;
+}

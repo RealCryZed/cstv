@@ -31,16 +31,16 @@
 
 .match-time {
     flex: 1 1 auto;
-    min-width: 72px;
+    min-width: 52px;
     color: black;
     font-weight: 100;
 }
 
 .match-first-team-name {
-    min-width: 130px;
-    max-width: 130px;
+    min-width: 135px;
+    max-width: 135px;
     text-align: right;
-    margin-right: 20px;
+    margin-right: 35px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

@@ -259,8 +259,12 @@ h5.validationError {
  * MAIN MATCHES BOX
  */
 
+.main-ranking-head-h5 {
+    margin-bottom: 14px;
+}
+
 .main-matches-head-h5, .main-ranking-head-h5, .main-player-rank-head-h5, .main-results-head-h5 {
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     display: inline-block;
     transition: .1s ease;
 }
@@ -319,7 +323,8 @@ h5.validationError {
  */
 
 .main-results-head-h5 {
-    margin-top: 7px;
+    margin-bottom: 14px;
+    margin-top: 14px;
 }
 
 .main-results-big {

@@ -19,39 +19,44 @@
 
                 <div class="match-creation">
                     <form method="post" th:action="@{/admin/add-match}" th:object="${match}" class="add-match-form">
+
+                        <label class="text-before-field first-text-field" for="firstTeamName">Enter the 1 team name</label>
                         <div th:if="${#fields.hasErrors('firstTeamName')}">
                             <h5 class="validationError"
                                 th:errors="*{firstTeamName}">Name Error
                             </h5>
                         </div>
-                        <input type="text" class="add-match-input" placeholder="1 Team Name"
-                               th:field="*{firstTeamName}"><br/>
+                        <input type="text" class="add-match-input" placeholder="1 Team Name" id="firstTeamName"
+                               th:field="*{firstTeamName}">
 
+                        <label class="text-before-field" for="secondTeamName">Enter the 2 team name</label>
                         <div th:if="${#fields.hasErrors('secondTeamName')}">
                             <h5 class="validationError"
                                 th:errors="*{secondTeamName}">Name Error
                             </h5>
                         </div>
-                        <input type="text" class="add-match-input" placeholder="2 Team Name"
-                               th:field="*{secondTeamName}"><br/>
+                        <input type="text" class="add-match-input" placeholder="2 Team Name" id="secondTeamName"
+                               th:field="*{secondTeamName}">
 
+                        <label class="text-before-field" for="timeOfStart">Enter the start time of the match</label>
                         <div th:if="${#fields.hasErrors('timeOfStart')}">
                             <h5 class="validationError"
                                 th:errors="*{timeOfStart}">Name Error
                             </h5>
                         </div>
-                        <input type="text" class="add-match-input" placeholder="Match Start Time"
-                               th:field="*{timeOfStart}"><br/>
+                        <input type="text" class="add-match-input" placeholder="Match Start Time" id="timeOfStart"
+                               th:field="*{timeOfStart}">
 
+                        <label class="text-before-field" for="tournament">Enter the name of tournament</label>
                         <div th:if="${#fields.hasErrors('tournament')}">
                             <h5 class="validationError"
                                 th:errors="*{tournament}">Name Error
                             </h5>
                         </div>
-                        <input type="text" class="add-match-input" placeholder="Tournament name"
-                               th:field="*{tournament}"><br/>
+                        <input type="text" class="add-match-input tournament-input" placeholder="Tournament name"
+                               id="tournament" th:field="*{tournament}">
 
-                        <button type="submit" class="add-match-button button btn" name="add-match">Add match</button><br/>
+                        <button type="submit" class="add-match-button button btn" name="add-match">Add match</button>
 
                         <a th:href="@{/admin}" class="btn-to-admin">Back to Admin page</a>
                     </form>
