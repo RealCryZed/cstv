@@ -16,65 +16,6 @@
     font-size: 12px;
 }
 
-.player-ranking {
-    display: grid;
-    max-width: inherit;
-    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
-}
-
-.player-ranking-info, .team-ranking-info {
-    background-color: #b7b7b7;
-    display: flex;
-    max-width: inherit;
-    padding: 7px;
-    line-height: 12px;
-    border-bottom: 1px solid #CACACA;
-}
-
-.player-ranking-info-div, .team-ranking-info-div {
-    flex: 1 1 auto;
-}
-
-.player-ranking-info-h5, .team-ranking-info-h5 {
-    font-size: 10px;
-    font-weight: 100;
-}
-
-.player-ranking-a {
-    background-color: white;
-    display: flex;
-    padding: 8px;
-    min-height: 12px;
-    line-height: 12px;
-    border-bottom: 1px solid #CACACA;
-    color: #10459E;
-}
-
-.player-ranking-a-place {
-    flex: 1 1 auto;
-    min-width: 26px;
-    font-weight: 100;
-}
-
-.player-ranking-a:hover {
-    background-color: #E7E7E7;
-    color: #186EFF;
-}
-
-.player-ranking-div {
-    text-align: left;
-    flex: 1 1 auto;
-}
-
-.player-ranking-a-nickname {
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.player-ranking-a-kd {
-    font-weight: 100;
-}
-
 /*
     CENTER AREA
 */

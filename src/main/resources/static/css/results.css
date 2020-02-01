@@ -1,0 +1,29 @@
+/*
+    Matches stylesheet OVERRIDE
+*/
+
+.main-matches-a-time {
+    max-width: 37px !important;
+    padding-right: 0px;
+}
+
+/*
+    End-Match stylesheet OVERRIDE
+*/
+
+.ended-match-first-team-name {
+    font-size: 12px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+}
+
+.ended-match-second-team-name {
+    font-size: 12px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+}
+
+.ended-match-tournament-name {
+    min-width: 233px !important;
+    max-width: 233px !important;
+}
