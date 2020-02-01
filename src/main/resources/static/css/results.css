@@ -2,6 +2,10 @@
     Matches stylesheet OVERRIDE
 */
 
+.main-matches-a-teams {
+    min-width: 122px !important;
+}
+
 .main-matches-a-time {
     max-width: 37px !important;
     padding-right: 0px;

@@ -121,17 +121,17 @@
             <div class="left-area-medium">
                 <a th:href="@{/matches}" class="main-results-head-a">
                     <h5 class="main-matches-head-h5">MATCHES</h5>
-
-                    <div class="main-matches" th:each="match : ${matches}">
-                        <a th:href="@{/}" class="main-matches-a">
-                            <div class="main-matches-a-teams">
-                                <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
-                                <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
-                            </div>
-                            <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
-                        </a>
-                    </div>
                 </a>
+
+                <div class="main-matches" th:each="match : ${matches}">
+                    <a th:href="@{/}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
+                            <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
+                        </div>
+                        <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
