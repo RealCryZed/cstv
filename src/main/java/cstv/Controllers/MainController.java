@@ -1,5 +1,6 @@
 package cstv.Controllers;
 
+import cstv.Services.GuideService;
 import cstv.Services.MatchService;
 import cstv.Services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class MainController {
     @Autowired
     private MatchService matchService;
 
+    @Autowired
+    private GuideService guideService;
+
     @RequestMapping("/")
     public ModelAndView home(ModelAndView modelAndView) {
         modelAndView.setViewName("home");
@@ -25,6 +29,7 @@ public class MainController {
         modelAndView.addObject("teams", teamService.getTenFirstTeams());
         modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
         modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
+        modelAndView.addObject("guides", guideService.getLast15Guides());
 
         return modelAndView;
     }

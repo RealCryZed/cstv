@@ -47,10 +47,12 @@ public class AdminMatchController {
         } else {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-            String timePublished = LocalDateTime.now().format(dateTimeFormatter);
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter dateTimeFormatterOnlyDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String timeAndDatePublished = LocalDateTime.now().format(dateTimeFormatter);
+            String datePublished = LocalDateTime.now().format(dateTimeFormatterOnlyDate);
 
-            guideService.addGuide(guide, auth.getName(), timePublished);
+            guideService.addGuide(guide, auth.getName(), timeAndDatePublished, datePublished);
             modelAndView.addObject("successMessage", "Guide has been created successfully");
             modelAndView.addObject("guide", new Guide());
             modelAndView.setViewName("admin/admin");

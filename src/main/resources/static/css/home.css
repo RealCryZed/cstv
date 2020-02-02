@@ -15,7 +15,7 @@
 .lille-guide-a {
     display: flex;
     align-items: center;
-    padding: 7px;
+    padding: 8px;
     border-bottom: 1px solid grey;
 }
 
@@ -36,4 +36,12 @@
 .little-guide-time {
     min-width: 100px;
     text-align: center;
+}
+
+/*
+    OVERRIDES
+*/
+
+.main-ranking-head-h5 {
+    margin-top: 0px !important;
 }

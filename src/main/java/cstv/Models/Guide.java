@@ -18,6 +18,7 @@ public class Guide {
     private Long id;
 
     private String timeOfCreation;
+    private String dateOfCreation;
     private String author;
 
     @Size(min = 3, message = "Headline must be at least 3 letter")
