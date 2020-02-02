@@ -61,12 +61,13 @@ public class MatchService {
         return matchRepo.findAllByEnded(0, page);
     }
 
-    public void endMatchById(Long id, Integer team1Score, Integer team2Score) {
+    public void endMatchById(Long id, Integer team1Score, Integer team2Score, String timeEnded, String dateEnded) {
         Match match = matchRepo.findMatchById(id);
         EndedMatch endedMatch = new EndedMatch();
 
         endedMatch.setId(match.getId());
-        endedMatch.setEndedTime(new Date());
+        endedMatch.setEndedTime(timeEnded);
+        endedMatch.setEndedDate(dateEnded);
 
         endedMatch.setFirstTeamName(match.getFirstTeamName());
         endedMatch.setFirstTeamScore(team1Score);

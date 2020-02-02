@@ -23,6 +23,7 @@ public class Guide {
 
     @Size(min = 3, message = "Headline must be at least 3 letter")
     private String headline;
+
     @Size(min = 2, message = "Theme must be at least 2 letter")
     private String theme;
 

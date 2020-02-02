@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
@@ -17,13 +19,16 @@ public class EndedMatch {
     @Id
     private Long id;
 
-    private Date endedTime;
+    private String endedTime;
+    private String endedDate;
 
     private String firstTeamName;
+    @NotNull(message = "Team score mustn't be null")
     private Integer firstTeamScore;
     private String firstTeamState;
 
     private String secondTeamName;
+    @NotNull(message = "Team score mustn't be null")
     private Integer secondTeamScore;
     private String secondTeamState;
 

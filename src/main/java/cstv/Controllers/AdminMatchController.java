@@ -47,7 +47,7 @@ public class AdminMatchController {
         } else {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
             DateTimeFormatter dateTimeFormatterOnlyDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String timeAndDatePublished = LocalDateTime.now().format(dateTimeFormatter);
             String datePublished = LocalDateTime.now().format(dateTimeFormatterOnlyDate);
@@ -106,6 +106,20 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    @GetMapping("/end-match/error/{id}")
+    public ModelAndView getEndMatchError(ModelAndView modelAndView,
+                                    @PathVariable Long id) {
+        Match match = matchService.findMatchById(id);
+
+        modelAndView.addObject("error", true);
+        modelAndView.addObject("errorMessage", "Team scores mustn't be null");
+
+        modelAndView.addObject("matchToEnd", match);
+
+        modelAndView.setViewName("admin/endMatchById");
+        return modelAndView;
+    }
+
     @PostMapping("/end-match/{id}")
     public ModelAndView endMatch(ModelAndView modelAndView,
                                  @PathVariable Long id,
@@ -115,10 +129,15 @@ public class AdminMatchController {
 
         if (bindingResult.hasErrors()) {
             modelAndView.addObject("matchToEnd", match);
-
             modelAndView.setViewName("redirect:/admin/end-match/error/" + id);
         } else {
-            matchService.endMatchById(id, matchToEnd.getFirstTeamScore(), matchToEnd.getSecondTeamScore());
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            DateTimeFormatter dateTimeFormatterOnlyDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String timeEnded = LocalDateTime.now().format(dateTimeFormatter);
+            String dateEnded = LocalDateTime.now().format(dateTimeFormatterOnlyDate);
+
+            matchService.endMatchById(id, matchToEnd.getFirstTeamScore(), matchToEnd.getSecondTeamScore(),
+                    timeEnded, dateEnded);
             modelAndView.setViewName("redirect:/admin/end-match");
         }
 
