@@ -6,12 +6,17 @@ import cstv.Models.Match;
 import cstv.Services.GuideService;
 import cstv.Services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -40,7 +45,12 @@ public class AdminMatchController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("admin/add-guide");
         } else {
-            guideService.addGuide(guide);
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            String timePublished = LocalDateTime.now().format(dateTimeFormatter);
+
+            guideService.addGuide(guide, auth.getName(), timePublished);
             modelAndView.addObject("successMessage", "Guide has been created successfully");
             modelAndView.addObject("guide", new Guide());
             modelAndView.setViewName("admin/admin");

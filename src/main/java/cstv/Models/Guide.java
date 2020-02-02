@@ -4,10 +4,8 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Data
 @Document(collection = "guides")
@@ -19,8 +17,7 @@ public class Guide {
     @Id
     private Long id;
 
-    @DateTimeFormat(pattern = "hh:mm:ss")
-    private Date timeOfCreation;
+    private String timeOfCreation;
     private String author;
 
     @Size(min = 3, message = "Headline must be at least 3 letter")
