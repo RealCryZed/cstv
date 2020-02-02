@@ -3,10 +3,10 @@
     margin: 0 auto !important;
 }
 
-.add-match-form {
+.add-guide-form {
     display: grid;
+    max-width: 300px;
     margin: 0 auto;
-    max-width: 210px;
 }
 
 .first-text-field {
@@ -18,18 +18,20 @@
     font-size: 15px;
 }
 
-.add-match-input {
+.add-guide-input {
     margin-top: 5px;
     margin-bottom: 10px;
     padding: 3px;
     padding-left: 5px;
 }
 
-.tournament-input {
-    margin-bottom: 20px;
+.add-guide-textarea {
+    height: 160px;
+    resize: vertical;
+    padding: 5px;
 }
 
-.add-match-button {
+.add-guide-button {
     padding: 12px 7px;
     border: 0;
     border-radius: 2px;
@@ -39,7 +41,7 @@
     transition: .1s ease;
 }
 
-.add-match-button:hover {
+.add-guide-button:hover {
     background-color: #ececec;
     color: #224899;
 }

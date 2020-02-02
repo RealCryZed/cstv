@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add guide | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/add-guide.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body add-guide">
+        <div class="width-align">
+            <div class="big-center-menu">
+                <h1 style="text-align: center">Add match</h1>
+
+                <div class="guide-creation">
+                    <form th:action="@{/admin/add-guide}" th:object="${guide}" method="post" class="add-guide-form">
+                        <label class="text-before-field first-text-field" for="headline">Enter the Guide's headline</label>
+                        <div th:if="${#fields.hasErrors('headline')}">
+                            <h5 class="validationError"
+                                th:errors="*{headline}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-guide-input" placeholder="Headline" id="headline"
+                               th:field="*{headline}">
+
+                        <label class="text-before-field first-text-field" for="theme">Enter the Guide's Theme</label>
+                        <div th:if="${#fields.hasErrors('theme')}">
+                            <h5 class="validationError"
+                                th:errors="*{theme}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-guide-input" placeholder="Theme" id="theme"
+                               th:field="*{theme}">
+
+                        <label class="text-before-field first-text-field" for="text">Enter the Guide's Text</label>
+                        <div th:if="${#fields.hasErrors('text')}">
+                            <h5 class="validationError"
+                                th:errors="*{text}">Name Error
+                            </h5>
+                        </div>
+                        <textarea class="add-guide-input add-guide-textarea" placeholder="Text" id="text"
+                                  th:field="*{text}"></textarea>
+
+                        <button type="submit" class="add-guide-button button btn" name="add-guide">Add guide</button>
+
+                        <a th:href="@{/admin}" class="btn-to-admin">Back to Admin page</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

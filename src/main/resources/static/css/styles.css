@@ -206,6 +206,15 @@ h5.validationError {
     color: #CF1515;
 }
 
+.btn-to-admin {
+    margin-top: 10px;
+}
+
+.btn-to-admin:hover {
+    text-decoration: underline;
+    color: #0C2457;
+}
+
 /*
  * CENTER AREA
  */

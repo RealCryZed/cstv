@@ -1,7 +1,9 @@
 package cstv.Controllers;
 
 import cstv.Models.EndedMatch;
+import cstv.Models.Guide;
 import cstv.Models.Match;
+import cstv.Services.GuideService;
 import cstv.Services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,33 @@ public class AdminMatchController {
     @Autowired
     private MatchService matchService;
 
+    @Autowired
+    private GuideService guideService;
+
+    @GetMapping("/add-guide")
+    public ModelAndView getAddGuidePage(ModelAndView modelAndView) {
+        modelAndView.addObject("guide", new Guide());
+        modelAndView.setViewName("admin/add-guide");
+
+        return modelAndView;
+    }
+
+    @PostMapping("/add-guide")
+    public ModelAndView addGuide(ModelAndView modelAndView,
+                                 @Valid Guide guide,
+                                 BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("admin/add-guide");
+        } else {
+            guideService.addGuide(guide);
+            modelAndView.addObject("successMessage", "Guide has been created successfully");
+            modelAndView.addObject("guide", new Guide());
+            modelAndView.setViewName("admin/admin");
+        }
+
+        return modelAndView;
+    }
+
     @GetMapping("/add-match")
     public ModelAndView getAddMatchPage(ModelAndView modelAndView) {
         modelAndView.addObject("match", new Match());
@@ -30,7 +59,8 @@ public class AdminMatchController {
 
     @PostMapping("/add-match")
     public ModelAndView addMatch(ModelAndView modelAndView,
-                                 @Valid Match match, BindingResult bindingResult) {
+                                 @Valid Match match,
+                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("admin/add-match");
         } else {
