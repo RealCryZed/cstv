@@ -43,3 +43,7 @@
     background-color: #ececec;
     color: #224899;
 }
+
+.btn-to-admin-match {
+    max-width: 132px;
+}
