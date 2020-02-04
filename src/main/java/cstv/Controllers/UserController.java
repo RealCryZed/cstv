@@ -78,7 +78,7 @@ public class UserController {
 
         modelAndView.addObject("user", user);
         modelAndView.addObject("player", playerService.findAllPlayers());
-        modelAndView.addObject("teams", teamService.findAllTeams());
+        modelAndView.addObject("teams", teamService.getTenFirstTeams());
         modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
         modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
 

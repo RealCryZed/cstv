@@ -58,3 +58,7 @@
     line-height: 40px;
     border-bottom: 1px solid #CACACA;
 }
+
+.main-ranking-head-h5 {
+    margin-top: 0 !important;
+}

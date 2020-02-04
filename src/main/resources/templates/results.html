@@ -124,7 +124,7 @@
                 </a>
 
                 <div class="main-matches" th:each="match : ${matches}">
-                    <a th:href="@{/}" class="main-matches-a">
+                    <a th:href="@{'/matches/' + ${match.id}}" class="main-matches-a">
                         <div class="main-matches-a-teams">
                             <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
                             <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>

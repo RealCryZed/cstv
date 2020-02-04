@@ -271,6 +271,13 @@ h5.validationError {
     margin-left: 20px;
 }
 
+.right-area-medium {
+    order: 3;
+    min-width: 180px;
+    max-width: 180px;
+    margin-left: 20px;
+}
+
 /*
  * MAIN MATCHES BOX
  */

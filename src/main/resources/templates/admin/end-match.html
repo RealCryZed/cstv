@@ -18,7 +18,7 @@
                 <h3 style="margin-bottom: 15px">CS:GO Current Matches</h3>
                 <div class="matches-box" th:each="match : ${matches}">
                     <div class="match-div">
-                        <a th:href="@{/}" class="match-link">
+                        <a th:href="@{'/matches/' + ${match.id}}" class="match-link">
                             <div>
                                 <h5 class="match-time" th:text="${match.timeOfStart}">TIME</h5>
                             </div>

@@ -6,6 +6,9 @@ import cstv.Models.Match;
 import cstv.Services.GuideService;
 import cstv.Services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -76,7 +80,7 @@ public class AdminMatchController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("admin/add-match");
         } else {
-            matchService.addMatch(match);
+            addMatchApi(match);
             modelAndView.addObject("successMessage", "Match has been created successfully");
             modelAndView.addObject("match", new Match());
             modelAndView.setViewName("admin/admin");
@@ -142,5 +146,14 @@ public class AdminMatchController {
         }
 
         return modelAndView;
+    }
+
+    public ResponseEntity<Match> addMatchApi(@RequestBody Match match) {
+        matchService.addMatch(match);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(URI.create("http://localhost:8080/matches/" + match.getId()));
+
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 }

@@ -4,15 +4,15 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>CS:GO Matches | CSTV</title>
+    <title>CS:GO Match | CSTV</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
-    <link type="text/css" rel="stylesheet" th:href="@{/css/matches.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/single-match.css}" />
 </head>
 <body>
 
     <div th:include="navbar :: navbar" class="navbar"></div>
 
-    <div class="body matches-page">
+    <div class="body single-match-page">
         <div class="width-align">
             <div class="left-area-small">
                 <div class="left-area-player-ranking">
@@ -84,31 +84,60 @@
             </div>
 
             <div class="center-menu">
-                <h3 style="margin-bottom: 15px">CS:GO Matches</h3>
-                <div class="matches-box">
-                    <div th:each="match : ${matches}">
-                        <a th:href="@{'/matches/' + ${match.id}}" class="match-link">
-                            <div>
-                                <h5 class="match-time" th:text="${match.timeOfStart}">TIME</h5>
+                <div class="single-match-div">
+                    <div class="tournament-info-div">
+                        <h1 class="single-match-h-tags tournament-name-h1"
+                            th:text="${singleMatch.tournament}">TOURNAMENT NAME</h1>
+                        <h4 class="single-match-h-tags" th:text="${singleMatch.timeOfStart}">START TIME</h4>
+                    </div>
+
+                    <div class="match-info-div">
+                        <div class="single-team first-team">
+                            <a th:href="@{/}" class="single-match-a-tags">
+                                <div class="single-match-a-name-div" th:text="${singleMatch.firstTeamName}">1 TEAM</div>
+                            </a>
+                        </div>
+
+                        <div class="single-vs-sign-div">
+                            <h3 class="single-vs-sign">VS</h3>
+                        </div>
+
+                        <div class="single-team second-team">
+                            <a th:href="@{/}" class="single-match-a-tags">
+                                <div class="single-match-a-name-div" th:text="${singleMatch.secondTeamName}">2 TEAM</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="match-maps-info-div">
+                        <div>
+                            <h3 class="match-maps-h5-head">Maps</h3>
+                        </div>
+
+                        <div class="match-maps-container">
+                            <div class="match-single-map">
+                                <h5 class="match-map-name">MAP NAME</h5>
                             </div>
-                            <div>
-                                <h5 class="match-first-team-name" th:text="${match.firstTeamName}">FIRST TEAM NAME</h5>
-                            </div>
-                            <div>
-                                <h5 class="match-vs-sign">vs</h5>
-                            </div>
-                            <div>
-                                <h5 class="match-second-team-name" th:text="${match.secondTeamName}">SECOND TEAM NAME</h5>
-                            </div>
-                            <div>
-                                <h5 class="match-tournament-name" th:text="${match.tournament}">TOURNAMENT</h5>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="right-area-medium">
+                <a th:href="@{/matches}" class="main-matches-head-a">
+                    <h5 class="main-matches-head-h5">MATCHES</h5>
+                </a>
+
+                <div class="main-matches" th:each="match : ${matches}">
+                    <a th:href="@{'/matches/' + ${match.id}}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
+                            <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
+                        </div>
+                        <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
+                    </a>
+                </div>
+
                 <a th:href="@{/results}" class="main-results-head-a">
                     <h5 class="main-results-head-h5">RESULTS</h5>
                 </a>

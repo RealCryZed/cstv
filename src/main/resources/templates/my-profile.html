@@ -20,7 +20,7 @@
                 </a>
 
                 <div class="main-matches" th:each="match : ${matches}">
-                    <a th:href="@{/}" class="main-matches-a">
+                    <a th:href="@{'/matches/' + ${match.id}}" class="main-matches-a">
                         <div class="main-matches-a-teams">
                             <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
                             <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
@@ -74,6 +74,27 @@
                         <div class="profile-info-text">
                             <span class="profile-info-text-span" th:text="${user.username}">USERNAME</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-area">
+                <a th:href="@{/ranking}" class="main-ranking-head-a">
+                    <h5 class="main-ranking-head-h5">RANKING</h5>
+                </a>
+
+                <div class="main-ranking-box">
+                    <div style="max-width: inherit;" th:each="team : ${teams}">
+                        <a th:href="@{/}" class="main-ranking-a">
+                            <div>
+                                <h5 class="main-ranking-a-team-place"
+                                    th:text="${team.place} + '.'">PLACE</h5>
+                            </div>
+                            <div class="main-ranking-a-inner-div">
+                                <h5 class="main-ranking-a-team-name"
+                                    th:text="${team.name}">TEAM NAME</h5>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
