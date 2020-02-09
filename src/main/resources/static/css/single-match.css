@@ -58,7 +58,7 @@
 .match-info-div {
     display: flex;
     line-height: 100px;
-    box-shadow: 0 1px 4px 0 rgba(50,50,50,.4);
+    box-shadow: 0 0 2px 0 rgba(50,50,50,.4)
 }
 
 .single-team {
