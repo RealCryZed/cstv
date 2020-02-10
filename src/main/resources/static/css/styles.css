@@ -6,9 +6,9 @@ body {
     padding-top: 46px;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-family: Verdana;
+    font-family: SANS-SERIF;
 }
 
 table {
@@ -283,6 +283,8 @@ h5.validationError {
  */
 
 .main-matches-head-h5, .main-ranking-head-h5, .main-player-rank-head-h5, .main-results-head-h5 {
+    font-size: 12px;
+    font-weight: 800;
     margin-bottom: 10px;
     display: inline-block;
     transition: .1s ease;
@@ -421,12 +423,12 @@ h5.validationError {
 
 .main-ranking-a-team-place {
     font-weight: 100;
-    font-size: 11px;
+    font-size: 12px;
     min-width: 20px;
 }
 
 .main-ranking-a-team-name {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;

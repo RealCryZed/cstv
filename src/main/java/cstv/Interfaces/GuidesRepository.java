@@ -8,4 +8,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface GuidesRepository extends MongoRepository<Guide, Long> {
 
     Page<Guide> findAll(Pageable pageable);
+
+    Guide findGuideById(Long id);
 }

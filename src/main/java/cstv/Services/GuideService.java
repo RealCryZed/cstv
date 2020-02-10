@@ -21,6 +21,10 @@ public class GuideService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
+    public Guide findGuideById(Long id) {
+        return guideRepo.findGuideById(id);
+    }
+
     public Guide addGuide(Guide guide, String author, String timePublished, String datePublished) {
         guide.setId(seqGenerator.generateSequence(Guide.SEQUENCE_NAME));
         guide.setAuthor(author);

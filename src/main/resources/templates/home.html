@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="little-guide" th:each="guide : ${guides}">
-                    <a th:href="@{/}" class="lille-guide-a">
+                    <a th:href="@{'/guides/' + ${guide.id}}" class="lille-guide-a">
                         <h5 th:text="${guide.headline}" class="little-guide-h5">HEADLINE</h5>
                         <div th:text="${guide.dateOfCreation}" class="little-guide-time">DATE</div>
                     </a>

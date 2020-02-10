@@ -25,6 +25,7 @@
 }
 
 .little-guide-h5 {
+    font-family: Verdana;
     flex: 1 1 auto;
     overflow: hidden;
     text-overflow: ellipsis;
