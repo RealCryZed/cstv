@@ -4,16 +4,15 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>CS:GO Results | CSTV</title>
+    <title th:text="${team.name} + ' - CS:GO | CSTV'"></title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
-    <link type="text/css" rel="stylesheet" th:href="@{/css/results.css}" />
-    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/single-team.css}" />
 </head>
 <body>
 
     <div th:include="navbar :: navbar" class="navbar"></div>
 
-    <div class="body results-page">
+    <div class="body single-team-page">
         <div class="width-align">
             <div class="left-area-small">
                 <div class="left-area-player-ranking">
@@ -63,13 +62,13 @@
                             <h5 class="player-ranking-info-h5">#</h5>
                         </div>
                         <div style="min-width: 115px;" class="team-ranking-info-div">
-                            <h5 class="team-ranking-info-h5">Name</h5>
+                            <h5 class="team-ranking-info-h5">NAME</h5>
                         </div>
                     </div>
 
                     <div class="main-ranking-box">
                         <div style="max-width: inherit;" th:each="team : ${teams}">
-                            <a th:href="@{'/team/' + ${team.name.toLowerCase()}}" class="main-ranking-a">
+                            <a th:href="@{/}" class="main-ranking-a">
                                 <div>
                                     <h5 class="main-ranking-a-team-place"
                                         th:text="${team.place} + '.'">PLACE</h5>
@@ -85,41 +84,11 @@
             </div>
 
             <div class="center-menu">
-                <h3 style="margin-bottom: 15px; font-weight: 800;">CS:GO Results</h3>
 
-                <div class="matches-box" th:each="endedMatch : ${endedMatches}">
-                    <a th:href="@{/ranking}" class="match-link ended-match-link">
-                        <div>
-                            <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>
-                        </div>
-
-                        <div>
-                            <h5 th:class="${endedMatch.firstTeamState} + ' ended-match-first-team-score'"
-                                th:text="${endedMatch.firstTeamScore}">FIRST TEAM SCORE</h5>
-                        </div>
-
-                        <div>
-                            <h5 class="ended-match-dash-sign">-</h5>
-                        </div>
-
-                        <div>
-                            <h5 th:class="${endedMatch.secondTeamState} + ' ended-match-second-team-score'"
-                                th:text="${endedMatch.secondTeamScore}">SECOND TEAM SCORE</h5>
-                        </div>
-
-                        <div>
-                            <h5 class="ended-match-second-team-name" th:text="${endedMatch.secondTeamName}">SECOND TEAM NAME</h5>
-                        </div>
-
-                        <div>
-                            <h5 class="ended-match-tournament-name" th:text="${endedMatch.tournament}">TOURNAMENT</h5>
-                        </div>
-                    </a>
-                </div>
             </div>
 
-            <div class="left-area-medium">
-                <a th:href="@{/matches}" class="main-results-head-a">
+            <div class="right-area-medium">
+                <a th:href="@{/matches}" class="main-matches-head-a">
                     <h5 class="main-matches-head-h5">MATCHES</h5>
                 </a>
 
@@ -127,10 +96,28 @@
                     <a th:href="@{'/matches/' + ${match.id}}" class="main-matches-a">
                         <div class="main-matches-a-teams">
                             <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
-                            <div class="border-between-teams"></div>
                             <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
                         </div>
                         <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
+                    </a>
+                </div>
+
+                <a th:href="@{/results}" class="main-results-head-a">
+                    <h5 class="main-results-head-h5">RESULTS</h5>
+                </a>
+
+                <div class="main-results-big" th:each="endedMatch : ${endedMatches}">
+                    <a th:href="@{/}" class="main-results-a">
+                        <div class="main-results-a-teams">
+                            <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
+                            <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
+                        </div>
+                        <div class="main-results-a-div-score">
+                            <div th:class="${endedMatch.firstTeamState} + ' main-results-a-score'"
+                                 th:text="${endedMatch.firstTeamScore}">1 TEAM SCORE</div>
+                            <div th:class="${endedMatch.secondTeamState} + ' main-results-a-score'"
+                                 th:text="${endedMatch.secondTeamScore}">2 TEAM SCORE</div>
+                        </div>
                     </a>
                 </div>
             </div>

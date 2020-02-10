@@ -23,6 +23,7 @@
                     <a th:href="@{'/matches/' + ${match.id}}" class="main-matches-a">
                         <div class="main-matches-a-teams">
                             <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
+                            <div class="border-between-teams"></div>
                             <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
                         </div>
                         <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
@@ -37,6 +38,7 @@
                     <a th:href="@{/}" class="main-results-a">
                         <div class="main-results-a-teams">
                             <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
+                            <div class="border-between-teams"></div>
                             <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
                         </div>
                         <div class="main-results-a-div-score">
@@ -53,7 +55,7 @@
                 <h3 style="margin-bottom: 15px; font-weight: 800;">CS:GO Ranking on 22.01.2020</h3>
                 <div class="ranking-box">
                     <div th:each="team : ${teams}">
-                        <a th:href="@{/}" class="ranking-a">
+                        <a th:href="@{'/team/' + ${team.name.toLowerCase()}}" class="ranking-a">
                             <div>
                                 <h5 class="ranking-a-place"
                                 th:text="${team.place} + '.'">PLACE</h5>

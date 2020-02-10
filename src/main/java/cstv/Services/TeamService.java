@@ -17,7 +17,7 @@ public class TeamService {
     private TeamRepository teamRepo;
 
     public Team findTeamByName(String nickname) {
-        return teamRepo.findByName(nickname);
+        return teamRepo.findByNameIgnoreCase(nickname);
     }
 
     public List<Team> findAllTeams() {
