@@ -429,7 +429,7 @@ h5.validationError {
 .main-ranking-a-team-place {
     font-weight: 100;
     font-size: 12px;
-    min-width: 20px;
+    min-width: 19px;
 }
 
 .main-ranking-a-team-name {
@@ -486,7 +486,7 @@ h5.validationError {
 
 .player-ranking-a-place {
     flex: 1 1 auto;
-    min-width: 26px;
+    min-width: 16px;
     font-weight: 100;
 }
 

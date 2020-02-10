@@ -22,10 +22,10 @@
 
                     <div class="player-ranking">
                         <div class="player-ranking-info">
-                            <div style="min-width: 26px;" class="player-ranking-info-div">
+                            <div style="min-width: 16px;" class="player-ranking-info-div">
                                 <h5 class="player-ranking-info-h5">#</h5>
                             </div>
-                            <div style="min-width: 71px;" class="player-ranking-info-div">
+                            <div style="min-width: 81px;" class="player-ranking-info-div">
                                 <h5 class="player-ranking-info-h5">NICKNAME</h5>
                             </div>
                             <div class="player-ranking-info-div">
@@ -94,7 +94,8 @@
                     </div>
 
                     <div class="guide-time-of-creation">
-                        <h6 class="guide-time-of-creation-head" th:text="${singleGuide.timeOfCreation}">TIME OF CREATION</h6>
+                        <h6 class="guide-time-of-creation-head"
+                            th:text="${singleGuide.dateOfCreation} + ', ' + ${singleGuide.timeOfCreation}">TIME OF CREATION</h6>
                     </div>
 
                     <div class="guide-text" th:each="singleText : ${singleGuideText}">

@@ -39,7 +39,7 @@
 
 .ranking-a-place, .player-ranking-a-place {
     flex: 1 1 auto;
-    min-width: 26px;
+    min-width: 22px;
     font-weight: 100;
 }
 
