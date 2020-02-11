@@ -32,7 +32,7 @@ public class GuideService {
 
     public Page<Guide> getLast15Guides() {
         PageRequest page = PageRequest.of(
-                0, 15, Sort.by("_id").ascending());
+                0, 15, Sort.by("dateOfCreation").descending());
         return guideRepo.findAll(page);
     }
 }

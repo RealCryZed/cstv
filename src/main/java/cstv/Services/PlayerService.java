@@ -22,17 +22,19 @@ public class PlayerService {
         return playerRepo.findByNickname(nickname);
     }
 
-    public List<Player> findAllPlayers() {
-        return playerRepo.findAll();
-    }
-
     public Player findPlayerById(Integer id) {
         return playerRepo.findPlayerById(id);
     }
 
+    public Page<Player> findAllPlayers() {
+        PageRequest page = PageRequest.of(
+                0, 30, Sort.by("place").ascending());
+        return playerRepo.findAll(page);
+    }
+
     public Page<Player> getFiveFirstPlayers() {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
+                0, 5, Sort.by("place").ascending());
         return playerRepo.findAll(page);
     }
 

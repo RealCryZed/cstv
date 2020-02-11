@@ -20,19 +20,21 @@ public class TeamService {
         return teamRepo.findByNameIgnoreCase(nickname);
     }
 
-    public List<Team> findAllTeams() {
-        return teamRepo.findAll();
+    public Page<Team> findAllTeams() {
+        PageRequest page = PageRequest.of(
+                0, 40, Sort.by("place").ascending());
+        return teamRepo.findAll(page);
     }
 
     public Page<Team> getFiveFirstTeams() {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
+                0, 5, Sort.by("place").ascending());
         return teamRepo.findAll(page);
     }
 
     public Page<Team> getTenFirstTeams() {
         PageRequest page = PageRequest.of(
-                0, 10, Sort.by("_id").ascending());
+                0, 10, Sort.by("place").ascending());
         return teamRepo.findAll(page);
     }
 
