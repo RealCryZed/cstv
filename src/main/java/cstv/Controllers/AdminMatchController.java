@@ -3,8 +3,10 @@ package cstv.Controllers;
 import cstv.Models.EndedMatch;
 import cstv.Models.Guide;
 import cstv.Models.Match;
+import cstv.Models.Team;
 import cstv.Services.GuideService;
 import cstv.Services.MatchService;
+import cstv.Services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,6 +29,9 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping("/admin")
 public class AdminMatchController {
+
+    @Autowired
+    private TeamService teamService;
 
     @Autowired
     private MatchService matchService;
@@ -60,6 +65,31 @@ public class AdminMatchController {
             modelAndView.addObject("successMessage", "Guide has been created successfully");
             modelAndView.addObject("guide", new Guide());
             modelAndView.setViewName("admin/admin");
+        }
+
+        return modelAndView;
+    }
+
+    @GetMapping("/add-team")
+    public ModelAndView getAddTeamPage(ModelAndView modelAndView) {
+        modelAndView.addObject("team", new Team());
+        modelAndView.setViewName("admin/add-team");
+
+        return modelAndView;
+    }
+
+    @PostMapping("/add-team")
+    public ModelAndView addTeam(ModelAndView modelAndView,
+                                @Valid Team team,
+                                BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("admin/add-team");
+        } else {
+            addTeamApi(team);
+            modelAndView.addObject("successMessage", "Team has been added successfully");
+            modelAndView.addObject("team", new Team());
+            modelAndView.setViewName("admin/admin");
+
         }
 
         return modelAndView;
@@ -146,6 +176,16 @@ public class AdminMatchController {
         }
 
         return modelAndView;
+    }
+
+    public ResponseEntity<Match> addTeamApi(@RequestBody Team team) {
+        teamService.addTeam(team);
+
+        HttpHeaders headers = new HttpHeaders();
+        String teamName = team.getName().toLowerCase().replace(" ", "%20");
+        headers.setLocation(URI.create("http://localhost:8080/team/" + teamName));
+
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     public ResponseEntity<Match> addMatchApi(@RequestBody Match match) {

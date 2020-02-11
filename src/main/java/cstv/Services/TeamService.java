@@ -16,6 +16,9 @@ public class TeamService {
     @Autowired
     private TeamRepository teamRepo;
 
+    @Autowired
+    private SequenceGeneratorService seqGenerator;
+
     public Team findTeamByName(String nickname) {
         return teamRepo.findByNameIgnoreCase(nickname);
     }
@@ -38,11 +41,8 @@ public class TeamService {
         return teamRepo.findAll(page);
     }
 
-//    public void saveTeam(Integer id, String name, Integer place) {
-//        Team team = new Team();
-//        team.setId(id);
-//        team.setName(name);
-//        team.setPlace(place);
-//        teamRepo.save(team);
-//    }
+    public void addTeam(Team team) {
+        team.setId(seqGenerator.generateSequence(Team.SEQUENCE_NAME));
+        teamRepo.save(team);
+    }
 }

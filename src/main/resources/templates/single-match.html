@@ -68,7 +68,7 @@
 
                     <div class="main-ranking-box">
                         <div style="max-width: inherit;" th:each="team : ${teams}">
-                            <a th:href="@{/}" class="main-ranking-a">
+                            <a th:href="@{'/team/' + ${team.name.toLowerCase()}}" class="main-ranking-a">
                                 <div>
                                     <h5 class="main-ranking-a-team-place"
                                         th:text="${team.place} + '.'">PLACE</h5>
@@ -93,7 +93,7 @@
 
                     <div class="match-info-div">
                         <div class="single-team first-team">
-                            <a th:href="@{/}" class="single-match-a-tags">
+                            <a th:href="@{'/team/' + ${singleMatch.firstTeamName.toLowerCase()}}" class="single-match-a-tags">
                                 <div class="single-match-a-name-div" th:text="${singleMatch.firstTeamName}">1 TEAM</div>
                             </a>
                         </div>
@@ -103,7 +103,7 @@
                         </div>
 
                         <div class="single-team second-team">
-                            <a th:href="@{/}" class="single-match-a-tags">
+                            <a th:href="@{'/team/' + ${singleMatch.secondTeamName.toLowerCase()}}" class="single-match-a-tags">
                                 <div class="single-match-a-name-div" th:text="${singleMatch.secondTeamName}">2 TEAM</div>
                             </a>
                         </div>

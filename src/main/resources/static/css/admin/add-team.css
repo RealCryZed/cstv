@@ -1,0 +1,45 @@
+.big-center-menu {
+    order: unset !important;
+    margin: 0 auto !important;
+}
+
+.add-team-form {
+    display: grid;
+    margin: 0 auto;
+    max-width: 210px;
+}
+
+.first-text-field {
+    margin-top: 15px;
+}
+
+.text-before-field {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.add-team-input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 3px;
+    padding-left: 5px;
+}
+
+.add-team-button {
+    padding: 12px 7px;
+    border: 0;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    background: white;
+    transition: .1s ease;
+}
+
+.add-team-button:hover {
+    background-color: #ececec;
+    color: #224899;
+}
+
+.btn-to-admin-team {
+    max-width: 132px;
+}
