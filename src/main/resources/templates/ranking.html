@@ -64,6 +64,10 @@
                                 <h5 class="ranking-a-team"
                                 th:text="${team.name}">TEAM NAME</h5>
                             </div>
+                            <div class="ranking-a-div-players">
+                                <h6 class="ranking-a-div-single-player" th:each="player : ${team.players}"
+                                th:text="'• ' + ${player}">PLAYER NICKNAME</h6>
+                            </div>
                         </a>
                     </div>
                 </div>

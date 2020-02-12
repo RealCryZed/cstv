@@ -1,7 +1,7 @@
 package cstv;
 
-import cstv.Models.Player;
-import cstv.Services.PlayerService;
+import cstv.Models.Team;
+import cstv.Services.TeamService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,9 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import java.util.Optional;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class ApplicationStarter {
@@ -22,11 +24,21 @@ public class ApplicationStarter {
     }
 
 //    @Bean
-//    public CommandLineRunner demoData(PlayerService playerService) {
+//    public CommandLineRunner demoData(TeamService teamService) {
 //        return args -> {
-//                Player player = playerService.findPlayerById(3);
-//                player.setKd(1.30f);
-//                playerService.savePlayer(player);
+//            List<Team> teams = teamService.findAllTeams_List();
+//
+//            for (Team team : teams) {
+//                Set<String> playerList = new HashSet<>();
+//                team.setPlayers(null);
+//                playerList.add("LALALALA1");
+//                playerList.add("LALALALA2");
+//                playerList.add("LALALALA3");
+//                playerList.add("LALALALA4");
+//                playerList.add("LALALALA5");
+//                team.setPlayers(playerList);
+//                teamService.addTeam(team);
+//            }
 //        };
 //    }
 

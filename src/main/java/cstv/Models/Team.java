@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Data
 @Document(collection = "teams")
@@ -23,4 +24,17 @@ public class Team {
 
     @NotNull(message = "Place mustn't be null")
     private Integer place;
+
+    @Transient
+    private String player1;
+    @Transient
+    private String player2;
+    @Transient
+    private String player3;
+    @Transient
+    private String player4;
+    @Transient
+    private String player5;
+
+    private Set<String> players;
 }

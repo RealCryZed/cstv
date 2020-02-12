@@ -44,13 +44,24 @@
 }
 
 .ranking-a-div {
-    min-width: 114px;
+    min-width: 120px;
     text-align: left;
-    flex: 1 1 auto;
+    border-right: 1px solid #828282;
 }
 
 .ranking-a-team {
     font-weight: 600;
+}
+
+.ranking-a-div-players {
+    display: flex;
+    margin-left: 15px;
+}
+
+.ranking-a-div-single-player {
+    margin-right: 8px;
+    font-size: 9px;
+    color: #424242;
 }
 
 /*

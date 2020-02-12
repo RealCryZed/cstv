@@ -37,6 +37,25 @@
                         <input type="number" class="add-team-input" placeholder="Team place" id="place"
                                th:field="*{place}">
 
+                        <label class="text-before-field first-text-field">Enter the team's players</label>
+                        <div>
+                            <div th:if="${#fields.hasErrors('players')}">
+                                <h5 class="validationError"
+                                    th:errors="*{players}">Name Error
+                                </h5>
+                            </div>
+                            <input type="text" class="add-team-input" placeholder="Player 1"
+                                   th:field="*{player1}">
+                            <input type="text" class="add-team-input" placeholder="Player 2"
+                                   th:field="*{player2}">
+                            <input type="text" class="add-team-input" placeholder="Player 3"
+                                   th:field="*{player3}">
+                            <input type="text" class="add-team-input" placeholder="Player 4"
+                                   th:field="*{player4}">
+                            <input type="text" class="add-team-input" placeholder="Player 5"
+                                   th:field="*{player5}">
+                        </div>
+
                         <button type="submit" class="add-team-button button btn" name="add-team">Add team</button>
 
                         <a th:href="@{/admin}" class="btn-to-admin btn-to-admin-match">Back to Admin page</a>
