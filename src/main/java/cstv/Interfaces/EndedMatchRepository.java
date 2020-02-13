@@ -8,4 +8,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface EndedMatchRepository extends MongoRepository<EndedMatch, Long> {
 
     Page<EndedMatch> findAll(Pageable pageable);
+
+    Page<EndedMatch> findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(Pageable page, String firstTeamName, String secondTeamName);
 }

@@ -69,7 +69,7 @@
 
                     <div class="main-ranking-box">
                         <div style="max-width: inherit;" th:each="team : ${teams}">
-                            <a th:href="@{'/team/' + ${team.name.toLowerCase()}}" class="main-ranking-a">
+                            <a th:href="@{'/teams/' + ${team.name.toLowerCase()}}" class="main-ranking-a">
                                 <div>
                                     <h5 class="main-ranking-a-team-place"
                                         th:text="${team.place} + '.'">PLACE</h5>

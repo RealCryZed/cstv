@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title th:text="${team.name} + ' - CS:GO | CSTV'"></title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/results.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/single-team.css}" />
 </head>
 <body>
@@ -68,7 +70,7 @@
 
                     <div class="main-ranking-box">
                         <div style="max-width: inherit;" th:each="team : ${teams}">
-                            <a th:href="@{/}" class="main-ranking-a">
+                            <a th:href="@{'/teams/' + ${team.name.toLowerCase()}}" class="main-ranking-a">
                                 <div>
                                     <h5 class="main-ranking-a-team-place"
                                         th:text="${team.place} + '.'">PLACE</h5>
@@ -84,7 +86,53 @@
             </div>
 
             <div class="center-menu">
+                <div class="team-main-div">
+                    <div class="team-name-div">
+                        <h1 class="team-name-head" th:text="${team.name}">TEAM NAME</h1>
+                    </div>
 
+                    <div class="team-players-div">
+                        <a th:href="'/players/' + ${player}" class="team-single-player-wrap-link" th:each="player : ${team.players}">
+                            <h4 class="player-nickname" th:text="${player}">NICKNAME</h4>
+                        </a>
+                    </div>
+
+                    <div class="team-matches-wrapper">
+                        <h3 class="team-matches-head">Recent matches:</h3>
+
+                        <div class="team-matches">
+                            <div class="matches-box" th:each="endedMatch : ${teamsEndedMatches}">
+                                <a th:href="@{/ranking}" class="match-link ended-match-link">
+                                    <div>
+                                        <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 th:class="${endedMatch.firstTeamState} + ' ended-match-first-team-score'"
+                                            th:text="${endedMatch.firstTeamScore}">FIRST TEAM SCORE</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="ended-match-dash-sign">-</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 th:class="${endedMatch.secondTeamState} + ' ended-match-second-team-score'"
+                                            th:text="${endedMatch.secondTeamScore}">SECOND TEAM SCORE</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="ended-match-second-team-name" th:text="${endedMatch.secondTeamName}">SECOND TEAM NAME</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="ended-match-tournament-name" th:text="${endedMatch.tournament}">TOURNAMENT</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="right-area-medium">

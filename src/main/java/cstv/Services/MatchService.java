@@ -28,6 +28,16 @@ public class MatchService {
         return matchRepo.findMatchById(id);
     }
 
+//
+//    NOT WORKING WITH "Natus Vincere"
+//
+
+    public Page<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
+        PageRequest page = PageRequest.of(
+                0, 5, Sort.by("_id").ascending());
+        return endedMatchRepo.findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(page, teamName, teamName);
+    }
+
     public Match addMatch(Match match) {
         match.setId(seqGenerator.generateSequence(Match.SEQUENCE_NAME));
         return matchRepo.save(match);

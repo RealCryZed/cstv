@@ -55,7 +55,7 @@
                 <h3 style="margin-bottom: 15px; font-weight: 800;">CS:GO Ranking on 22.01.2020</h3>
                 <div class="ranking-box">
                     <div th:each="team : ${teams}">
-                        <a th:href="@{'/team/' + ${team.name.toLowerCase()}}" class="ranking-a">
+                        <a th:href="@{'/teams/' + ${team.name.toLowerCase()}}" class="ranking-a">
                             <div>
                                 <h5 class="ranking-a-place"
                                 th:text="${team.place} + '.'">PLACE</h5>

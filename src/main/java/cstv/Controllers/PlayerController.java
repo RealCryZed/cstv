@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @CrossOrigin(origins = "*")
-public class TeamsController {
+public class PlayerController {
 
     @Autowired
     private TeamService teamService;
@@ -23,13 +23,12 @@ public class TeamsController {
     @Autowired
     private MatchService matchService;
 
-    @GetMapping("/teams/{name}")
+    @GetMapping("/players/{id}")
     public ModelAndView getSingleTeamPage(ModelAndView modelAndView,
-                                          @PathVariable String name) {
-        modelAndView.setViewName("single-team");
+                                          @PathVariable Integer id) {
+        modelAndView.setViewName("single-player");
 
-        modelAndView.addObject("team", teamService.findTeamByName(name));
-        modelAndView.addObject("teamsEndedMatches", matchService.getFiveLastEndedMatchesByTeam(name));
+        modelAndView.addObject("player", playerService.findPlayerById(id));
         modelAndView.addObject("players", playerService.getFiveFirstPlayers());
         modelAndView.addObject("teams", teamService.getFiveFirstTeams());
         modelAndView.addObject("matches", matchService.getAllMatchesNotEnded());
