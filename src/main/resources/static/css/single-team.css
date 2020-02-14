@@ -46,3 +46,71 @@
 .team-matches-head {
     padding: 10px;
 }
+
+.upcoming-matches-box {
+    background: white;
+    display: grid;
+    min-width: inherit;
+    box-shadow: 0 0px 0px 0 rgba(50,50,50,.4);
+}
+
+.ended-matches-box:last-child {
+    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4)!important;
+}
+
+/*
+    OVERRIDE FROM matches.css
+*/
+
+.match-time {
+    min-width: 33px !important;
+}
+
+.match-first-team-name {
+    min-width: 161px !important;
+    max-width: 161px !important;
+}
+
+.match-second-team-name {
+    padding-left: 0 !important;
+    max-width: 135px !important;
+    min-width: 135px !important;
+}
+
+.match-tournament-name {
+    min-width: 170px !important;
+    max-width: 170px !important;
+}
+
+/*
+    OVERRIDE FROM results.css
+*/
+
+.ended-match-first-team-name {
+    font-size: 13px !important;
+    min-width: 193px !important;
+    max-width: 193px !important;
+}
+
+.ended-match-dash-sign {
+    margin: 0 1px !important;
+}
+
+.ended-match-second-team-name {
+    margin-left: 11px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+}
+
+.ended-match-tournament-name {
+    min-width: 170px !important;
+    max-width: 170px !important;
+}
+
+/*
+    OVERRIDE FROM end-match.css
+*/
+
+.matches-box:last-child {
+    box-shadow: unset;
+}

@@ -15,6 +15,8 @@ public interface MatchRepository extends MongoRepository<Match, Long> {
 
     Page<Match> findAllByEnded(Integer ended, Pageable pageable);
 
+    Page<Match> findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(Pageable page, String firstTeamName, String secondTeamName);
+
     Match findMatchById(Long id);
 
     void deleteMatchById(Long id);

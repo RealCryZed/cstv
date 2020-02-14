@@ -32,6 +32,7 @@ public class TeamsController {
         Team team = teamService.findTeamByName(name);
 
         modelAndView.addObject("team", team);
+        modelAndView.addObject("teamsUpcomingMatches", matchService.getFiveLastUpcomingMatchesByTeam(team.getName()));
         modelAndView.addObject("teamsEndedMatches", matchService.getFiveLastEndedMatchesByTeam(team.getName()));
         modelAndView.addObject("players", playerService.getFiveFirstPlayers());
         modelAndView.addObject("teams", teamService.getFiveFirstTeams());

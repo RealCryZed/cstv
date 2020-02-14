@@ -28,6 +28,12 @@ public class MatchService {
         return matchRepo.findMatchById(id);
     }
 
+    public Page<Match> getFiveLastUpcomingMatchesByTeam(String teamName) {
+        PageRequest page = PageRequest.of(
+                0, 5, Sort.by("_id").ascending());
+        return matchRepo.findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(page, teamName, teamName);
+    }
+
     public Page<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
         PageRequest page = PageRequest.of(
                 0, 5, Sort.by("_id").ascending());

@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @Document(collection = "matches")
-public class Match{
+public class Match {
 
     @Transient
     public static final String SEQUENCE_NAME = "matches_sequence";
@@ -23,12 +23,12 @@ public class Match{
     @Size(min = 2, message = "Team name must be at least 2 letter")
     private String firstTeamName;
     @NotNull(message = "Team score mustn't be null")
-    private Integer firstTeamScore;
+    private Integer firstTeamScore = 0;
 
     @Size(min = 2, message = "Team name must be at least 2 letter")
     private String secondTeamName;
     @NotNull(message = "Team score mustn't be null")
-    private Integer secondTeamScore;
+    private Integer secondTeamScore = 0;
 
     @Size(min = 5, message = "Tournament name must be at least 5 letter")
     private String tournament;

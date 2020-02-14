@@ -51,18 +51,21 @@
 
 .match-first-team-name {
     flex: 1 1 auto;
-    min-width: 150px;
+    min-width: 120px;
+    margin-right: 27px;
+    text-align: right;
 }
 
 .match-vs-sign {
     flex: 1 1 auto;
-    min-width: 40px;
+    min-width: 13px; /* 40px */
     color: black;
     font-weight: 100;
 }
 
 .match-second-team-name {
     flex: 1 1 auto;
+    margin-left: 27px;
     max-width: 140px;
     min-width: 140px;
     overflow: hidden;
@@ -75,8 +78,8 @@
 .match-tournament-name {
     font-weight: 100;
     flex: 1 1 auto;
-    min-width: 150px;
-    max-width: 150px;
+    min-width: 170px;
+    max-width: 170px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

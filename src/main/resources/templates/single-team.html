@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title th:text="${team.name} + ' - CS:GO | CSTV'"></title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/matches.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/results.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/single-team.css}" />
@@ -98,10 +99,34 @@
                     </div>
 
                     <div class="team-matches-wrapper">
+                        <h3 class="team-matches-head">Upcoming matches:</h3>
+
+                        <div class="upcoming-matches-box">
+                            <div class="matches-box" th:each="upcomingMatch : ${teamsUpcomingMatches}">
+                                <a th:href="@{'/matches/' + ${upcomingMatch.id}}" class="match-link">
+                                    <div>
+                                        <h5 class="match-time" th:text="${upcomingMatch.timeOfStart}">TIME</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-first-team-name" th:text="${upcomingMatch.firstTeamName}">FIRST TEAM NAME</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-vs-sign">vs</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-second-team-name" th:text="${upcomingMatch.secondTeamName}">SECOND TEAM NAME</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-tournament-name" th:text="${upcomingMatch.tournament}">TOURNAMENT</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
                         <h3 class="team-matches-head">Recent matches:</h3>
 
                         <div class="team-matches">
-                            <div class="matches-box" th:each="endedMatch : ${teamsEndedMatches}">
+                            <div class="matches-box ended-matches-box" th:each="endedMatch : ${teamsEndedMatches}">
                                 <a th:href="@{/ranking}" class="match-link ended-match-link">
                                     <div>
                                         <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>

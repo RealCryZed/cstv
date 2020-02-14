@@ -31,6 +31,14 @@
     margin-top: 15px;
 }
 
+.first-team {
+    background: linear-gradient(270deg,hsla(0,0%,100%,0) 10%,#e6e6e6);
+}
+
+.second-team {
+    background: linear-gradient(90deg,hsla(0,0%,100%,0) 10%,#e6e6e6);
+}
+
 /*
     TOURNAMENT INFO
 */
