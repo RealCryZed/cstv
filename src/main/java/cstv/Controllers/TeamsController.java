@@ -1,5 +1,6 @@
 package cstv.Controllers;
 
+import cstv.Models.Team;
 import cstv.Services.MatchService;
 import cstv.Services.PlayerService;
 import cstv.Services.TeamService;
@@ -28,8 +29,10 @@ public class TeamsController {
                                           @PathVariable String name) {
         modelAndView.setViewName("single-team");
 
-        modelAndView.addObject("team", teamService.findTeamByName(name));
-        modelAndView.addObject("teamsEndedMatches", matchService.getFiveLastEndedMatchesByTeam(name));
+        Team team = teamService.findTeamByName(name);
+
+        modelAndView.addObject("team", team);
+        modelAndView.addObject("teamsEndedMatches", matchService.getFiveLastEndedMatchesByTeam(team.getName()));
         modelAndView.addObject("players", playerService.getFiveFirstPlayers());
         modelAndView.addObject("teams", teamService.getFiveFirstTeams());
         modelAndView.addObject("matches", matchService.getAllMatchesNotEnded());

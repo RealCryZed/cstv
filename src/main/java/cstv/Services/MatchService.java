@@ -27,11 +27,7 @@ public class MatchService {
     public Match findMatchById(Long id) {
         return matchRepo.findMatchById(id);
     }
-
-//
-//    NOT WORKING WITH "Natus Vincere"
-//
-
+    
     public Page<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
         PageRequest page = PageRequest.of(
                 0, 5, Sort.by("_id").ascending());
