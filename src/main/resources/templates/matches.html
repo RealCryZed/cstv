@@ -114,7 +114,7 @@
                 </a>
 
                 <div class="main-results-big" th:each="endedMatch : ${endedMatches}">
-                    <a th:href="@{/}" class="main-results-a">
+                    <a th:href="@{'/results/' + ${endedMatch.id}}" class="main-results-a">
                         <div class="main-results-a-teams">
                             <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
                             <div class="border-between-teams"></div>

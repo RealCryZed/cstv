@@ -4,15 +4,15 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>CS:GO Guide | CSTV</title>
+    <title>CS:GO Match Results | CSTV</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
-    <link type="text/css" rel="stylesheet" th:href="@{/css/single-guide.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/single-endedMatch.css}" />
 </head>
 <body>
 
     <div th:include="navbar :: navbar" class="navbar"></div>
 
-    <div class="body single-guide-page">
+    <div class="body single-ended-match-page">
         <div class="width-align">
             <div class="left-area-small">
                 <div class="left-area-player-ranking">
@@ -84,24 +84,7 @@
             </div>
 
             <div class="center-menu">
-                <div class="single-guide-div">
-                    <div class="guide-theme">
-                        <h5 class="guide-theme-head" th:text="${singleGuide.theme}">THEME</h5>
-                    </div>
 
-                    <div class="guide-headline">
-                        <h2 class="guide-headline-head" th:text="${singleGuide.headline}">HEADLINE</h2>
-                    </div>
-
-                    <div class="guide-time-of-creation">
-                        <h6 class="guide-time-of-creation-head"
-                            th:text="${singleGuide.dateOfCreation} + ', ' + ${singleGuide.timeOfCreation}">TIME OF CREATION</h6>
-                    </div>
-
-                    <div class="guide-text" th:each="singleText : ${singleGuideText}">
-                        <p class="guide-text-head" th:text="${singleText}">TEXT</p>
-                    </div>
-                </div>
             </div>
 
             <div class="right-area-medium">
@@ -124,7 +107,7 @@
                 </a>
 
                 <div class="main-results-big" th:each="endedMatch : ${endedMatches}">
-                    <a th:href="@{'/results/' + ${endedMatch.id}}" class="main-results-a">
+                    <a th:href="@{/}" class="main-results-a">
                         <div class="main-results-a-teams">
                             <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
                             <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
@@ -140,6 +123,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>

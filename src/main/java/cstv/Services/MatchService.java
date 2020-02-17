@@ -28,6 +28,10 @@ public class MatchService {
         return matchRepo.findMatchById(id);
     }
 
+    public EndedMatch findEndedMatchById(Long id) {
+        return endedMatchRepo.findMatchById(id);
+    }
+
     public Page<Match> getFiveLastUpcomingMatchesByTeam(String teamName) {
         PageRequest page = PageRequest.of(
                 0, 5, Sort.by("_id").ascending());

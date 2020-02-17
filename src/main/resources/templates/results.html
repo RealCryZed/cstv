@@ -88,7 +88,7 @@
                 <h3 style="margin-bottom: 15px; font-weight: 800;">CS:GO Results</h3>
 
                 <div class="matches-box" th:each="endedMatch : ${endedMatches}">
-                    <a th:href="@{/ranking}" class="match-link ended-match-link">
+                    <a th:href="@{'/results/' + ${endedMatch.id}}" class="match-link ended-match-link">
                         <div>
                             <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>
                         </div>

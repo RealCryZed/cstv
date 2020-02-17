@@ -1,5 +1,5 @@
 /*
-    LEFT AREA
+    RIGHT AREA
 */
 
 .main-ranking-head-h5 {
@@ -96,13 +96,4 @@
 .single-vs-sign-div {
     flex: 1 0 0;
     position: relative;
-}
-
-/*
-    MATCH MAPS INFO
-*/
-
-.match-maps-info-div {
-    display: flex;
-    box-shadow: 0 1px 0px 0 rgba(50,50,50,.4);
 }

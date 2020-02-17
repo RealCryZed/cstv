@@ -1,0 +1,21 @@
+/*
+    RIGHT AREA
+*/
+
+.main-ranking-head-h5 {
+    margin-bottom: 14px !important;
+    margin-top: 14px !important;
+}
+
+.main-matches-a-teams {
+    min-width: 118px;
+}
+
+.left-area-team-ranking {
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.main-ranking-a-team-place, .main-ranking-a-team-name {
+    font-size: 12px;
+}

@@ -127,7 +127,7 @@
 
                         <div class="team-matches">
                             <div class="matches-box ended-matches-box" th:each="endedMatch : ${teamsEndedMatches}">
-                                <a th:href="@{/ranking}" class="match-link ended-match-link">
+                                <a th:href="@{'/results/' + ${endedMatch.id}}" class="match-link ended-match-link">
                                     <div>
                                         <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>
                                     </div>
@@ -180,7 +180,7 @@
                 </a>
 
                 <div class="main-results-big" th:each="endedMatch : ${endedMatches}">
-                    <a th:href="@{/}" class="main-results-a">
+                    <a th:href="@{'/results/' + ${endedMatch.id}}" class="main-results-a">
                         <div class="main-results-a-teams">
                             <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
                             <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
