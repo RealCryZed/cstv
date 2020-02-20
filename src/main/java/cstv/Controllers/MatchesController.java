@@ -38,7 +38,7 @@ public class MatchesController {
 
     @GetMapping("/matches/{id}")
     public ModelAndView getSingleMatchPage(ModelAndView modelAndView,
-                                           @PathVariable Long id) {
+                                           @PathVariable Integer id) {
         try {
             Match match = matchService.findMatchById(id);
 

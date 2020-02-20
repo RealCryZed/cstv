@@ -15,7 +15,7 @@ public class Guide {
     public static final String SEQUENCE_NAME = "guides_sequence";
 
     @Id
-    private Long id;
+    private Integer id;
 
     private String timeOfCreation;
     private String dateOfCreation;

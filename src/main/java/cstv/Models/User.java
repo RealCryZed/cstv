@@ -24,7 +24,7 @@ public class User {
     public static final String SEQUENCE_NAME = "users_sequence";
 
     @Id
-    private Long id;
+    private Integer id;
 
     @Size(min = 1, message = "Username must be at least 1 letter")
     @Size(max = 25, message = "Username must be lower than 25 letters")

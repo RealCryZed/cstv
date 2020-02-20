@@ -1,9 +1,6 @@
 package cstv.Controllers;
 
-import cstv.Models.EndedMatch;
-import cstv.Models.Guide;
-import cstv.Models.Match;
-import cstv.Models.Team;
+import cstv.Models.*;
 import cstv.Services.GuideService;
 import cstv.Services.MatchService;
 import cstv.Services.TeamService;
@@ -108,6 +105,7 @@ public class AdminMatchController {
                                  @Valid Match match,
                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            System.err.println(bindingResult.getSuppressedFields());
             modelAndView.setViewName("admin/add-match");
         } else {
             addMatchApi(match);
@@ -131,7 +129,7 @@ public class AdminMatchController {
 
     @GetMapping("/end-match/{id}")
     public ModelAndView getEndMatch(ModelAndView modelAndView,
-                                 @PathVariable Long id) {
+                                 @PathVariable Integer id) {
         Match match = matchService.findMatchById(id);
 
         modelAndView.addObject("matchToEnd", match);
@@ -142,7 +140,7 @@ public class AdminMatchController {
 
     @GetMapping("/end-match/error/{id}")
     public ModelAndView getEndMatchError(ModelAndView modelAndView,
-                                    @PathVariable Long id) {
+                                    @PathVariable Integer id) {
         Match match = matchService.findMatchById(id);
 
         modelAndView.addObject("error", true);
@@ -156,7 +154,7 @@ public class AdminMatchController {
 
     @PostMapping("/end-match/{id}")
     public ModelAndView endMatch(ModelAndView modelAndView,
-                                 @PathVariable Long id,
+                                 @PathVariable Integer id,
                                  @Valid @ModelAttribute("matchToEnd") Match matchToEnd,
                                  BindingResult bindingResult) {
         Match match = matchService.findMatchById(matchToEnd.getId());

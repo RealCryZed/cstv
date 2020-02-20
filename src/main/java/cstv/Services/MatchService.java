@@ -24,29 +24,30 @@ public class MatchService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
-    public Match findMatchById(Long id) {
+    public Match addMatch(Match match) {
+        match.setId(seqGenerator.generateSequence(Match.SEQUENCE_NAME));
+        System.err.println("Match given Id: " + match.getId());
+        return matchRepo.save(match);
+    }
+
+    public Match findMatchById(Integer id) {
         return matchRepo.findMatchById(id);
     }
 
-    public EndedMatch findEndedMatchById(Long id) {
+    public EndedMatch findEndedMatchById(Integer id) {
         return endedMatchRepo.findMatchById(id);
     }
 
     public Page<Match> getFiveLastUpcomingMatchesByTeam(String teamName) {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
+                0, 5, Sort.by("id").ascending());
         return matchRepo.findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(page, teamName, teamName);
     }
 
     public Page<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
+                0, 5, Sort.by("id").ascending());
         return endedMatchRepo.findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(page, teamName, teamName);
-    }
-
-    public Match addMatch(Match match) {
-        match.setId(seqGenerator.generateSequence(Match.SEQUENCE_NAME));
-        return matchRepo.save(match);
     }
 
     public List<EndedMatch> getAllEndedMatches() {
@@ -55,7 +56,13 @@ public class MatchService {
 
     public Page<EndedMatch> getFiveLastEndedMatches() {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
+                0, 5, Sort.by("id").ascending());
+        return endedMatchRepo.findAll(page);
+    }
+
+    public Page<EndedMatch> get30LastEndedMatches() {
+        PageRequest page = PageRequest.of(
+                0, 30, Sort.by("id").ascending());
         return endedMatchRepo.findAll(page);
     }
 
@@ -63,19 +70,13 @@ public class MatchService {
         return matchRepo.findAllByEnded(0);
     }
 
-    public Page<EndedMatch> getEightLastEndedMatches() {
-        PageRequest page = PageRequest.of(
-                0, 8, Sort.by("_id").ascending());
-        return endedMatchRepo.findAll(page);
-    }
-
     public Page<Match> getFiveLastMatchesNotEnded() {
         PageRequest page = PageRequest.of(
-                0, 5, Sort.by("_id").ascending());
+                0, 5, Sort.by("id").ascending());
         return matchRepo.findAllByEnded(0, page);
     }
 
-    public void endMatchById(Long id, Integer team1Score, Integer team2Score, String timeEnded, String dateEnded) {
+    public void endMatchById(Integer id, Integer team1Score, Integer team2Score, String timeEnded, String dateEnded) {
         Match match = matchRepo.findMatchById(id);
         EndedMatch endedMatch = new EndedMatch();
 

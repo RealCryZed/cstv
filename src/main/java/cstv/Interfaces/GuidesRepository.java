@@ -5,9 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface GuidesRepository extends MongoRepository<Guide, Long> {
+public interface GuidesRepository extends MongoRepository<Guide, Integer> {
 
     Page<Guide> findAll(Pageable pageable);
 
-    Guide findGuideById(Long id);
+    Guide findGuideById(Integer id);
 }

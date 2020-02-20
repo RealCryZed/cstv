@@ -17,7 +17,7 @@ public class Team {
     public static final String SEQUENCE_NAME = "teams_sequence";
 
     @Id
-    private Long id;
+    private Integer id;
 
     @Size(min = 2, message = "Team name must be at least 2 letter")
     private String name;

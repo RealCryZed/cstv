@@ -34,7 +34,7 @@ public class GuideController {
 
     @GetMapping("/guides/{id}")
     public ModelAndView getGuidePage(ModelAndView modelAndView,
-                                     @PathVariable Long id) {
+                                     @PathVariable Integer id) {
         try {
             Guide guide = guideService.findGuideById(id);
             Set<String> guideText = new TreeSet<>();

@@ -17,7 +17,7 @@ public class GuideService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
-    public Guide findGuideById(Long id) {
+    public Guide findGuideById(Integer id) {
         return guideRepo.findGuideById(id);
     }
 

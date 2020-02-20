@@ -31,14 +31,14 @@ public class ResultsController {
         modelAndView.addObject("players", playerService.getFiveFirstPlayers());
         modelAndView.addObject("teams", teamService.getFiveFirstTeams());
         modelAndView.addObject("matches", matchService.getAllMatchesNotEnded());
-        modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
+        modelAndView.addObject("endedMatches", matchService.get30LastEndedMatches());
 
         return modelAndView;
     }
 
     @GetMapping("/results/{id}")
     public ModelAndView getSingleEndedMatchPage(ModelAndView modelAndView,
-                                           @PathVariable Long id) {
+                                           @PathVariable Integer id) {
         try {
             EndedMatch endedMatch = matchService.findEndedMatchById(id);
 

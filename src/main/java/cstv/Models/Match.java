@@ -1,37 +1,44 @@
 package cstv.Models;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.RequiredArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Data
-@Document(collection = "matches")
+@RequiredArgsConstructor
+@Entity
+@Table(name = "matches")
 public class Match {
 
     @Transient
     public static final String SEQUENCE_NAME = "matches_sequence";
 
     @Id
-    private Long id;
+    private Integer id;
 
+    @Column(name = "time_of_start")
     private String timeOfStart;
 
+    @Column(name = "first_team_name")
     @Size(min = 2, message = "Team name must be at least 2 letter")
     private String firstTeamName;
-    @NotNull(message = "Team score mustn't be null")
-    private Integer firstTeamScore = 0;
 
+    @Transient
+    private Integer firstTeamScore;
+
+    @Column(name = "second_team_name")
     @Size(min = 2, message = "Team name must be at least 2 letter")
     private String secondTeamName;
-    @NotNull(message = "Team score mustn't be null")
-    private Integer secondTeamScore = 0;
 
+    @Transient
+    private Integer secondTeamScore;
+
+    @Column(name = "tournament")
     @Size(min = 5, message = "Tournament name must be at least 5 letter")
     private String tournament;
 
+    @Column(name = "ended")
     private Integer ended = 0;
 }

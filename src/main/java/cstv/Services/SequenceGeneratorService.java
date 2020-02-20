@@ -20,7 +20,7 @@ public class SequenceGeneratorService {
         this.mongoOperations = mongoOperations;
     }
 
-    public long generateSequence(final String seqName) {
+    public Integer generateSequence(final String seqName) {
         DatabaseSequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
                 new Update().inc("seq",1), options().returnNew(true).upsert(true),
                 DatabaseSequence.class);
