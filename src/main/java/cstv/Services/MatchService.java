@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -24,9 +25,12 @@ public class MatchService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
+    /*
+        Upcoming Matches
+    */
+
     public Match addMatch(Match match) {
         match.setId(seqGenerator.generateSequence(Match.SEQUENCE_NAME));
-        System.err.println("Match given Id: " + match.getId());
         return matchRepo.save(match);
     }
 
@@ -34,46 +38,61 @@ public class MatchService {
         return matchRepo.findMatchById(id);
     }
 
+    public List<Match> getFiveLastUpcomingMatchesByTeam(String teamName) {
+        return matchRepo.findTop5ByFirstTeamNameOrSecondTeamNameIgnoreCase(teamName, teamName);
+    }
+
+    public List<Match> getAllMatchesNotEnded() {
+        return matchRepo.findTop50ByOrderById();
+    }
+
+    public List<Match> getFiveLastMatchesNotEnded() {
+        return matchRepo.findTop5ByOrderById();
+    }
+
+    /*
+        Ended Matches
+    */
+
     public EndedMatch findEndedMatchById(Integer id) {
         return endedMatchRepo.findMatchById(id);
     }
 
-    public Page<Match> getFiveLastUpcomingMatchesByTeam(String teamName) {
-        PageRequest page = PageRequest.of(
-                0, 5, Sort.by("id").ascending());
-        return matchRepo.findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(page, teamName, teamName);
+    public List<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
+
+        return endedMatchRepo.findTop30ByFirstTeamNameOrSecondTeamNameIgnoreCaseOrderByIdEndedDesc(teamName, teamName);
     }
 
-    public Page<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
-        PageRequest page = PageRequest.of(
-                0, 5, Sort.by("id").ascending());
-        return endedMatchRepo.findAllByFirstTeamNameOrSecondTeamNameIgnoreCase(page, teamName, teamName);
+    public List<EndedMatch> getFiveLastEndedMatches() {
+        return endedMatchRepo.findTop5ByOrderByIdEndedDesc();
+    }
+
+    public List<EndedMatch> get30LastEndedMatches() {
+        List<String[]> endedMatchArrayList = endedMatchRepo.findTop30ByOrderByIdEndedDesc();
+
+        List<EndedMatch> endedMatches = new LinkedList<>();
+
+        for (String[] endedMatchSingle : endedMatchArrayList) {
+            EndedMatch endedMatch = new EndedMatch();
+
+            endedMatch.setId(Integer.valueOf(endedMatchSingle[0]));
+            endedMatch.setFirstTeamName(endedMatchSingle[1]);
+            endedMatch.setFirstTeamScore(Integer.valueOf(endedMatchSingle[2]));
+            endedMatch.setFirstTeamState(endedMatchSingle[3]);
+            endedMatch.setSecondTeamName(endedMatchSingle[4]);
+            endedMatch.setSecondTeamScore(Integer.valueOf(endedMatchSingle[5]));
+            endedMatch.setSecondTeamState(endedMatchSingle[6]);
+            endedMatch.setTournament(endedMatchSingle[7]);
+
+            endedMatches.add(endedMatch);
+        }
+
+        return endedMatches;
+//        return endedMatchRepo.findTop30ByOrderByIdEndedDesc();
     }
 
     public List<EndedMatch> getAllEndedMatches() {
-        return endedMatchRepo.findAll();
-    }
-
-    public Page<EndedMatch> getFiveLastEndedMatches() {
-        PageRequest page = PageRequest.of(
-                0, 5, Sort.by("id").ascending());
-        return endedMatchRepo.findAll(page);
-    }
-
-    public Page<EndedMatch> get30LastEndedMatches() {
-        PageRequest page = PageRequest.of(
-                0, 30, Sort.by("id").ascending());
-        return endedMatchRepo.findAll(page);
-    }
-
-    public List<Match> getAllMatchesNotEnded() {
-        return matchRepo.findAllByEnded(0);
-    }
-
-    public Page<Match> getFiveLastMatchesNotEnded() {
-        PageRequest page = PageRequest.of(
-                0, 5, Sort.by("id").ascending());
-        return matchRepo.findAllByEnded(0, page);
+        return endedMatchRepo.findTop50ByOrderByIdEndedDesc();
     }
 
     public void endMatchById(Integer id, Integer team1Score, Integer team2Score, String timeEnded, String dateEnded) {

@@ -26,15 +26,15 @@ public class Team {
     private Integer place;
 
     @Transient
-    private String player1 = "TBA";
+    private String player1;
     @Transient
-    private String player2 = "TBA";
+    private String player2;
     @Transient
-    private String player3 = "TBA";
+    private String player3;
     @Transient
-    private String player4 = "TBA";
+    private String player4;
     @Transient
-    private String player5 = "TBA";
+    private String player5;
 
     private Set<String> players;
 }

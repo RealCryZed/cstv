@@ -11,7 +11,9 @@ public interface TeamRepository extends MongoRepository<Team, Integer> {
 
     Team findByNameIgnoreCase(String name);
 
-    List<Team> findAll();
+    List<Team> findTop5ByOrderByPlace();
 
-    Page<Team> findAll(Pageable pageable);
+    List<Team> findTop10ByOrderByPlace();
+
+    List<Team> findTop40ByOrderByPlace();
 }

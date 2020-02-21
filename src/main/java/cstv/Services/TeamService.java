@@ -24,26 +24,17 @@ public class TeamService {
         return teamRepo.findByNameIgnoreCase(nickname);
     }
 
-    public Page<Team> findAllTeams() {
-        PageRequest page = PageRequest.of(
-                0, 40, Sort.by("place").ascending());
-        return teamRepo.findAll(page);
+    public List<Team> getFiveFirstTeams() {
+        return teamRepo.findTop5ByOrderByPlace();
     }
 
-    public List<Team> findAllTeams_List() {
-        return teamRepo.findAll();
+    public List<Team> getTenFirstTeams() {
+
+        return teamRepo.findTop10ByOrderByPlace();
     }
 
-    public Page<Team> getFiveFirstTeams() {
-        PageRequest page = PageRequest.of(
-                0, 5, Sort.by("place").ascending());
-        return teamRepo.findAll(page);
-    }
-
-    public Page<Team> getTenFirstTeams() {
-        PageRequest page = PageRequest.of(
-                0, 10, Sort.by("place").ascending());
-        return teamRepo.findAll(page);
+    public List<Team> findAllTeams() {
+        return teamRepo.findTop40ByOrderByPlace();
     }
 
     public void addTeam(Team team) {

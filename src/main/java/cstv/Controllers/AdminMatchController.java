@@ -105,7 +105,6 @@ public class AdminMatchController {
                                  @Valid Match match,
                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.err.println(bindingResult.getSuppressedFields());
             modelAndView.setViewName("admin/add-match");
         } else {
             addMatchApi(match);

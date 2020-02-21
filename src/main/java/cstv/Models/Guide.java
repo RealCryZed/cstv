@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 @Data
@@ -19,6 +21,8 @@ public class Guide {
 
     private String timeOfCreation;
     private String dateOfCreation;
+
+    @OneToOne(fetch = FetchType.LAZY)
     private String author;
 
     @Size(min = 3, message = "Headline must be at least 3 letter")
