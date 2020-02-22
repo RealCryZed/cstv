@@ -13,7 +13,7 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
     Player findPlayerById(Integer id);
 
-    List<Player> findAll();
+    List<Player> findTop5ByOrderByPlace();
 
-    Page<Player> findAll(Pageable pageable);
+    List<Player> findTop30ByOrderByPlace();
 }

@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GuideService {
 
@@ -30,9 +32,7 @@ public class GuideService {
         return guideRepo.save(guide);
     }
 
-    public Page<Guide> getLast15Guides() {
-        PageRequest page = PageRequest.of(
-                0, 15, Sort.by("dateOfCreation").descending());
-        return guideRepo.findAll(page);
+    public List<Guide> getLast15Guides() {
+        return guideRepo.findTop5ByOrderByDateOfCreationDesc();
     }
 }

@@ -33,4 +33,16 @@ public class MainController {
 
         return modelAndView;
     }
+
+//    @RequestMapping("/testPage")
+//    public ModelAndView getTest(ModelAndView modelAndView) {
+//        modelAndView.setViewName("page");
+//
+//        modelAndView.addObject("teams", teamService.getTenFirstTeams());
+//        modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
+//        modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
+//        modelAndView.addObject("guides", guideService.getLast15Guides());
+//
+//        return modelAndView;
+//    }
 }
