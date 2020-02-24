@@ -3,10 +3,10 @@ package cstv.Models;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 @Data
@@ -19,10 +19,12 @@ public class Guide {
     @Id
     private Integer id;
 
+    @Indexed(name = "timeOfCreation", direction = IndexDirection.DESCENDING)
     private String timeOfCreation;
+
+    @Indexed(name = "dateOfCreation", direction = IndexDirection.DESCENDING)
     private String dateOfCreation;
 
-    @OneToOne(fetch = FetchType.LAZY)
     private String author;
 
     @Size(min = 3, message = "Headline must be at least 3 letter")

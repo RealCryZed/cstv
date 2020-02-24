@@ -14,10 +14,6 @@ public interface EndedMatchRepository extends JpaRepository<EndedMatch, Integer>
 
     List<EndedMatch> findTop5ByOrderByIdEndedDesc();
 
-    /*
-        Query doesn't work so far
-    */
-
     @Query("select m.id, m.firstTeamName, m.firstTeamScore, m.firstTeamState," +
             "m.secondTeamName, m.secondTeamScore, m.secondTeamState, m.tournament" +
             " from EndedMatch m order by m.idEnded desc")

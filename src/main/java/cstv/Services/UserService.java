@@ -1,10 +1,13 @@
 package cstv.Services;
 
+import cstv.Configs.CachingConfig;
 import cstv.Interfaces.RoleRepository;
 import cstv.Interfaces.UserRepository;
 import cstv.Models.Role;
 import cstv.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 @Service("userService")
+@CacheConfig(cacheManager="cacheManager1")
 public class UserService {
 
     @Autowired
@@ -27,7 +31,7 @@ public class UserService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
-
+    @Cacheable(value = "user-by-username")
     public User findUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }

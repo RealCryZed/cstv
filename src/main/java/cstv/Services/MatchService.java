@@ -5,6 +5,8 @@ import cstv.Interfaces.MatchRepository;
 import cstv.Models.EndedMatch;
 import cstv.Models.Match;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,6 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Service
+@CacheConfig(cacheManager="cacheManager2")
 public class MatchService {
 
     @Autowired
@@ -38,14 +41,17 @@ public class MatchService {
         return matchRepo.findMatchById(id);
     }
 
+    @Cacheable(value = "five-upc-matches-by-team")
     public List<Match> getFiveLastUpcomingMatchesByTeam(String teamName) {
         return matchRepo.findTop5ByFirstTeamNameOrSecondTeamNameIgnoreCase(teamName, teamName);
     }
 
+    @Cacheable(value = "all-upc-matches")
     public List<Match> getAllMatchesNotEnded() {
         return matchRepo.findTop50ByOrderById();
     }
 
+    @Cacheable(value = "five-upc-matches")
     public List<Match> getFiveLastMatchesNotEnded() {
         return matchRepo.findTop5ByOrderById();
     }
@@ -58,15 +64,18 @@ public class MatchService {
         return endedMatchRepo.findMatchById(id);
     }
 
+    @Cacheable(value = "five-ended-matches-by-team")
     public List<EndedMatch> getFiveLastEndedMatchesByTeam(String teamName) {
 
         return endedMatchRepo.findTop30ByFirstTeamNameOrSecondTeamNameIgnoreCaseOrderByIdEndedDesc(teamName, teamName);
     }
 
+    @Cacheable(value = "five-ended-matches")
     public List<EndedMatch> getFiveLastEndedMatches() {
         return endedMatchRepo.findTop5ByOrderByIdEndedDesc();
     }
 
+    @Cacheable(value = "thirty-ended-matches")
     public List<EndedMatch> get30LastEndedMatches() {
         List<String[]> endedMatchArrayList = endedMatchRepo.findTop30ByOrderByIdEndedDesc();
 
@@ -91,6 +100,7 @@ public class MatchService {
 //        return endedMatchRepo.findTop30ByOrderByIdEndedDesc();
     }
 
+    @Cacheable(value = "all-ended-matches")
     public List<EndedMatch> getAllEndedMatches() {
         return endedMatchRepo.findTop50ByOrderByIdEndedDesc();
     }

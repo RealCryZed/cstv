@@ -3,6 +3,7 @@ package cstv.Models;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,6 +27,7 @@ public class User {
     @Id
     private Integer id;
 
+    @Indexed(name = "username")
     @Size(min = 1, message = "Username must be at least 1 letter")
     @Size(max = 25, message = "Username must be lower than 25 letters")
     private String username;
