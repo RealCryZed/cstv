@@ -100,6 +100,9 @@
 
                     <div class="team-matches-wrapper">
                         <h3 class="team-matches-head">Upcoming matches:</h3>
+                        <div th:if="${isUpcomingMatchesEmpty}">
+                            <h5 class="team-matches-head" style="color: #585858" th:text="${noUpcomingMatchesYet}"></h5>
+                        </div>
 
                         <div class="upcoming-matches-box">
                             <div class="matches-box" th:each="upcomingMatch : ${teamsUpcomingMatches}">
@@ -124,6 +127,9 @@
                         </div>
 
                         <h3 class="team-matches-head">Recent matches:</h3>
+                        <div th:if="${isEndedMatchesEmpty}">
+                            <h5 class="team-matches-head" style="color: #585858" th:text="${noEndedMatchesYet}"></h5>
+                        </div>
 
                         <div class="team-matches">
                             <div class="matches-box ended-matches-box" th:each="endedMatch : ${teamsEndedMatches}">
