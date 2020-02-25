@@ -65,7 +65,7 @@ public class CachingConfig extends CachingConfigurerSupport {
         return Caffeine.newBuilder()
                 .initialCapacity(100)
                 .maximumSize(500)
-                .expireAfterWrite(10, TimeUnit.MINUTES)
+                .expireAfterWrite(5, TimeUnit.MINUTES)
                 .weakKeys()
                 .recordStats();
     }

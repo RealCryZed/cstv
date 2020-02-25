@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>CS:GO Rankings | CSTV</title>
+    <title>CS:GO Ranking | CSTV</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{/css/ranking.css}" />
 </head>
@@ -52,7 +52,7 @@
             </div>
 
             <div class="center-menu-ranking ranking-big">
-                <h3 style="margin-bottom: 15px; font-weight: 800;">CS:GO Ranking on 22.01.2020</h3>
+                <h3 style="margin-bottom: 15px; font-weight: 800;">CS:GO Ranking on 25.02.2020</h3>
                 <div class="ranking-box">
                     <div th:each="team : ${teams}">
                         <a th:href="@{'/teams/' + ${team.name.toLowerCase()}}" class="ranking-a">

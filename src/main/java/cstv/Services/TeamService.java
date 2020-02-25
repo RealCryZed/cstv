@@ -43,7 +43,7 @@ public class TeamService {
 
     @Cacheable(value = "all-teams")
     public List<Team> findAllTeams() {
-        return teamRepo.findTop40ByOrderByPlace();
+        return teamRepo.findTop35ByOrderByPlace();
     }
 
     public void addTeam(Team team) {
