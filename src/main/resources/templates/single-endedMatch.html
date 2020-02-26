@@ -84,7 +84,37 @@
             </div>
 
             <div class="center-menu">
+                <div class="single-match-div">
+                    <div class="tournament-info-div">
+                        <h1 class="single-match-h-tags tournament-name-h1"
+                            th:text="${singleEndedMatch.tournament}">TOURNAMENT NAME</h1>
+                        <div class="tournament-border"></div>
+                        <h5 class="single-match-h-tags tournament-ended-h4"
+                            th:text="'Ended in ' + ${singleEndedMatch.endedTime} + ', ' + ${singleEndedMatch.endedDate}"></h5>
+                    </div>
 
+                    <div class="match-info-div">
+                        <div class="single-team first-team">
+                            <a th:href="@{'/teams/' + ${singleEndedMatch.firstTeamName.toLowerCase()}}" class="single-match-a-tags">
+                                <div class="single-match-a-name-div" th:text="${singleEndedMatch.firstTeamName}">1 TEAM</div>
+                            </a>
+                        </div>
+
+                        <div class="single-result-score">
+                            <h3 th:text="${singleEndedMatch.firstTeamScore}"
+                                th:class="${singleEndedMatch.firstTeamState} + ' single-result-first-team-score'">1 TEAM SCORE</h3>
+                            <h3 class="single-result-between-dash">-</h3>
+                            <h3 th:text="${singleEndedMatch.secondTeamScore}"
+                                th:class="${singleEndedMatch.secondTeamState} + ' single-result-second-team-score'">2 TEAM SCORE</h3>
+                        </div>
+
+                        <div class="single-team second-team">
+                            <a th:href="@{'/teams/' + ${singleEndedMatch.secondTeamName.toLowerCase()}}" class="single-match-a-tags">
+                                <div class="single-match-a-name-div" th:text="${singleEndedMatch.secondTeamName}">2 TEAM</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="right-area-medium">
