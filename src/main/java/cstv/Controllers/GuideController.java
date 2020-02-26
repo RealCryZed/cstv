@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Arrays;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -37,7 +35,7 @@ public class GuideController {
                                      @PathVariable Integer id) {
         try {
             Guide guide = guideService.findGuideById(id);
-            Set<String> guideText = new TreeSet<>();
+            List<String> guideText = new LinkedList<>();
 
             String[] arrSplit = guide.getText().split("\\r?\\n");
 

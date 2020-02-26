@@ -111,6 +111,11 @@
     OVERRIDE FROM end-match.css
 */
 
+.matches-box:first-child {
+    border-top: 1px solid #ccc;
+    box-shadow: unset;
+}
+
 .matches-box:last-child {
     box-shadow: unset;
 }
