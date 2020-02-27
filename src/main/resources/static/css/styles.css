@@ -190,6 +190,23 @@ h5.validationError {
     margin: 0 auto;
 }
 
+.footer-main-area {
+    margin: 0 auto;
+}
+
+.footer-words {
+    text-align: center;
+}
+
+.footer-link-github {
+    color: #224899;
+}
+
+.footer-link-github:hover {
+    color: #186EFF;
+    text-decoration: underline;
+}
+
 /* END OF FOOTER */
 
 .fa {
@@ -203,7 +220,7 @@ h5.validationError {
 
 .body {
     background-color: #CDD9DF;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 92px);
     max-width: 1000px;
     margin: 0 auto;
 }
