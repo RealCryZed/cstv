@@ -1,6 +1,9 @@
 package cstv;
 
+import cstv.Interfaces.GuidesRepository;
 import cstv.Models.EndedMatch;
+import cstv.Models.Guide;
+import cstv.Services.GuideService;
 import cstv.Services.MatchService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,8 +25,12 @@ public class ApplicationStarter {
     }
 
 //    @Bean
-//    public CommandLineRunner demoData(MatchService matchService, ServiceFromMongo serviceFromMongo) {
+//    public CommandLineRunner demoData(GuideService guideService, GuidesRepository guidesRepository) {
 //        return args -> {
+//            List<Guide> guides = guidesRepository.findAll();
+//
+//            for (Guide guide : guides) {
+//                guideService.saveExistingGuide(guide);
 //            }
 //        };
 //    }

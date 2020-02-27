@@ -29,7 +29,7 @@ public class MainController {
         modelAndView.addObject("teams", teamService.getTenFirstTeams());
         modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
         modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
-        modelAndView.addObject("guides", guideService.getLast15Guides());
+        modelAndView.addObject("guides", guideService.getLast15GuidesInformation());
 
         return modelAndView;
     }

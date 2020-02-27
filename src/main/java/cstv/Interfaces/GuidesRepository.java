@@ -13,5 +13,5 @@ public interface GuidesRepository extends MongoRepository<Guide, Integer> {
 
     Guide findGuideById(Integer id);
 
-    List<Guide> findTop5ByOrderByDateOfCreationDesc();
+    List<Guide> findTop15ByOrderByDateOfCreationDesc();
 }
