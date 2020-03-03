@@ -12,10 +12,8 @@ import javax.validation.constraints.Size;
 @Table(name = "matches")
 public class Match {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "matches_sequence";
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "time_of_start")

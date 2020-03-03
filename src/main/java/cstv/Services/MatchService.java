@@ -33,7 +33,6 @@ public class MatchService {
     */
 
     public Match addMatch(Match match) {
-        match.setId(seqGenerator.generateSequence(Match.SEQUENCE_NAME));
         return matchRepo.save(match);
     }
 
@@ -48,6 +47,10 @@ public class MatchService {
 
     @Cacheable(value = "all-upc-matches")
     public List<Match> getAllMatchesNotEnded() {
+        return matchRepo.findTop50ByOrderById();
+    }
+
+    public List<Match> getAllMatchesNotEnded_Admin() {
         return matchRepo.findTop50ByOrderById();
     }
 
@@ -102,6 +105,10 @@ public class MatchService {
 
     @Cacheable(value = "all-ended-matches")
     public List<EndedMatch> getAllEndedMatches() {
+        return endedMatchRepo.findTop50ByOrderByIdEndedDesc();
+    }
+
+    public List<EndedMatch> getAllEndedMatches_Admin() {
         return endedMatchRepo.findTop50ByOrderByIdEndedDesc();
     }
 

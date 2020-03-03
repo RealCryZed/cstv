@@ -2,7 +2,6 @@ package cstv.Models;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +14,7 @@ import javax.validation.constraints.Size;
 public class Player {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "nickname")
@@ -27,5 +27,5 @@ public class Player {
 
     @Column(name = "kd")
     @NotNull(message = "KD mustn't be null")
-    private Float kd;
+    private String kd;
 }

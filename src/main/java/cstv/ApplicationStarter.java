@@ -1,10 +1,9 @@
 package cstv;
 
-import cstv.Interfaces.GuidesRepository;
-import cstv.Models.EndedMatch;
-import cstv.Models.Guide;
-import cstv.Services.GuideService;
-import cstv.Services.MatchService;
+import cstv.Interfaces.PlayerRepository;
+import cstv.Models.*;
+import cstv.Services.PlayerService;
+import cstv.Services.TeamService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +14,8 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import java.util.List;
+import java.text.DecimalFormat;
+import java.util.*;
 
 @SpringBootApplication
 public class ApplicationStarter {
@@ -25,13 +25,9 @@ public class ApplicationStarter {
     }
 
 //    @Bean
-//    public CommandLineRunner demoData(GuideService guideService, GuidesRepository guidesRepository) {
+//    public CommandLineRunner demoData(TeamService teamService, PlayerService playerService, PlayerRepository playerRepo) {
 //        return args -> {
-//            List<Guide> guides = guidesRepository.findAll();
-//
-//            for (Guide guide : guides) {
-//                guideService.saveExistingGuide(guide);
-//            }
+
 //        };
 //    }
 

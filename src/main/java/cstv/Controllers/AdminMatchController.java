@@ -119,8 +119,8 @@ public class AdminMatchController {
 
     @GetMapping("/end-match")
     public ModelAndView getEndMatchPage(ModelAndView modelAndView) {
-        modelAndView.addObject("matches", matchService.getAllMatchesNotEnded());
-        modelAndView.addObject("endedMatches", matchService.getAllEndedMatches());
+        modelAndView.addObject("matches", matchService.getAllMatchesNotEnded_Admin());
+        modelAndView.addObject("endedMatches", matchService.getAllEndedMatches_Admin());
         modelAndView.setViewName("admin/end-match");
 
         return modelAndView;

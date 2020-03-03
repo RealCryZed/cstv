@@ -1,11 +1,9 @@
 package cstv.Services;
 
-import cstv.Configs.CachingConfig;
 import cstv.Interfaces.PlayerRepository;
 import cstv.Models.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

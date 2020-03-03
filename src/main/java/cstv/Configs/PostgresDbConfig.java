@@ -35,7 +35,7 @@ public class PostgresDbConfig {
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("spring.datasource.driverClassName"));
+        dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));
@@ -43,26 +43,26 @@ public class PostgresDbConfig {
         return dataSource;
     }
 
-    @Primary
-    @Bean(name = "entityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean
-    entityManagerFactory(
-            EntityManagerFactoryBuilder builder,
-            @Qualifier("dataSource") DataSource dataSource
-    ) {
-        return builder
-                .dataSource(dataSource)
-                .packages("cstv.Models")
-                .persistenceUnit("Models")
-                .build();
-    }
-
-    @Primary
-    @Bean(name = "transactionManager")
-    public PlatformTransactionManager transactionManager(
-            @Qualifier("entityManagerFactory") EntityManagerFactory
-                    entityManagerFactory
-    ) {
-        return new JpaTransactionManager(entityManagerFactory);
-    }
+//    @Primary
+//    @Bean(name = "entityManagerFactory")
+//    public LocalContainerEntityManagerFactoryBean
+//    entityManagerFactory(
+//            EntityManagerFactoryBuilder builder,
+//            @Qualifier("dataSource") DataSource dataSource
+//    ) {
+//        return builder
+//                .dataSource(dataSource)
+//                .packages("cstv.Models")
+//                .persistenceUnit("Models")
+//                .build();
+//    }
+//
+//    @Primary
+//    @Bean(name = "transactionManager")
+//    public PlatformTransactionManager transactionManager(
+//            @Qualifier("entityManagerFactory") EntityManagerFactory
+//                    entityManagerFactory
+//    ) {
+//        return new JpaTransactionManager(entityManagerFactory);
+//    }
 }

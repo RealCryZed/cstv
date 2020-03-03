@@ -11,6 +11,8 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
     Player findByNickname(String nickname);
 
+    Player findByPlace(Integer place);
+
     Player findPlayerById(Integer id);
 
     List<Player> findTop5ByOrderByPlace();
