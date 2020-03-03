@@ -16,4 +16,6 @@ public interface TeamRepository extends MongoRepository<Team, Integer> {
     List<Team> findTop10ByOrderByPlace();
 
     List<Team> findTop35ByOrderByPlace();
+
+    List<Team> findAllByOrderByName();
 }

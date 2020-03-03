@@ -28,7 +28,8 @@ public class CachingConfig extends CachingConfigurerSupport {
         caches.add("user-by-username");
         caches.add("all-players");
         caches.add("five-first-players");
-        caches.add("all-teams");
+        caches.add("all-teams-35");
+        caches.add("all-teams-sorted");
         caches.add("ten-first-teams");
         caches.add("five-first-teams");
         cacheManager.setCacheNames(caches);

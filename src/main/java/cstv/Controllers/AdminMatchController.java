@@ -95,6 +95,7 @@ public class AdminMatchController {
     @GetMapping("/add-match")
     public ModelAndView getAddMatchPage(ModelAndView modelAndView) {
         modelAndView.addObject("match", new Match());
+        modelAndView.addObject("teams", teamService.findAllTeams_Sorted());
         modelAndView.setViewName("admin/add-match");
 
         return modelAndView;
@@ -102,7 +103,7 @@ public class AdminMatchController {
 
     @PostMapping("/add-match")
     public ModelAndView addMatch(ModelAndView modelAndView,
-                                 @Valid Match match,
+                                 @Valid @ModelAttribute("match") Match match,
                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("admin/add-match");

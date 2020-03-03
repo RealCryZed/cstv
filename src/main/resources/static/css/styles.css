@@ -237,6 +237,11 @@ h5.validationError {
     max-width: 15px;
 }
 
+.select-element {
+    margin-top: 3px;
+    padding: 3px;
+}
+
 .win {
     color: #1BA713;
 }

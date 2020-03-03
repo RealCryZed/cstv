@@ -27,13 +27,17 @@ public class TeamService {
 
     @Cacheable(value = "ten-first-teams")
     public List<Team> getTenFirstTeams() {
-
         return teamRepo.findTop10ByOrderByPlace();
     }
 
-    @Cacheable(value = "all-teams")
+    @Cacheable(value = "all-teams-35")
     public List<Team> findAllTeams() {
         return teamRepo.findTop35ByOrderByPlace();
+    }
+
+    @Cacheable(value = "all-teams-sorted")
+    public List<Team> findAllTeams_Sorted() {
+        return teamRepo.findAllByOrderByName();
     }
 
     public void addTeam(Team team) {
