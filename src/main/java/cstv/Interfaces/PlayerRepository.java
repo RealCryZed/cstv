@@ -13,6 +13,8 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
     Player findPlayerById(Integer id);
 
+    List<Player> findPlayerByTeam(String team);
+
     List<Player> findTop5ByOrderByPlace();
 
     List<Player> findTop30ByOrderByPlace();

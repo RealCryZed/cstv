@@ -30,6 +30,7 @@ public class CachingConfig extends CachingConfigurerSupport {
         caches.add("five-first-players");
         caches.add("all-teams-35");
         caches.add("all-teams-sorted");
+        caches.add("all-players-by-team");
         caches.add("ten-first-teams");
         caches.add("five-first-teams");
         cacheManager.setCacheNames(caches);

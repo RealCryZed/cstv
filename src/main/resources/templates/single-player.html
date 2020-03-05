@@ -4,15 +4,19 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${singleGuide.headline}"></title>
+    <title th:text="${player.nickname + ' - player profile | CSTV'}"></title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
-    <link type="text/css" rel="stylesheet" th:href="@{/css/single-guide.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/single-player.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/matches.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/results.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/end-match.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/single-team.css}" />
 </head>
 <body>
 
     <div th:include="navbar :: navbar" class="navbar"></div>
 
-    <div class="body single-guide-page">
+    <div class="body single-player-page">
         <div class="width-align">
             <div class="left-area-small">
                 <div class="left-area-player-ranking">
@@ -84,22 +88,90 @@
             </div>
 
             <div class="center-menu">
-                <div class="single-guide-div">
-                    <div class="guide-theme">
-                        <h5 class="guide-theme-head" th:text="${singleGuide.theme}">THEME</h5>
+                <div class="single-player-main-div">
+                    <div class="single-player-nickname-div">
+                        <div class="single-player-nickname-wrapper">
+                            <h1 class="single-player-nickname" th:text="${player.nickname}">NICKNAME</h1>
+                        </div>
+                        <div class="single-player-border"></div>
+                        <div class="single-player-info-wrapper">
+                            <h5 class="single-player-kd" th:text="'KD ratio: ' + ${player.kd}">KD</h5>
+                            <h5 class="single-player-team" th:text="'Team: ' + ${player.team}">TEAM</h5>
+                            <h5 class="single-player-place" th:text="'World place: ' + ${player.place}">PLACE</h5>
+                        </div>
                     </div>
 
-                    <div class="guide-headline">
-                        <h2 class="guide-headline-head" th:text="${singleGuide.headline}">HEADLINE</h2>
+                    <h4 class="player-teammates-tag">Player teammates</h4>
+                    <div class="player-teammates">
+                        <a class="teammate-nickname-link" th:href="'/players/' + ${teammate.id}" th:each="teammate : ${teammates}">
+                            <h3 class="teammate-nickname-link-tag" th:text="${teammate.nickname}">TEAMMATE NICKNAME</h3>
+                        </a>
                     </div>
 
-                    <div class="guide-time-of-creation">
-                        <h6 class="guide-time-of-creation-head"
-                            th:text="${singleGuide.dateOfCreation} + ', ' + ${singleGuide.timeOfCreation}">TIME OF CREATION</h6>
-                    </div>
+                    <div class="team-matches-wrapper">
+                        <h3 class="team-matches-head">Upcoming matches:</h3>
+                        <div th:if="${isUpcomingMatchesEmpty}">
+                            <h5 class="team-matches-head" style="color: #585858" th:text="${noUpcomingMatchesYet}"></h5>
+                        </div>
 
-                    <div class="guide-text" th:each="singleText : ${singleGuideText}">
-                        <p class="guide-text-head" th:text="${singleText}">TEXT</p>
+                        <div class="upcoming-matches-box">
+                            <div class="matches-box" th:each="upcomingMatch : ${teamsUpcomingMatches}">
+                                <a th:href="@{'/matches/' + ${upcomingMatch.id}}" class="match-link">
+                                    <div>
+                                        <h5 class="match-time" th:text="${upcomingMatch.timeOfStart}">TIME</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-first-team-name" th:text="${upcomingMatch.firstTeamName}">FIRST TEAM NAME</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-vs-sign">vs</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-second-team-name" th:text="${upcomingMatch.secondTeamName}">SECOND TEAM NAME</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="match-tournament-name" th:text="${upcomingMatch.tournament}">TOURNAMENT</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <h3 class="team-matches-head">Recent matches:</h3>
+                        <div th:if="${isEndedMatchesEmpty}">
+                            <h5 class="team-matches-head" style="color: #585858" th:text="${noEndedMatchesYet}"></h5>
+                        </div>
+
+                        <div class="team-matches">
+                            <div class="matches-box ended-matches-box" th:each="endedMatch : ${teamsEndedMatches}">
+                                <a th:href="@{'/results/' + ${endedMatch.id}}" class="match-link ended-match-link">
+                                    <div>
+                                        <h5 class="ended-match-first-team-name" th:text="${endedMatch.firstTeamName}">FIRST TEAM NAME</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 th:class="${endedMatch.firstTeamState} + ' ended-match-first-team-score'"
+                                            th:text="${endedMatch.firstTeamScore}">FIRST TEAM SCORE</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="ended-match-dash-sign">-</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 th:class="${endedMatch.secondTeamState} + ' ended-match-second-team-score'"
+                                            th:text="${endedMatch.secondTeamScore}">SECOND TEAM SCORE</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="ended-match-second-team-name" th:text="${endedMatch.secondTeamName}">SECOND TEAM NAME</h5>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="ended-match-tournament-name" th:text="${endedMatch.tournament}">TOURNAMENT</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

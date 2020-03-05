@@ -1,0 +1,59 @@
+.single-player-nickname-div {
+    background: white;
+    display: flex;
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.single-player-nickname-wrapper {
+    flex: 1 0 0;
+    max-width: 279px;
+}
+
+.single-player-nickname {
+    line-height: 45px;
+    padding-left: 5px;
+}
+
+.single-player-border {
+    border-left: 2px solid #e26902;
+    min-width: 12px;
+}
+
+.single-player-info-wrapper {
+    flex: 1 0 0;
+}
+
+.player-teammates {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.player-teammates-tag {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.teammate-nickname-link {
+    background-color: white;
+    border-radius: 2px;
+    flex: 1 1 auto;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.teammate-nickname-link:hover {
+    background-color: #F3F3F3;
+    color: #186EFF;
+}
+
+.teammate-nickname-link-tag {
+    font-size: 13px;
+    color: #10459E;
+    padding: 20px 0px;
+}
+
+.teammate-nickname-link:last-child {
+    margin-right: 0;
+}

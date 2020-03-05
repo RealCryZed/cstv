@@ -55,7 +55,7 @@
 }
 
 .ended-matches-box:last-child {
-    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4)!important;
+    box-shadow: 0 0px 1px 0 rgba(50,50,50,.4)!important;
 }
 
 /*

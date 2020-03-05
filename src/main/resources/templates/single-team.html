@@ -93,8 +93,8 @@
                     </div>
 
                     <div class="team-players-div">
-                        <a th:href="'/players/' + ${player}" class="team-single-player-wrap-link" th:each="player : ${team.players}">
-                            <h4 class="player-nickname" th:text="${player}">NICKNAME</h4>
+                        <a th:href="'/players/' + ${player.id}" class="team-single-player-wrap-link" th:each="player : ${teamPlayers}">
+                            <h4 class="player-nickname" th:text="${player.nickname}">NICKNAME</h4>
                         </a>
                     </div>
 

@@ -28,4 +28,7 @@ public class Player {
     @Column(name = "kd")
     @NotNull(message = "KD mustn't be null")
     private String kd;
+
+    @Column(name = "team")
+    private String team;
 }

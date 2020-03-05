@@ -35,7 +35,7 @@
                         </div>
 
                         <div style="max-width: inherit;" th:each="player : ${players}">
-                            <a th:href="@{/}" class="player-ranking-a">
+                            <a th:href="'/players/' + ${player.id}" class="player-ranking-a">
                                 <div>
                                     <h5 class="player-ranking-a-place"
                                         th:text="${player.place} + '.'">PLACE</h5>

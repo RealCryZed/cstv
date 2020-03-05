@@ -20,6 +20,11 @@ public class PlayerService {
         return playerRepo.findPlayerById(id);
     }
 
+    @Cacheable(value = "all-players-by-team")
+    public List<Player> findAllPlayersByTeam(String team) {
+        return playerRepo.findPlayerByTeam(team);
+    }
+
     @Cacheable(value = "all-players")
     public List<Player> findAllPlayers() {
         return playerRepo.findTop30ByOrderByPlace();
