@@ -33,6 +33,7 @@ public class Guide {
     @Size(min = 2, message = "Theme must be at least 2 letter")
     private String theme;
 
+    @Indexed(name = "text")
     @Size(min = 10, message = "Text must be at least 10 letter")
     private String text;
 }
