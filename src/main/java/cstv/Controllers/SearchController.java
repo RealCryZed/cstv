@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -29,15 +30,23 @@ public class SearchController {
 
         List<Object> listOfObjects = searchService.findElement(searchText);
 
+        List<Object> listOfGuides = new LinkedList<>();
+        List<Object> listOfTeams = new LinkedList<>();
+        List<Object> listOfPlayers = new LinkedList<>();
+
         for (Object object : listOfObjects) {
             if (object instanceof Guide) {
-                modelAndView.addObject("guideInstance", object);
-            } else if (object instanceof Player) {
-                modelAndView.addObject("playerInstance", object);
+                listOfGuides.add(object);
             } else if (object instanceof Team) {
-                modelAndView.addObject("teamInstance", object);
+                listOfTeams.add(object);
+            } else if (object instanceof Player) {
+                listOfPlayers.add(object);
             }
         }
+
+        modelAndView.addObject("guideInstance", listOfGuides);
+        modelAndView.addObject("playerInstance", listOfPlayers);
+        modelAndView.addObject("teamInstance", listOfTeams);
 
         return modelAndView;
     }
