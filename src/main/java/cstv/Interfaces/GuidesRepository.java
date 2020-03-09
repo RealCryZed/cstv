@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface GuidesRepository extends MongoRepository<Guide, Integer> {
 
-    List<Guide> findAllByTextContainsIgnoreCase(String array);
+    List<Guide> findAllByHeadlineContainsIgnoreCaseOrderByDateOfCreationDescTimeOfCreationDesc(String array);
 
     Guide findGuideById(Integer id);
 

@@ -42,7 +42,7 @@ public class SearchService {
             obj.addAll(teams);
         }
 
-        List<Guide> guides = guidesRepository.findAllByTextContainsIgnoreCase(searchArray);
+        List<Guide> guides = guidesRepository.findAllByHeadlineContainsIgnoreCaseOrderByDateOfCreationDescTimeOfCreationDesc(searchArray);
         if (guides != null) {
             obj.addAll(guides);
         }
