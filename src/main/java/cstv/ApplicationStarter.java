@@ -1,7 +1,10 @@
 package cstv;
 
+import cstv.Interfaces.GuidesInfoRepository;
+import cstv.Interfaces.GuidesRepository;
 import cstv.Interfaces.PlayerRepository;
 import cstv.Models.*;
+import cstv.Services.GuideService;
 import cstv.Services.PlayerService;
 import cstv.Services.TeamService;
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +19,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @SpringBootApplication
@@ -26,9 +30,9 @@ public class ApplicationStarter {
     }
 
 //    @Bean
-//    public CommandLineRunner demoData(TeamService teamService, PlayerService playerService, PlayerRepository playerRepo) {
+//    public CommandLineRunner demoData(GuidesInfoRepository guidesRepository) {
 //        return args -> {
-
+//
 //        };
 //    }
 

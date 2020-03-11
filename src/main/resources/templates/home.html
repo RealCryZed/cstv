@@ -58,12 +58,15 @@
                     </a>
                 </div>
 
-                <div class="little-guide" th:each="guide : ${guides}">
-                    <a th:href="@{'/guides/' + ${guide.id}}" class="lille-guide-a">
-                        <h5 th:text="${guide.headline}" class="little-guide-h5">HEADLINE</h5>
-                        <div th:text="${guide.dateOfCreation}" class="little-guide-time">DATE</div>
-                    </a>
-                </div>
+                <div class="guide-div-by-date" th:each="guidesList : ${guidesByDateLists}">
+                    <h2 class="guidesListDate" th:text="${guidesList.get(0).dateOfCreation_onView}"></h2>
+                    <div class="little-guide" th:each="guide : ${guidesList}">
+                        <a th:href="@{'/guides/' + ${guide.id}}" class="lille-guide-a">
+                            <h5 th:text="${guide.headline}" class="little-guide-h5">HEADLINE</h5>
+                            <div th:text="${guide.timeOfCreation}" class="little-guide-time">DATE</div>
+                        </a>
+                    </div>
+                </div><br/>
             </div>
 
             <div class="right-area">

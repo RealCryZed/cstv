@@ -6,6 +6,15 @@
     margin-bottom: 5px;
 }
 
+.guide-div-by-date {
+    margin-bottom: 15px;
+}
+
+.guidesListDate {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
 .little-guide {
     display: grid;
     background-color: white;
@@ -35,7 +44,7 @@
 }
 
 .little-guide-time {
-    min-width: 100px;
+    min-width: 50px;
     text-align: center;
 }
 
