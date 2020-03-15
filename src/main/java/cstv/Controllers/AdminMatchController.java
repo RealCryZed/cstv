@@ -19,8 +19,6 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -36,6 +34,12 @@ public class AdminMatchController {
     @Autowired
     private GuideService guideService;
 
+
+    /**
+     * Adds new Guide to the modelAndView entity for further guide creation.
+     * @param modelAndView sets add-guide.html page
+     * @return modelAndView
+     */
     @GetMapping("/add-guide")
     public ModelAndView getAddGuidePage(ModelAndView modelAndView) {
         modelAndView.addObject("guide", new Guide());
@@ -43,6 +47,15 @@ public class AdminMatchController {
 
         return modelAndView;
     }
+
+    /**
+     * Adds new guide to the database if Guide entity is valid.
+     * DateTimeFormatter formats the time and sets it to the guide entity.
+     * @param modelAndView returns to the admin.html page
+     * @param guide validated entity of Guide class
+     * @param bindingResult entity for checking if page has errors while completing the task
+     * @return modelAndView
+     */
 
     @PostMapping("/add-guide")
     public ModelAndView addGuide(ModelAndView modelAndView,
@@ -67,6 +80,11 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Adds new Team to the modelAndView entity for further team creation.
+     * @param modelAndView gets add-team.html page
+     * @return modelAndView
+     */
     @GetMapping("/add-team")
     public ModelAndView getAddTeamPage(ModelAndView modelAndView) {
         modelAndView.addObject("team", new Team());
@@ -75,6 +93,13 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Adds new team to the database if Team entity is valid.
+     * @param modelAndView returns to the admin.html page
+     * @param team validated entity of Team class
+     * @param bindingResult entity for checking if page has errors while completing the task
+     * @return modelAndView
+     */
     @PostMapping("/add-team")
     public ModelAndView addTeam(ModelAndView modelAndView,
                                 @Valid Team team,
@@ -92,6 +117,11 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Adds new Match to the modelAndView entity for further match creation.
+     * @param modelAndView gets add-match.html page
+     * @return modelAndView
+     */
     @GetMapping("/add-match")
     public ModelAndView getAddMatchPage(ModelAndView modelAndView) {
         modelAndView.addObject("match", new Match());
@@ -101,6 +131,13 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Adds new match to the database if Match entity is valid.
+     * @param modelAndView returns to the admin.html page
+     * @param match validated entity of Match class
+     * @param bindingResult entity for checking if page has errors while completing the task
+     * @return modelAndView
+     */
     @PostMapping("/add-match")
     public ModelAndView addMatch(ModelAndView modelAndView,
                                  @Valid @ModelAttribute("match") Match match,
@@ -118,6 +155,11 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Gets matches and endedMatches objects from database for showing it on an end-match.html page.
+     * @param modelAndView gets end-match.html page
+     * @return modelAndView
+     */
     @GetMapping("/end-match")
     public ModelAndView getEndMatchPage(ModelAndView modelAndView) {
         modelAndView.addObject("matches", matchService.getAllMatchesNotEnded_Admin());
@@ -127,6 +169,12 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Finds match by id in database and adds it to the modelAndView.
+     * @param modelAndView returns to the endMatchById.html page
+     * @param id unique integer value which belongs to particular match
+     * @return modelAndView
+     */
     @GetMapping("/end-match/{id}")
     public ModelAndView getEndMatch(ModelAndView modelAndView,
                                  @PathVariable Integer id) {
@@ -138,6 +186,12 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Returns the same page, but with error warning
+     * @param modelAndView returns to the endMatchById.html page
+     * @param id unique integer value which belongs to particular match
+     * @return modelAndView
+     */
     @GetMapping("/end-match/error/{id}")
     public ModelAndView getEndMatchError(ModelAndView modelAndView,
                                     @PathVariable Integer id) {
@@ -152,6 +206,16 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Ends match with given team scores and saves it to the database if Guide entity is valid.
+     * DateTimeFormatters format the date and time and set it to the endMatchById() method
+     * for further usage in the service.
+     * @param modelAndView returns redirect to the end-match.html page
+     * @param id unique integer value which belongs to particular match
+     * @param matchToEnd validated entity of Match class
+     * @param bindingResult entity for checking if page has errors while completing the task
+     * @return modelAndView
+     */
     @PostMapping("/end-match/{id}")
     public ModelAndView endMatch(ModelAndView modelAndView,
                                  @PathVariable Integer id,
@@ -176,6 +240,11 @@ public class AdminMatchController {
         return modelAndView;
     }
 
+    /**
+     * Creates the URI address with given team name.
+     * @param team the entity of Team class with given data
+     * @return created URI location for teams
+     */
     public ResponseEntity<Match> addTeamApi(@RequestBody Team team) {
         teamService.addTeam(team);
 
@@ -186,6 +255,11 @@ public class AdminMatchController {
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
+    /**
+     * Creates the URI address with given match id.
+     * @param match the entity of Match class with given data
+     * @return created URI location for matches
+     */
     public ResponseEntity<Match> addMatchApi(@RequestBody Match match) {
         matchService.addMatch(match);
 

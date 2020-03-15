@@ -9,6 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 @CrossOrigin(origins = "*")
 public class AdminController {
 
+
+    /**
+     * Sets admin modelAndView to open admin.html page.
+     * @param modelAndView sets admin.html page
+     * @return modelAndView
+     */
     @GetMapping("/admin")
     public ModelAndView getAdminPage(ModelAndView modelAndView) {
         modelAndView.setViewName("admin/admin");

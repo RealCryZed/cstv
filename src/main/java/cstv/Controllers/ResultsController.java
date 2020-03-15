@@ -24,6 +24,11 @@ public class ResultsController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * Finds all ended matches and shows it on page.
+     * @param modelAndView gets results.html page
+     * @return modelAndView
+     */
     @GetMapping("/results")
     public ModelAndView getResultsPage(ModelAndView modelAndView) {
         modelAndView.setViewName("results");
@@ -36,6 +41,12 @@ public class ResultsController {
         return modelAndView;
     }
 
+    /**
+     * Finds endedMatch by given id in database and shows it on page.
+     * @param modelAndView gets single-endedMatch.html page
+     * @param id unique integer value which belongs to particular endedMatch
+     * @return modelAndView
+     */
     @GetMapping("/results/{id}")
     public ModelAndView getSingleEndedMatchPage(ModelAndView modelAndView,
                                            @PathVariable Integer id) {

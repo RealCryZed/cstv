@@ -22,12 +22,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
 
+
+    /**
+     * Creates bean from BCryptPasswordEncoder.
+     * @return the encrypted entity
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
 
+
+    /**
+     * Configures authentication settings by adding userDetailsService and passwordEncoder.
+     * @param auth
+     * @throws Exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
@@ -38,6 +49,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+
+    /**
+     * Configures url settings.
+     * Sets login and logout pages.
+     * Adds rememberMe() entity.
+     * Checks if particular pages have "ADMIN" and "USER" authorities.
+     * @param http element that gets all the url settings
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()

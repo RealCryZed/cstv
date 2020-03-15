@@ -20,6 +20,10 @@ public class SequenceGeneratorService {
         this.mongoOperations = mongoOperations;
     }
 
+    /**
+     * As https://www.baeldung.com/spring-boot-mongodb-auto-generated-field stands,
+     * this method gets the last added id to the sequence and increments it.
+     */
     public Integer generateSequence(final String seqName) {
         DatabaseSequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
                 new Update().inc("seq",1), options().returnNew(true).upsert(true),

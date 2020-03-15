@@ -1,8 +1,6 @@
 package cstv.Interfaces;
 
 import cstv.Models.EndedMatch;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -18,9 +16,8 @@ public interface EndedMatchRepository extends JpaRepository<EndedMatch, Integer>
             "m.secondTeamName, m.secondTeamScore, m.secondTeamState, m.tournament" +
             " from EndedMatch m order by m.idEnded desc")
     List<String[]> findTop30ByOrderByIdEndedDesc();
-//    List<EndedMatch> findTop30ByOrderByIdEndedDesc();
 
     List<EndedMatch> findTop50ByOrderByIdEndedDesc();
 
-    List<EndedMatch> findTop30ByFirstTeamNameOrSecondTeamNameIgnoreCaseOrderByIdEndedDesc(String firstTeamName, String secondTeamName);
+    List<EndedMatch> findTop10ByFirstTeamNameOrSecondTeamNameIgnoreCaseOrderByIdEndedDesc(String firstTeamName, String secondTeamName);
 }

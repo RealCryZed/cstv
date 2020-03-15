@@ -24,6 +24,11 @@ public class MatchesController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * Finds all matches from database.
+     * @param modelAndView gets matches.html page
+     * @return modelAndView
+     */
     @GetMapping("/matches")
     public ModelAndView getMatchesPage(ModelAndView modelAndView) {
         modelAndView.setViewName("matches");
@@ -36,6 +41,12 @@ public class MatchesController {
         return modelAndView;
     }
 
+    /**
+     * Finds match by given id in database.
+     * @param modelAndView gets single-match.html page
+     * @param id unique integer value which belongs to particular match
+     * @return modelAndView
+     */
     @GetMapping("/matches/{id}")
     public ModelAndView getSingleMatchPage(ModelAndView modelAndView,
                                            @PathVariable Integer id) {

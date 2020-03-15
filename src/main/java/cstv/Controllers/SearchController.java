@@ -21,12 +21,18 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
+    /**
+     * Gets the text user typed in a search input block.
+     * Finds entities of Guide, Team and Player classes by given text.
+     * For loop is sorting every Object by its instance to the specific lists and then adds them to the object
+     * @param modelAndView gets search.html page
+     * @param searchText the text user types in a search input block
+     * @return modelAndView
+     */
     @GetMapping("/search")
     public ModelAndView getSearchPage(ModelAndView modelAndView,
                                       @RequestParam(name = "navbar-search-input") String searchText) {
         modelAndView.setViewName("search");
-
-//        String[] splitedText = searchText.split("\\s+");
 
         List<Object> listOfObjects = searchService.findElement(searchText);
 

@@ -30,6 +30,13 @@ public class GuideController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * Finds guide by given id in database.
+     * Splits the paragraphs for better reading experience.
+     * @param modelAndView gets single-guide.html page
+     * @param id unique integer value which belongs to particular guide
+     * @return modelAndView
+     */
     @GetMapping("/guides/{id}")
     public ModelAndView getGuidePage(ModelAndView modelAndView,
                                      @PathVariable Integer id) {

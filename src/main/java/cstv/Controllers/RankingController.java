@@ -20,6 +20,11 @@ public class RankingController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * Gets ranking page with teams and players.
+     * @param modelAndView gets ranking.html page
+     * @return modelAndView
+     */
     @RequestMapping("/ranking")
     public ModelAndView getRankingPage(ModelAndView modelAndView) {
         modelAndView.setViewName("ranking");

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -23,14 +22,15 @@ public class SearchService {
     @Autowired
     private TeamRepository teamRepository;
 
+    /**
+     * Gets the text user typed and tries to find the relations in database.
+     * It tries to find players, teams and guides with given text, and if methods don't return null,
+     * adds them to the list with objects.
+     * @param searchArray the text user typed in search input block
+     * @return list of objects
+     */
     public List<Object> findElement(String searchArray) {
         List<Object> obj = new ArrayList<>();
-//        List<String> searchAsk = new LinkedList<>();
-//
-//        for (String search : searchArray) {
-//            System.err.println(search);
-//            searchList.add(search);
-//        }
 
         List<Player> players = playerRepository.findAllByNicknameContainsIgnoreCase(searchArray);
         if (players != null) {

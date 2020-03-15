@@ -1,6 +1,5 @@
 package cstv.Services;
 
-import cstv.Configs.CachingConfig;
 import cstv.Interfaces.RoleRepository;
 import cstv.Interfaces.UserRepository;
 import cstv.Models.Role;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Random;
 
 @Service("userService")
 @CacheConfig(cacheManager="cacheManager1")
@@ -31,11 +29,21 @@ public class UserService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
+    /**
+     * Finds user with specific name in database.
+     * @param username name related to user
+     * @return user that has been found in database
+     */
     @Cacheable(value = "user-by-username")
     public User findUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    /**
+     * Method for the registration.html page.
+     * Saves user with given credentials in database.
+     * @param user element of User class, which takes all credentials
+     */
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setId(seqGenerator.generateSequence(User.SEQUENCE_NAME));

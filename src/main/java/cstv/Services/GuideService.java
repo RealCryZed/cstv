@@ -21,10 +21,23 @@ public class GuideService {
     @Autowired
     private SequenceGeneratorService seqGenerator;
 
+    /**
+     * Finds guide with specific id in database.
+     * @param id unique value that related to guide
+     * @return guide that has been found in database
+     */
     public Guide findGuideById(Integer id) {
         return guideRepo.findGuideById(id);
     }
 
+    /**
+     * Method for the add-guide.html page.
+     * Saves user with given credentials in database.
+     * @param guide element of Guide class, which takes all credentials
+     * @param author name related to the author of guide
+     * @param timePublished the exact time when guide was published
+     * @param datePublished the exact date when guide was published
+     */
     public void addGuide(Guide guide, String author, String timePublished, String datePublished) {
         Integer guideId = seqGenerator.generateSequence(Guide.SEQUENCE_NAME);
 
@@ -43,6 +56,10 @@ public class GuideService {
         guideInfoRepo.save(guideInfo);
     }
 
+    /**
+     * Gets the last 15 published guides in database
+     * @return list of guides
+     */
     public List<GuidesInfo> getLast15GuidesInformation() {
         return guideInfoRepo.findTop15ByOrderByDateOfCreationDescTimeOfCreationDesc();
     }

@@ -1,12 +1,10 @@
 package cstv.Configs;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
-import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
-import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -19,6 +17,10 @@ import java.util.concurrent.TimeUnit;
 @EnableCaching
 public class CachingConfig extends CachingConfigurerSupport {
 
+    /**
+     * CacheManager adds Caffeine entities for further usage in services.
+     * @return
+     */
     @Bean
     @Primary
     public CacheManager cacheManager1() {
@@ -39,6 +41,10 @@ public class CachingConfig extends CachingConfigurerSupport {
         return cacheManager;
     }
 
+    /**
+     * CacheManager adds Caffeine entities for further usage in Services package.
+     * @return CaffeineCacheManager entity
+     */
     @Bean
     public CacheManager cacheManager2() {
         CaffeineCacheManager matchesCacheManager = new CaffeineCacheManager();
@@ -47,10 +53,9 @@ public class CachingConfig extends CachingConfigurerSupport {
         matchesCaches.add("five-upc-matches-by-team");
         matchesCaches.add("five-upc-matches");
         matchesCaches.add("all-upc-matches");
-        matchesCaches.add("five-ended-matches-by-team");
+        matchesCaches.add("ten-ended-matches-by-team");
         matchesCaches.add("five-ended-matches");
         matchesCaches.add("thirty-ended-matches");
-        matchesCaches.add("all-ended-matches");
 
         matchesCacheManager.setCacheNames(matchesCaches);
         matchesCacheManager.setCaffeine(caffeineCacheBuilder2());
@@ -58,9 +63,9 @@ public class CachingConfig extends CachingConfigurerSupport {
         return matchesCacheManager;
     }
 
-    /*
+    /**
     *   As https://www.javadevjournal.com/spring-boot/spring-boot-with-caffeine-cache/,
-    *   we add caffeineCacheBuilder to set expireTime and other main features
+    *   we add caffeineCacheBuilder to set expireTime and other main features.
     */
 
     Caffeine<Object,Object> caffeineCacheBuilder1() {

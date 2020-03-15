@@ -34,6 +34,11 @@ public class UserController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * ModelAndView for login page
+     * @param modelAndView gets login.html page
+     * @return modelAndView
+     */
     @RequestMapping("/login")
     public ModelAndView login(ModelAndView modelAndView) {
         modelAndView.setViewName("login");
@@ -41,6 +46,11 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     * ModelAndView for registration page
+     * @param modelAndView gets registration.html page
+     * @return modelAndView
+     */
     @GetMapping("/register")
     public ModelAndView getRegisterPage(ModelAndView modelAndView) {
         modelAndView.addObject("user", new User());
@@ -49,6 +59,13 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     *
+     * @param modelAndView
+     * @param user
+     * @param bindingResult
+     * @return
+     */
     @PostMapping("/register")
     public ModelAndView createNewUser(ModelAndView modelAndView,
                                       @Valid User user, BindingResult bindingResult) {
@@ -69,6 +86,12 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     * ModelAndView for profile page.
+     * Gets the credentials from {@link Authentication} and finds user with given name in database.
+     * @param modelAndView gets my-profile.html page
+     * @return modelAndView
+     */
     @GetMapping("/my-profile")
     public ModelAndView getMyProfilePage(ModelAndView modelAndView) {
         modelAndView.setViewName("my-profile");

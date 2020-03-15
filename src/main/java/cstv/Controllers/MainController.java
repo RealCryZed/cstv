@@ -1,6 +1,5 @@
 package cstv.Controllers;
 
-import cstv.Models.Guide;
 import cstv.Models.GuidesInfo;
 import cstv.Services.GuideService;
 import cstv.Services.MatchService;
@@ -27,6 +26,19 @@ public class MainController {
 
     @Autowired
     private GuideService guideService;
+
+    /**
+     * Returns home.html page.
+     * The List<GuidesInfo> takes last 15 guides from database.
+     * For loop sorts guides into blocks by added date and then sets the formatted date
+     * in the ELEMENT_NAME_onView item.
+     * If date of looping guide doesn't equal to given date, it saves the List<GuidesInfo>
+     * into List<List<GuidesInfo>> and clear its value by creating a new List element.
+     * After all calculations, method adds objects to show them on a html page
+     * Adds objects of elements needed in displaying
+     * @param modelAndView gets home.html page
+     * @return modelAndView
+     */
 
     @RequestMapping("/")
     public ModelAndView home(ModelAndView modelAndView) {
@@ -67,7 +79,6 @@ public class MainController {
         modelAndView.addObject("teams", teamService.getTenFirstTeams());
         modelAndView.addObject("matches", matchService.getFiveLastMatchesNotEnded());
         modelAndView.addObject("endedMatches", matchService.getFiveLastEndedMatches());
-//        modelAndView.addObject("guides", guideService.getLast15GuidesInformation());
 
         modelAndView.addObject("guidesByDateLists", listOfGuidesInfoList);
 

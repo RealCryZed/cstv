@@ -28,13 +28,21 @@ public class TeamsController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * Takes 'name' path variable from url and finds team with exact same name in database.
+     * After it finds the upcoming and ended matches in database.
+     * Then if team doesn't have upcoming or ended matches, it displays the warning in a single-team.html page.
+     * @param modelAndView gets single-team.html page
+     * @param name unique string value which belongs to particular team
+     * @return modelAndView
+     */
     @GetMapping("/teams/{name}")
     public ModelAndView getSingleTeamPage(ModelAndView modelAndView,
                                           @PathVariable String name) {
         Team team = teamService.findTeamByName(name);
 
         List<Match> upcomingMatches = matchService.getFiveLastUpcomingMatchesByTeam(team.getName());
-        List<EndedMatch> endedMatches = matchService.getFiveLastEndedMatchesByTeam(team.getName());
+        List<EndedMatch> endedMatches = matchService.get10LastEndedMatchesByTeam(team.getName());
 
         if (upcomingMatches.size() == 0) {
             modelAndView.addObject("isUpcomingMatchesEmpty", true);

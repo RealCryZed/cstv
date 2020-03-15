@@ -3,7 +3,6 @@ package cstv.Controllers;
 import cstv.Models.EndedMatch;
 import cstv.Models.Match;
 import cstv.Models.Player;
-import cstv.Models.Team;
 import cstv.Services.MatchService;
 import cstv.Services.PlayerService;
 import cstv.Services.TeamService;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -30,6 +28,14 @@ public class PlayerController {
     @Autowired
     private MatchService matchService;
 
+    /**
+     * Finds player by given id in database.
+     * Finds player's teammates by team in database.
+     * Finds upcomingMatches and endedMatches from database by player's team name.
+     * @param modelAndView gets single-player.html page
+     * @param id unique integer value which belongs to particular player
+     * @return modelAndView
+     */
     @GetMapping("/players/{id}")
     public ModelAndView getSingleTeamPage(ModelAndView modelAndView,
                                           @PathVariable Integer id) {
@@ -41,7 +47,7 @@ public class PlayerController {
         teammates.remove(player);
 
         List<Match> upcomingMatches = matchService.getFiveLastUpcomingMatchesByTeam(player.getTeam());
-        List<EndedMatch> endedMatches = matchService.getFiveLastEndedMatchesByTeam(player.getTeam());
+        List<EndedMatch> endedMatches = matchService.get10LastEndedMatchesByTeam(player.getTeam());
 
         if (upcomingMatches.size() == 0) {
             modelAndView.addObject("isUpcomingMatchesEmpty", true);
