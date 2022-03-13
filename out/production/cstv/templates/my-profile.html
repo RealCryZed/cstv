@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/my-profile.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body my-profile-page">
+        <div class="width-align">
+            <div class="left-area">
+                <a th:href="@{/matches}" class="main-matches-head-a">
+                    <h5 class="main-matches-head-h5">MATCHES</h5>
+                </a>
+
+                <div class="main-matches" th:each="match : ${matches}">
+                    <a th:href="@{'/matches/' + ${match.id}}" class="main-matches-a">
+                        <div class="main-matches-a-teams">
+                            <h5 class="main-matches-a-singleteam" th:text="${match.firstTeamName}">TEAM 1</h5>
+                            <div class="border-between-teams"></div>
+                            <h5 class="main-matches-a-singleteam" th:text="${match.secondTeamName}">TEAM 2</h5>
+                        </div>
+                        <div class="main-matches-a-time" th:text="${match.timeOfStart}">TIME</div>
+                    </a>
+                </div>
+
+                <a th:href="@{/results}" class="main-results-head-a">
+                    <h5 class="main-results-head-h5">RESULTS</h5>
+                </a>
+
+                <div class="main-results-big" th:each="endedMatch : ${endedMatches}">
+                    <a th:href="@{'/results/' + ${endedMatch.id}}" class="main-results-a">
+                        <div class="main-results-a-teams">
+                            <h5 class="main-results-a-team" th:text="${endedMatch.firstTeamName}">1 TEAM NAME</h5>
+                            <div class="border-between-teams"></div>
+                            <h5 class="main-results-a-team" th:text="${endedMatch.secondTeamName}">2 TEAM NAME</h5>
+                        </div>
+                        <div class="main-results-a-div-score">
+                            <div th:class="${endedMatch.firstTeamState} + ' main-results-a-score'"
+                                 th:text="${endedMatch.firstTeamScore}">1 TEAM SCORE</div>
+                            <div th:class="${endedMatch.secondTeamState} + ' main-results-a-score'"
+                                 th:text="${endedMatch.secondTeamScore}">2 TEAM SCORE</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="center-menu my-profile-block">
+                <div class="profile-padding">
+                    <div class="profile-main-username">
+                        <h2 style="margin-bottom: 15px;" th:text="${user.username}">USERNAME</h2>
+                        <div class="profile-border"></div>
+                    </div>
+
+                    <div class="personal-info-tag-div">
+                        <h5 class="profile-personal-info-tag">Personal info: </h5>
+                    </div>
+
+                    <div class="profile-personal-info">
+                        <div class="profile-info-container">
+                            <label class="profile-info-container-label">Email</label>
+                        </div>
+                        <div class="profile-info-text">
+                            <span class="profile-info-text-span" th:text="${user.email}">EMAIL</span>
+                        </div>
+
+                        <div class="profile-info-container">
+                            <label class="profile-info-container-label">Username</label>
+                        </div>
+                        <div class="profile-info-text">
+                            <span class="profile-info-text-span" th:text="${user.username}">USERNAME</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-area">
+                <a th:href="@{/ranking}" class="main-ranking-head-a">
+                    <h5 class="main-ranking-head-h5">RANKING</h5>
+                </a>
+
+                <div class="main-ranking-box">
+                    <div style="max-width: inherit;" th:each="team : ${teams}">
+                        <a th:href="@{'/teams/' + ${team.name.toLowerCase()}}" class="main-ranking-a">
+                            <div>
+                                <h5 class="main-ranking-a-team-place"
+                                    th:text="${team.place} + '.'">PLACE</h5>
+                            </div>
+                            <div class="main-ranking-a-inner-div">
+                                <h5 class="main-ranking-a-team-name"
+                                    th:text="${team.name}">TEAM NAME</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:include="footer :: footer" class="footer"></div>
+</body>
+</html>

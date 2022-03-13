@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add match | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/admin/add-match.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body add-match">
+        <div class="width-align">
+            <div class="big-center-menu">
+                <h1 style="text-align: center">Add match</h1>
+
+                <div class="match-creation">
+                    <form method="post" th:action="@{/admin/add-match}" th:object="${match}" class="add-match-form">
+
+                        <label class="text-before-field first-text-field" for="firstTeamName">Enter the 1 team name</label>
+                        <div th:if="${#fields.hasErrors('firstTeamName')}">
+                            <span class="validationError"
+                                  th:errors="*{firstTeamName}">Name Error
+                            </span><br/>
+                        </div>
+                        <select class="select-element" name="firstTeamName" id="firstTeamName">
+                            <option value="" disabled selected hidden>Select Team</option>
+                            <option th:each="team : ${teams}"
+                                    th:value="${team.name}" th:text="${team.name}"></option></select><br/>
+
+                        <label class="text-before-field" for="secondTeamName">Enter the 2 team name</label>
+                        <div th:if="${#fields.hasErrors('secondTeamName')}">
+                            <span class="validationError"
+                                  th:errors="*{secondTeamName}">Name Error
+                            </span><br/>
+                        </div>
+                        <select class="select-element" name="secondTeamName" id="secondTeamName">
+                            <option value="" disabled selected hidden>Select Team</option>
+                            <option th:each="team : ${teams}"
+                                    th:value="${team.name}" th:text="${team.name}"></option></select><br/>
+
+                        <label class="text-before-field" for="timeOfStart">Enter the start time of the match</label>
+                        <div th:if="${#fields.hasErrors('timeOfStart')}">
+                            <h5 class="validationError"
+                                th:errors="*{timeOfStart}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-match-input" placeholder="Match Start Time" id="timeOfStart"
+                               th:field="*{timeOfStart}">
+
+                        <label class="text-before-field" for="tournament">Enter the name of tournament</label>
+                        <div th:if="${#fields.hasErrors('tournament')}">
+                            <h5 class="validationError"
+                                th:errors="*{tournament}">Name Error
+                            </h5>
+                        </div>
+                        <input type="text" class="add-match-input tournament-input" placeholder="Tournament name"
+                               id="tournament" th:field="*{tournament}">
+
+                        <button type="submit" class="add-match-button button btn" name="add-match">Add match</button>
+
+                        <a th:href="@{/admin}" class="btn-to-admin btn-to-admin-match">Back to Admin page</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--  As https://stackoverflow.com/questions/1275383/jquery-remove-select-options-based-on-another-select-selected-need-support-for
+      stands  -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+
+    </script>
+    <script id="jsbin-javascript">
+        $(document).ready(function () {
+
+            var oldValue;
+            var oldText;
+            var className = '.select-element';
+
+            $(className)
+                .focus(function () {
+                    oldValue = this.value;
+                    oldText = $(this).find('option:selected').text();
+                })
+                .change(function () {
+                    var newSelectedValue = $(this).val();
+                    if (newSelectedValue != "") {
+                        $('.select-element').not(this).find('option[value="' + newSelectedValue + '"]').remove();
+                    }
+                    if ($(className).not(this).find('option[value="' + oldValue + '"]').length == 0) { // NOT EXIST
+                        $(className).not(this).append('<option value=' + oldValue + '>' + oldText + '</option>');
+                    }
+                    $(this).blur();
+                });
+        });
+    </script>
+</body>
+</html>

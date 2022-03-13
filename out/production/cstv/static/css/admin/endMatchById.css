@@ -1,0 +1,29 @@
+.match-on-edit-form {
+    display: grid;
+    margin: 0 auto;
+    max-width: 210px;
+}
+
+.text-before-field {
+    font-weight: 600;
+    color: #09326f;
+}
+
+.end-match-input {
+    margin-top: 5px;
+    padding: 3px;
+    padding-left: 5px;
+}
+
+.btn-end-match {
+    padding: 7px;
+    border: 0;
+    border-radius: 2px;
+    background: white;
+    transition: .1s ease;
+}
+
+.btn-end-match:hover {
+    background-color: #ececec;
+    color: #224899;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>CS:GO Guides & Info | CSTV - navbar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navcon">
+            <div class="navcon-align">
+                <a th:href="@{/}" class="navbar-link navbar-link-home">CSTV</a>
+
+                <div class="navbar-search">
+                    <form role="search" th:action="@{/search}" method="get">
+                        <input type="text" placeholder="Search" name="navbar-search-input" class="navbar-search-input"/>
+                        <div class="navbar-search-border"></div>
+                        <button type="submit" class="navbar-search-btn btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <a th:href="@{/matches}" class="navbar-link">Matches</a>
+                <a th:href="@{/results}" class="navbar-link">Results</a>
+                <a th:href="@{/ranking}" class="navbar-link">Ranking</a>
+
+                <div sec:authorize="isAuthenticated()" class="navbar-dropdown">
+                    <a th:href="@{/my-profile}" class="navbar-link navbar-drop-btn">My Profile</a>
+                    <div class="navbar-dropdown-content">
+                        <a sec:authorize="hasAnyAuthority('ADMIN', 'USER')" th:href="@{/admin}">Admin</a>
+                        <a th:href="@{/my-profile}">My Profile</a>
+                        <a th:href="@{/logout}">Logout</a>
+                    </div>
+                </div>
+
+                <a sec:authorize="isAnonymous()" th:href="@{/login}" class="navbar-link">Sign In</a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

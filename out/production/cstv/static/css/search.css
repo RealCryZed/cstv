@@ -1,0 +1,45 @@
+h3 {
+    text-align: center;
+    line-height: 45px;
+}
+
+.main-wrapper {
+    margin: 0 auto;
+    min-width: 625px;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.little-guide {
+    border-bottom: 1px solid grey;
+    box-shadow: 0 1px 2px 0 rgba(50,50,50,.4) !important;
+}
+
+.little-guide:first-child {
+    border-top: 1px solid grey;
+}
+
+.lille-guide-a {
+    border-bottom: unset !important;
+}
+
+.team-wrapper, .player-wrapper {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    box-shadow: 0 0px 4px 0 rgba(50,50,50,.4);
+}
+
+.search-player-info {
+    display: inline-flex;
+    padding-right: 13px;
+}
+
+.player-ranking-a-nickname {
+    font-size: 14px !important;
+}
+
+.player-ranking-a-place {
+    padding-right: 10px !important;
+    border-right: 1px solid #6a768a !important;
+    margin-right: 10px!important;
+}

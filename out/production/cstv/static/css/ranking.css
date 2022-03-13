@@ -1,0 +1,133 @@
+/*
+ * LEFT AREA
+ */
+
+.left-area {
+    order: 1;
+}
+
+/*
+ * CENTER AREA
+ */
+
+.center-menu-ranking {
+    order: 2;
+    min-width: 580px;
+    max-width: 580px;
+}
+
+.ranking-box {
+    display: grid;
+    min-width: inherit;
+    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
+}
+
+.ranking-a {
+    background-color: white;
+    display: flex;
+    padding: 8px;
+    min-height: 12px;
+    line-height: 12px;
+    border-bottom: 1px solid #CACACA;
+    color: #10459E;
+}
+
+.ranking-a:hover {
+    background-color: #E7E7E7;
+    color: #186EFF;
+}
+
+.ranking-a-place, .player-ranking-a-place {
+    flex: 1 1 auto;
+    min-width: 22px;
+    font-weight: 100;
+}
+
+.ranking-a-div {
+    min-width: 140px;
+    text-align: left;
+    border-right: 1px solid #828282;
+}
+
+.ranking-a-team {
+    font-weight: 600;
+}
+
+.ranking-a-div-players {
+    display: flex;
+    margin-left: 15px;
+}
+
+.ranking-a-div-single-player {
+    margin-right: 8px;
+    font-size: 10px;
+    color: #424242;
+}
+
+/*
+ * RIGHT AREA
+ */
+
+.right-area-ranking {
+    order: 3;
+    min-width: 150px;
+    max-width: 150px;
+    margin-left: 20px;
+}
+
+.player-ranking {
+    display: grid;
+    max-width: inherit;
+    box-shadow: 0 0px 2px 0 rgba(50,50,50,.4);
+}
+
+.player-ranking-info {
+    background-color: #b7b7b7;
+    display: flex;
+    max-width: inherit;
+    padding: 7px;
+    line-height: 12px;
+    border-bottom: 1px solid #CACACA;
+}
+
+.player-ranking-info-div {
+    flex: 1 1 auto;
+}
+
+.player-ranking-info-h5 {
+    font-size: 10px;
+    font-weight: 100;
+}
+
+.player-ranking-a {
+    background-color: white;
+    display: flex;
+    padding: 8px;
+    min-height: 12px;
+    line-height: 12px;
+    border-bottom: 1px solid #CACACA;
+    color: #10459E;
+}
+
+.player-ranking-a-place {
+    font-size: 12px;
+}
+
+.player-ranking-a:hover {
+    background-color: #E7E7E7;
+    color: #186EFF;
+}
+
+.player-ranking-div {
+    text-align: left;
+    flex: 1 1 auto;
+}
+
+.player-ranking-a-nickname {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.player-ranking-a-kd {
+    font-weight: 100;
+}

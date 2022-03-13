@@ -1,26 +1,13 @@
 package cstv;
 
-import cstv.Interfaces.GuidesInfoRepository;
-import cstv.Interfaces.GuidesRepository;
-import cstv.Interfaces.PlayerRepository;
-import cstv.Models.*;
-import cstv.Services.GuideService;
-import cstv.Services.PlayerService;
-import cstv.Services.TeamService;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
-
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 @SpringBootApplication
 public class ApplicationStarter {

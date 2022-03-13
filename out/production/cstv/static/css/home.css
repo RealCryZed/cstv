@@ -1,0 +1,57 @@
+.home-guides {
+
+}
+
+.big-guide {
+    margin-bottom: 5px;
+}
+
+.guide-div-by-date {
+    margin-bottom: 15px;
+}
+
+.guidesListDate {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.little-guide {
+    display: grid;
+    background-color: white;
+    box-shadow: 0 1px 4px 0 rgba(50,50,50,.4);
+}
+
+.lille-guide-a {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid grey;
+}
+
+.lille-guide-a:hover {
+    background-color: #E7E7E7;
+    color: #224899;
+}
+
+.little-guide-h5 {
+    font-family: Verdana;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.little-guide-time {
+    min-width: 50px;
+    text-align: center;
+}
+
+/*
+    OVERRIDES
+*/
+
+.main-ranking-head-h5 {
+    margin-top: 0px !important;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CS:GO Ranking | CSTV</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/search.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/home.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/ranking.css}" />
+</head>
+<body>
+
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="body search-page">
+        <div class="width-align">
+            <div class="main-wrapper">
+
+                <div th:if="${!guideInstance.isEmpty()}">
+                    <h3>GUIDES</h3>
+                    <div class="guide-wrapper">
+                        <div class="little-guide" th:each="guide : ${guideInstance}">
+                            <a th:href="@{'/guides/' + ${guide.id}}" class="lille-guide-a">
+                                <h5 th:text="${guide.headline}" class="little-guide-h5">HEADLINE</h5>
+                                <div th:text="${guide.dateOfCreation}" class="little-guide-time">DATE</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="" th:if="${!teamInstance.isEmpty()}">
+                    <h3>TEAMS</h3>
+                    <div class="team-wrapper" th:each="team : ${teamInstance}">
+                        <a th:href="@{'/teams/' + ${team.name.toLowerCase()}}" class="ranking-a">
+                            <div>
+                                <h5 class="ranking-a-place"
+                                    th:text="${team.place} + '.'">PLACE</h5>
+                            </div>
+                            <div class="ranking-a-div">
+                                <h5 class="ranking-a-team"
+                                    th:text="${team.name}">TEAM NAME</h5>
+                            </div>
+                            <div class="ranking-a-div-players">
+                                <h6 class="ranking-a-div-single-player" th:each="player : ${team.players}"
+                                    th:text="'• ' + ${player}">PLAYER NICKNAME</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div th:if="${!playerInstance.isEmpty()}">
+                    <h3>PLAYERS</h3>
+                    <div class="player-wrapper" th:each="player : ${playerInstance}">
+                        <a th:href="'/players/' + ${player.id}" class="player-ranking-a">
+                            <div class="player-ranking-div">
+                                <h5 class="player-ranking-a-nickname"
+                                    th:text="${player.nickname}">NICKNAME</h5>
+                            </div>
+                            <div class="search-player-info">
+                                <h5 class="player-ranking-a-place"
+                                    th:text="'Place: ' + ${player.place}">PLACE</h5>
+                                <h5 class="player-ranking-a-kd"
+                                    th:text="'Rating 2.0: ' + ${player.kd}">RATING 2.0</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:include="footer :: footer" class="footer"></div>
+</body>
+</html>
