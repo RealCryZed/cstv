@@ -23,18 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
 
-
-    /**
-     * Creates bean from BCryptPasswordEncoder.
-     * @return the encrypted entity
-     */
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
-    }
-
-
     /**
      * Configures authentication settings by adding userDetailsService and passwordEncoder.
      * @param auth
